@@ -10,3 +10,4 @@ require_once dirname(__FILE__) . '/functions/wp_bootstrap_navwalker.php';
 // require_once dirname(__FILE__) . '/functions/post-type-product.php';
 require_once dirname(__FILE__) . '/functions/post-type-service.php';
 require_once dirname(__FILE__) . '/functions/post-type-project.php';
+require_once dirname(__FILE__) . '/functions/post-type-camnang.php';

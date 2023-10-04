@@ -1,0 +1,44 @@
+.home_service {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  &_wrap {
+    // display: flex;
+    // gap: 16px;
+  }
+  &_item {
+    // width: 25%;
+    // margin-left: 10px;
+    border-radius: 8px;
+    background: linear-gradient(
+      180deg,
+      #fee4f2 0%,
+      rgba(255, 241, 249, 0) 100%
+    );
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 1000px) {
+      margin-bottom: 30px;
+    }
+    .service {
+
+      &_top {
+        margin-bottom: 8px;
+      }
+      &_bottom {
+        h4 {
+          color: var(--gray-gray-3-main, #1f2937);
+          text-align: center;
+          /* D_H6 */
+          font-family: "Old Standard TT";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px; /* 150% */
+        }
+      }
+    }
+  }
+}

@@ -1,41 +1,83 @@
 .footer {
+  background: url(https://i.imgur.com/BmwAOjg.jpg) ;
+  // background-color: aquamarine;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  @media screen and (max-width: 500px) {
+   padding-bottom: 30px;
+  }
 
-    color: #fff;
+  &_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 136px 24px 136px;
+    border-bottom: 2px solid white;
 
-    a {
-        color: #a8aaad;
-
-        &:hover {
-            color: #fff;
-        }
+    img {
+      width: 200px;
+      height: 70px;
     }
-
-    &-top {
-        background-color: #262a33;
-        padding: 48px;
-
-        &-title {
-            margin-bottom: 24px;
-            // text-align: center;
-            // font-weight: 600;
-        }
-
-        &-menu-items {
-            list-style-type: none;
-            padding-left: 0;
-
-            li {
-                margin-bottom: 16px;
-            }
-        }
+  }
+  &_wrap {
+    margin-top: 24px;
+    h4{
+      color: white;
     }
+    ul {
+      padding: 0;
+      li {
+        list-style-type: none;
+        display: flex;
+        .phone{
+          margin-right: 5px;
+        }
+        p {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px; /* 150% */
+          color: white;
+          margin-right: 5px;
 
-    &-bottom {
-        height: 50px;
-        background-color: black;
+        }
+      }
     }
+  }
+  &_icon_wrap{
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+  }
 }
+.copyright{
+  background: var(--gray-gray-3-main, #1F2937);
+  &_wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+    
+  }
+  &_left{
+    p{
+      color: #fff;
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+  &_right{
+    display: flex;
+    gap: 20px;
+    p{
+      color: #fff;
+      margin: 0;
+      font-size: 14px;
 
-@media (max-width: 991px) {
-    .footer {}
+    }
+  }
 }

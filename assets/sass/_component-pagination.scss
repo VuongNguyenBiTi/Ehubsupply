@@ -1,0 +1,35 @@
+.pagination-custom {
+  margin-top: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  nav.navigation.pagination {
+    display: block;
+    .nav-links {
+      .page-numbers.current {
+        background: $main-co;
+        color: white;
+        padding: 5px 11px;
+        border-radius: 4px;
+        background: $main-co;
+        color: #fff;
+        padding: 10px 15px;
+      }
+      .page-numbers {
+        background: #ebebeb;
+        color: #5c5c5c;
+        padding: 5px 11px;
+        border-radius: 4px;
+        padding: 10px 15px;
+        margin-left: 5px;
+        
+        &:hover {
+          background: $main-co;
+          color: white;
+          i {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.introduce_company {
+  &_wrap {
+    display: flex;
+    padding: 24px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    backdrop-filter: blur(4px);
+    h2 {
+      color: var(--pink-pink-4-main, #f92296);
+      text-align: center;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 44px;
+    }
+    p {
+      color: var(--color-gray-gray-3-main-text, #1f2937);
+      text-align: justify;
+      font-family: "Inter";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+}

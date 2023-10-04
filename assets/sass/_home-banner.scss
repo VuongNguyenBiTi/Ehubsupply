@@ -1,0 +1,44 @@
+.home_banner {
+  &_wrap {
+    .owl-carousel .owl-nav button.owl-prev {
+      position: absolute;
+      left: 40px;
+      top: 300px;
+      @media screen and (max-width: 1000px) {
+        top: 160px;
+      }
+      @media screen and (max-width: 500px) {
+        top: 75px;
+        left: 10px;
+      }
+      span {
+        i {
+          font-size: 25px;
+        }
+      }
+    }
+    .owl-carousel .owl-nav button.owl-next {
+      position: absolute;
+      right: 40px;
+      top: 300px;
+      @media screen and (max-width: 1000px) {
+        top: 160px;
+      }
+      @media screen and (max-width: 500px) {
+        top: 75px;
+        right: 10px;
+      }
+      span {
+        i {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+  &_img {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

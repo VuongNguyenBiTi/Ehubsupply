@@ -1,0 +1,203 @@
+.breadcrumb {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background: #f9f9f9;
+    margin: 0;
+  
+    padding: 6px 0px;
+    list-style: none;
+    color: gray;
+    opacity: 1 !important;
+  
+    p {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      background: #f9f9f9;
+      margin: 0;
+      a {
+        color: gray;
+        text-decoration: none;
+        padding-right: 5px;
+        font-size: 18px;
+      }
+      span {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      span:last-child {
+        color: #c1272d;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+  .component-sidebar {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    .title {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 33px;
+      color: #29292e;
+      text-align: center;
+      padding-top: 40px;
+      padding-bottom: 20px;
+    }
+    button {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      padding: 11px 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      position: relative;
+      &:hover {
+        background-color:#FEE4F2;
+      }
+      &.active {
+        background-color:#FEE4F2;
+        color: $main-co;
+        font-weight: 700;
+        border-color: white;
+        &::before {
+          content: "";
+          border-left: $main-co solid 3px;
+          height: 60%;
+          position: absolute;
+          left: 0;
+        }
+        &::after {
+          content: "";
+          font-family: "Font Awesome 5 Pro";
+          font-size: 14px;
+          right: 7px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      i {
+        display: none;
+      }
+    }
+  }
+  .garden-content-duan {
+    margin-top: 40px;
+  }
+  
+  .cm_right_item {
+    height: 245px;
+    @media (max-width: 1000px) {
+      height: auto;
+    }
+  }
+  .blog-item {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    &:hover {
+      border: 1px solid $main-co;
+    }
+    .excerpt{
+      color: black;
+  
+    }
+    &:hover .excerpt {
+      color: black;
+    }
+    &-wrap {
+    }
+    &__img {
+      img {
+        height: 245px;
+        width: 280px;
+        object-fit: cover;
+        border-radius: 8px 0px 0px 8px;
+        @media (max-width: 1000px) {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    &__info {
+      padding-right: 20px;
+      @media (max-width: 1000px) {
+        padding: 10px 30px;
+      }
+      @media (max-width: 480px) {
+        padding: 5px 10px;
+      }
+      h3 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 27px;
+        color: #29292e;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        @media (max-width: 480px) {
+          padding-top: 5px;
+        padding-bottom: 0px;
+        }
+      }
+      .excerpt {
+        p {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px;
+          color: #29292e;
+        }
+      }
+      .next {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color:$main-co;
+      }
+    }
+  }
+  .cam_nang_hot {
+    margin-bottom: 40px;
+  }
+  .cam_nang {
+    &_search {
+      .form-control:focus {
+        background-color: #f6f7f8;
+  
+        box-shadow: 0 0 0 0.25rem #faa831;
+      }
+      input {
+        border: none;
+        background-color: #f6f7f8;
+  
+        border-radius: 12px !important;
+        padding-left: 25px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .btn_search {
+        position: absolute;
+        right: 13px;
+        top: 25%;
+        // right: 5%;
+        background-color: #f6f7f8;
+        border: none;
+        z-index: 10;
+      }
+    }
+  }
+  
+  .component-sidebar button {
+    @media (max-width: 480px) {
+      text-align: left;
+    }
+  }
+  
