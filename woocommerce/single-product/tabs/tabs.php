@@ -33,7 +33,7 @@ if (!empty($product_tabs)) : ?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper">
 		<div class="row">
-			<div class="col-12 col-lg-3">
+			<div class="">
 				<ul class="tabs wc-tabs" role="tablist">
 					<?php foreach ($product_tabs as $key => $product_tab) : ?>
 						<li class="<?php echo esc_attr($key); ?>_tab" id="tab-title-<?php echo esc_attr($key); ?>" role="tab" aria-controls="tab-<?php echo esc_attr($key); ?>">
@@ -44,7 +44,7 @@ if (!empty($product_tabs)) : ?>
 					<?php endforeach; ?>
 				</ul>
 			</div>
-			<div class="col-12 col-lg-8">
+			<div class="">
 				<?php foreach ($product_tabs as $key => $product_tab) : ?>
 					<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr($key); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr($key); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr($key); ?>">
 						<?php

@@ -1,0 +1,186 @@
+.woocommerce {
+    div.woocommerce-order {
+      p.woocommerce-thankyou-order-received {
+        text-align: center;
+        font-size: 25px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        background: #ff000082;
+        padding: 5px;
+        border-radius: 12px;
+      }
+      .button {
+        display: block;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        background-color: #ffffff;
+        padding: 10px 34px;
+        color: #c1272d;
+        border: 1px solid #c1272d;
+        border-radius: 60px;
+        font-size: 16px;
+        box-shadow: 0 1vw 2vw 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      @keyframes pulse_animation {
+        0% {
+          transform: scale(1);
+        }
+        10% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1);
+        }
+        30% {
+          transform: scale(1.05);
+        }
+        40% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(1.1);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .pulse {
+        animation-name: pulse_animation;
+        animation-duration: 4000ms;
+        transform-origin: 70% 70%;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      .button:hover {
+        transform: scale(2);
+        background-color: #c1272d; /*On Hover Background Colour*/
+        color: white;
+      }
+    }
+    h2.title-mycart {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px 8px 0 0;
+      border-bottom: 0;
+      text-align: center;
+      background: #f7f6f7;
+      font-size: 22px;
+      text-transform: uppercase;
+      padding: 10px 0;
+      margin: 0;
+    }
+    form.woocommerce-cart-form {
+      table.woocommerce-cart-form__contents {
+        border-radius: 0 0 8px 8px;
+      }
+      table {
+        thead {
+          tr {
+            background: #f7f6f7;
+          }
+        }
+        tbody {
+          tr.cart_item {
+            td.product-thumbnail {
+              a img {
+                width: 60px !important;
+                height: 60px;
+              }
+            }
+            td.product-quantity {
+              .quantity {
+                display: inline-flex;
+                border: 2px solid #ae9898;
+                input.qty_button {
+                  border: none;
+                }
+                input.input-text {
+                  border: none;
+                }
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+              }
+            }
+          }
+          tr {
+            td.actions {
+              div.coupon {
+                input.input-text {
+                  width: 123px !important;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    div.cart-collaterals {
+      div.cart_totals {
+        float: unset;
+        width: 100% !important;
+        h3 {
+          padding: 10px 0;
+          text-align: center;
+          background: aliceblue;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          text-transform: uppercase !important;
+          font-size: 22px;
+          border-radius: 8px 8px 0 0;
+          border-bottom: 0px !important;
+          margin: 0;
+        }
+        table.shop_table {
+          border-radius: 0 0 8px 8px;
+        }
+        div.wc-proceed-to-checkout {
+          a.checkout-button {
+            background: $main-co !important;
+          }
+        }
+      }
+    }
+  }
+  form.checkout.woocommerce-checkout {
+    div.fc-wrapper {
+      div.fc-inside {
+        div.woocommerce-shipping-fields__field-wrapper {
+          p#shipping_first_name_field {
+            width: 100% !important;
+          }
+        }
+        button#place_order {
+          background-color: #c1272d !important;
+        }
+        span.woocommerce-input-wrapper {
+          input.input-text {
+            border: 2px solid #be9a9a;
+            border-radius: 4px;
+            outline: none;
+            height: 35px;
+            &:focus {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    div.fc-place-order {
+      button.fc-place-order-button {
+        background-color: #c1272d !important;
+      }
+    }
+  }
+  

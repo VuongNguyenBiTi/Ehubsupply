@@ -86,3 +86,68 @@ defined( 'ABSPATH' ) || exit;
 	<?php endif; ?>
 
 </div>
+
+<a href="<?php echo get_home_url(); ?>/cua-hang/" class="d-flex justify-content-center">
+	<button class="button1 pulse">
+		Tiếp tục mua hàng <i class="fal fa-kiss-wink-heart"></i>
+	</button>
+</a>
+
+<style>
+	.woocommerce div.woocommerce-order p.woocommerce-thankyou-order-received {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 25px;
+		text-transform: uppercase;
+		margin-bottom: 30px;
+		background: #aee59a82;
+		padding: 5px;
+		border-radius: 12px;
+	}
+
+	@media (max-width: 500px) {
+		.woocommerce div.woocommerce-order p.woocommerce-thankyou-order-received {
+			font-size: 19px;
+		}
+	}
+
+	.woocommerce-order-details__title {
+		font-weight: 600;
+		color: #c1272d;
+	}
+
+	.woocommerce-table__line-item a {
+		color: #c1272d;
+	}
+
+	.woocommerce-customer-details {
+		display: none;
+	}
+
+	.meta-data {
+		display: none !important;
+	}
+
+	.button1 {
+		display: block;
+		text-align: center;
+		font-weight: 600;
+		text-decoration: none;
+		background-color: #fff;
+		padding: 10px 34px;
+		color: #c1272d;
+		border: 1px solid #c1272d;
+		border-radius: 60px;
+		font-size: 16px;
+		box-shadow: 0 1vw 2vw 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+		margin-bottom: 50px;
+	}
+
+	.pulse {
+		animation-name: pulse_animation;
+		animation-duration: 4000ms;
+		transform-origin: 70% 70%;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+</style>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template to display the reviewers star rating in reviews
  *
@@ -15,13 +16,35 @@
  * @version 3.6.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
 global $comment;
-$rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
+$rating = intval(get_comment_meta($comment->comment_ID, 'rating', true));
+// var_dump($rating)
 
-if ( $rating && wc_review_ratings_enabled() ) {
-	echo wc_get_rating_html( $rating ); // WPCS: XSS ok.
+if ($rating && wc_review_ratings_enabled()) {
+	// echo wc_get_rating_html( $rating ); // WPCS: XSS ok.
+	?>
+	<div class="rating_main">
+
+	<?php
+	
+	for ($i = 1; $i <= 5; $i++) {
+		if ($i <= floor($rating)) {
+			echo '<i class="fas fa-star"></i>';
+		} elseif ($i - 0.5 <= $rating) {
+			echo '<i class="fas fa-star-half-alt"></i>';
+		} else {
+			echo '<i class="far fa-star"></i>';
+		}
+	}
+	?>
+
+
+</div>
+<?php
+
 }
+?>

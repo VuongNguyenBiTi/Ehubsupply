@@ -1,9 +1,12 @@
 .home_ads{
     margin-top: 10px;
     margin-bottom: 40px;
-    
+    transition: all 1s linear ;
+
+
     img{
         width: 100%;
+      
         @media screen and (max-width: 1000px) {
             margin-bottom: 10px;
           }

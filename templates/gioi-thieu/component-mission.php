@@ -7,7 +7,7 @@
                     $image1 = get_sub_field('image1');
                 ?>
                     <div class="col-lg-6 col-md-5">
-                        <div class="mission_img">
+                        <div class="mission_img" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                             <div class="img2">
                                 <img src="<?php echo $image1 ?>" alt="">
                             </div>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-lg-6 col-md-7">
                         <div class="row">
-                            <div class="mission_wrap">
+                            <div class="mission_wrap" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
                                 <div class="col-lg-12">
                                     <div class="mission_item">
                                         <h4>

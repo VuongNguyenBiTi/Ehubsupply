@@ -66,9 +66,6 @@ global $post;
                                                     </div>
                                                     <div class="blog_item_bottom">
                                                         <div class="blog_item__info">
-                                                            <h4><?php
-
-                                                                ?></h4>
                                                             <h3><?php the_title(); ?></h3>
                                                             <div class="excerpt line-2">
 
@@ -87,10 +84,7 @@ global $post;
                             wp_reset_postdata();
                             ?>
                         <?php endif; ?>
-
                     </div>
-
-
                     <?php get_template_part('templates/block/component', 'pagination'); ?>
                 </div>
             </div>

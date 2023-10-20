@@ -1,4 +1,5 @@
-<div class="home_ads">
+<div class="home_ads " data-aos="fade-up"
+     data-aos-duration="3000">
     <div class="container">
         <div class="row">
             <?php

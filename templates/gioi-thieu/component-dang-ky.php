@@ -1,6 +1,8 @@
 <div class="introduce_login">
     <div class="container">
-        <div class="introduce_login_wrap">
+        <div class="introduce_login_wrap" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
             <h3>
                 Đăng ký nhận bản tin
             </h3>

@@ -37,3 +37,12 @@ if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 		</a>
 	</p>
 <?php endif; ?>
+
+<style>
+	.meta-data {
+		display: none;
+	}
+	.entry-content{
+		margin: 30px 0px;
+	}
+</style>

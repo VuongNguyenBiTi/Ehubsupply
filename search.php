@@ -82,7 +82,6 @@ global $post;
                             ?>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-12 col-lg-9">
                     <ul class="blog-list list-unstyled">
@@ -92,15 +91,21 @@ global $post;
                             // 'post_type'          => '',
                             'orderby'            => 'date',
                             'order'              => 'DESC',
+                            'pagination' => true,
+                            'posts_per_page' => 6,
+                            'paged'  => $paged,
                             'paged'             => get_query_var('paged'),
-                            's'                  => get_search_query()
+                            's'                  => get_search_query(),
                         );
                         ?>
                         <?php $getposts = new WP_query($args); ?>
                         <?php if ($_GET['s'] == '') { ?>
                             <h4 class="mb-3 mb-md-4">Vui lòng nhập từ khóa bạn muốn tìm kiếm.</h4>
                         <?php } else { ?>
-                            <h4 class="mb-3 mb-md-4 tb_kq"><?php echo count($getposts->posts) ?> kết quả tìm kiếm được tìm thấy</h4>
+                            <h4 class="mb-3 mb-md-4 tb_kq"><?php
+                                                            $count = $getposts->found_posts;
+                                                            echo $count;
+                                                            ?> kết quả tìm kiếm được tìm thấy</h4>
                             <div class="row">
                                 <?php if ($getposts->have_posts()) : ?>
                                     <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
@@ -122,22 +127,21 @@ global $post;
                                                         <h3>
                                                             <?php
                                                             $title = get_the_title();
-                                                            echo wp_trim_words($title, 15);
+                                                            echo wp_trim_words($title, 10);
                                                             ?>
                                                         </h3>
 
                                                         <?php
                                                         $excerpt = get_the_excerpt(); // Lấy excerpt của bài viết
-                                                        $trimmed_excerpt = wp_trim_words($excerpt, 20); // Rút gọn excerpt thành 20 từ
-                                                        echo $trimmed_excerpt;
+                                                        $trimmed_excerpt = wp_trim_words($excerpt, 10); // Rút gọn excerpt thành 20 từ
+                                                           $trimmed_excerpt;
                                                         ?>
+                                                        <p><?php echo $trimmed_excerpt ?></p>
                                                         <p class="next">Xem thêm >></p>
                                                     </div>
                                                 </a>
                                             </li>
                                         </div>
-
-
                                     <?php endwhile;
                                     wp_reset_postdata(); ?>
                                 <?php endif; ?>
@@ -145,6 +149,8 @@ global $post;
                             ?>
                             </div>
                     </ul>
+                    <?php get_template_part('templates/block/component', 'pagination'); ?>
+
                 </div>
             </div>
         </div>
@@ -152,35 +158,47 @@ global $post;
     <div class="clear"></div>
 </section>
 <div class="clear"></div>
-
 <?php get_footer(); ?>
-
 <style>
     .tb_kq {
         color: black;
-
+        margin: 0 !important;
     }
+
+ 
 
     .blog-item .image img {
         width: 100%;
-        border-radius: 8px;
+        border-radius: 8px 8px 0px 0px;
+        height: 200px;
+        object-fit: revert;
     }
 
     .blog-item__info {
         /* padding-top: 5px; */
         padding-left: 10px;
         padding-right: 10px;
-
     }
 
     .blog-item__info:hover {
         color: black;
-
     }
 
     .blog-item__info h3 {
         padding-top: 10px;
         padding-bottom: 0px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .blog-item__info p {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     /* sidebar */
@@ -224,12 +242,11 @@ global $post;
         .page-blog-left {
             /* display: flex; */
             /* order:2; */
-            display: none ;
+            display: none;
         }
-        .page-blogs {
-        padding-top: 0px;
-    }
 
-      
+        .page-blogs {
+            padding-top: 0px;
+        }
     }
 </style>

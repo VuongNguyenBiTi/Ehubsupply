@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My Account Dashboard
  *
@@ -17,7 +18,7 @@
  * @version 4.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -27,55 +28,116 @@ $allowed_html = array(
 	),
 );
 ?>
+<div class="dashboard_wrap">
+	<p>
+		<?php
+		printf(
+			/* translators: 1: user display name 2: logout url */
+			wp_kses(__('Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce'), $allowed_html),
+			'<strong>' . esc_html($current_user->display_name) . '</strong>',
+			esc_url(wc_logout_url())
+		);
+		?>
+	</p>
 
-<p>
-	<?php
-	printf(
-		/* translators: 1: user display name 2: logout url */
-		wp_kses( __( 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce' ), $allowed_html ),
-		'<strong>' . esc_html( $current_user->display_name ) . '</strong>',
-		esc_url( wc_logout_url() )
-	);
-	?>
-</p>
+	<p>
+		<?php
+		/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
+		$dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">billing address</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
+		if (wc_shipping_enabled()) {
+			/* translators: 1: Orders URL 2: Addresses URL 3: Account URL. */
+			$dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
+		}
+		printf(
+			wp_kses($dashboard_desc, $allowed_html),
+			esc_url(wc_get_endpoint_url('orders')),
+			esc_url(wc_get_endpoint_url('edit-address')),
+			esc_url(wc_get_endpoint_url('edit-account'))
+		);
+		?>
+	</p>
+</div>
 
-<p>
-	<?php
-	/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
-	$dashboard_desc = __( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">billing address</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' );
-	if ( wc_shipping_enabled() ) {
-		/* translators: 1: Orders URL 2: Addresses URL 3: Account URL. */
-		$dashboard_desc = __( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' );
-	}
-	printf(
-		wp_kses( $dashboard_desc, $allowed_html ),
-		esc_url( wc_get_endpoint_url( 'orders' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-address' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-account' ) )
-	);
-	?>
-</p>
 
 <?php
-	/**
-	 * My Account dashboard.
-	 *
-	 * @since 2.6.0
-	 */
-	do_action( 'woocommerce_account_dashboard' );
+/**
+ * My Account dashboard.
+ *
+ * @since 2.6.0
+ */
+do_action('woocommerce_account_dashboard');
 
-	/**
-	 * Deprecated woocommerce_before_my_account action.
-	 *
-	 * @deprecated 2.6.0
-	 */
-	do_action( 'woocommerce_before_my_account' );
+/**
+ * Deprecated woocommerce_before_my_account action.
+ *
+ * @deprecated 2.6.0
+ */
+do_action('woocommerce_before_my_account');
 
-	/**
-	 * Deprecated woocommerce_after_my_account action.
-	 *
-	 * @deprecated 2.6.0
-	 */
-	do_action( 'woocommerce_after_my_account' );
+/**
+ * Deprecated woocommerce_after_my_account action.
+ *
+ * @deprecated 2.6.0
+ */
+do_action('woocommerce_after_my_account');
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+?>
+<script>
+	// Lấy phần tử có lớp CSS "woocommerce"
+	var woocommerceElement = document.querySelector('.woocommerce');
+
+	// Thêm lớp "container" cho phần tử "woocommerce"
+	woocommerceElement.classList.add('container');
+</script>
+<style>
+	.dashboard_wrap {
+		background: var(--color-gray-gray-11-main-white, #fff);
+    box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
+	padding: 30px 30px 50px 30px;
+	border-radius: 8px;
+
+	}
+	.woocommerce {
+		margin-top: 50px;
+	}
+
+	/* sidebar */
+	.woocommerce-MyAccount-navigation {
+		border-radius: 8px;
+		background: var(--gray-gray-11-main, #FFF);
+		display: flex;
+		padding: 8px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		align-self: stretch;
+		background: var(--color-gray-gray-11-main-white, #fff);
+		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
+		margin-bottom: 50px;
+	}
+
+	.woocommerce-MyAccount-navigation ul {
+		list-style: none;
+		width: 100%;
+		padding: 0px;
+	}
+
+	.woocommerce-MyAccount-navigation ul li {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-size: 16px;
+		padding-left: 20px;
+	}
+
+	.is-active {
+		border-radius: 8px;
+		background: var(--pink-pink-4-main, #F92296);
+		color: #fff;
+	}
+
+	.is-active a {
+		font-size: 18px;
+		color: #fff;
+	}
+</style>

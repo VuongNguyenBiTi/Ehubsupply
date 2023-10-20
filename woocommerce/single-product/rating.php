@@ -40,4 +40,6 @@ if ( $rating_count > 0 ) : ?>
 		<?php endif ?>
 	</div>
 
+	
+
 <?php endif; ?>

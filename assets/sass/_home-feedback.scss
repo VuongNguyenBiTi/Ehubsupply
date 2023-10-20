@@ -1,5 +1,6 @@
 .home_feedback {
   height: 400px;
+  position: relative;
   backdrop-filter: blur(10px);
 
   background: url(https://i.imgur.com/V0nMhB0.jpg);
@@ -44,7 +45,6 @@
         color: var(--gray-gray-11-main, #fff);
         text-align: center;
         text-overflow: ellipsis;
-        font-family: "Inter";
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -66,8 +66,19 @@
       }
     }
   }
+  .overlay_fb{
+    height: 400px;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .checked {
   color: orange;
 }
+

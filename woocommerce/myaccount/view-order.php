@@ -54,3 +54,21 @@ printf(
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_view_order', $order_id ); ?>
+
+<style>
+	.woocommerce-order-details{
+		background: #fff;
+		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
+		padding: 30px 30px 50px 30px;
+		border-radius: 8px;
+	}
+	.woocommerce-customer-details{
+		background: #fff;
+		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
+		padding: 30px ;
+		border-radius: 8px;
+	}
+	.woocommerce-MyAccount-content h2{
+		color: black;
+	}
+</style>

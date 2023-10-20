@@ -1,7 +1,6 @@
 <div class="home_service">
     <div class="container">
-
-        <div class="home_service_wrap ">
+        <div class="home_service_wrap">
             <div class="row">
                 <?php if (have_rows('service_home', 2)) : ?>
                     <?php while (have_rows('service_home', 2)) : the_row();

@@ -8,14 +8,14 @@
       font-size: 18px;
       font-style: normal;
       font-weight: 400;
-      line-height: 18px; /* 128.571% */
+      line-height: 18px; 
       span {
         color: var(--Gray-400---Opacity, #9ca3af);
 
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
-        line-height: 18px; /* 128.571% */
+        line-height: 18px; 
       }
     }
   }
@@ -121,7 +121,6 @@
         p {
           color: var(--gray-gray-11-main, #fff);
           text-align: justify;
-          font-family: "Inter";
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
@@ -133,7 +132,6 @@
         label {
           color: var(--gray-gray-11-main, #fff);
           text-align: justify;
-          font-family: "Inter";
           font-size: 18px;
           font-style: normal;
           font-weight: 400;

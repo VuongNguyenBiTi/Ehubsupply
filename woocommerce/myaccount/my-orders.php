@@ -54,6 +54,7 @@ if ( $customer_orders ) : ?>
 				?>
 				<tr class="order">
 					<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
+						
 						<td class="<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
 							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
 								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
@@ -68,6 +69,7 @@ if ( $customer_orders ) : ?>
 
 							<?php elseif ( 'order-status' === $column_id ) : ?>
 								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
+								
 
 							<?php elseif ( 'order-total' === $column_id ) : ?>
 								<?php
@@ -93,3 +95,55 @@ if ( $customer_orders ) : ?>
 		</tbody>
 	</table>
 <?php endif; ?>
+
+<style>
+	.woocommerce{
+		margin-top: 50px;
+	}
+	/* sidebar */
+	.woocommerce-MyAccount-navigation {
+		border-radius: 8px;
+		background: var(--gray-gray-11-main, #FFF);
+		display: flex;
+		padding: 8px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		align-self: stretch;
+		background: var(--color-gray-gray-11-main-white, #fff);
+		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
+	}
+
+	.woocommerce-MyAccount-navigation ul {
+		list-style: none;
+		width: 100%;
+		padding: 0px;
+	}
+
+	.woocommerce-MyAccount-navigation ul li {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-size: 16px;
+		padding-left: 20px;
+	}
+
+	.is-active {
+		border-radius: 8px;
+		background: var(--pink-pink-4-main, #F92296);
+		color: #fff;
+	}
+	.is-active a {
+		font-size: 18px;
+		color: #fff;
+	}
+	.woocommerce-order-details{
+		background: #fff;
+		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
+		padding: 30px 30px 50px 30px;
+		border-radius: 8px;
+	}
+</style>
+<script>
+var woocommerceElement = document.querySelector('.woocommerce');
+woocommerceElement.classList.add('container');
+</script>

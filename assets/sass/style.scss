@@ -12,10 +12,11 @@ $gray-light-co: #f9f9f9;
 
 // font-family setup
 
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
 
 * {
-  font-family: "Old Standard TT";
+  font-family: "Nunito";
   line-height: 1.5;
   box-sizing: border-box !important;
 }
@@ -419,5 +420,10 @@ main {
 @import "cam-nang";
 @import "component-pagination";
 @import "single-cam-nang";
+@import "cua-hang/cua-hang";
+@import "thanh-toan";
+@import "cua-hang/bussiness-product";
+@import "cua-hang/chi-tiet-san-pham";
+@import "tai-khoan/dia-chi";
 
 @import "footer";
