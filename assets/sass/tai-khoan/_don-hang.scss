@@ -1,0 +1,123 @@
+$custom-tab-link-color: #555;
+$custom-tab-link-hover-border: none !important;
+
+.custom-tab-link {
+  flex: 1;
+  position: relative;
+  padding: 15px 0;
+  text-align: center;
+  color: $custom-tab-link-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  position: relative;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+
+  &:hover {
+    border: $custom-tab-link-hover-border;
+    text-decoration: none;
+  }
+
+  &.activebt {
+    color: #f92296 !important;
+
+    i {
+      background-color: #f92296;
+      color: #fff;
+    }
+  }
+
+  .custom-tab-icon {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    background-color: #ddd;
+    border-radius: 50%;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: $custom-tab-link-color;
+  }
+}
+
+.nav-tabs .nav-link {
+  border: none;
+}
+
+.nav-tabs .nav-item {
+  padding-left: 50px;
+  @media (max-width: 1000px) {
+  padding-left: 0px !important;
+  }
+}
+
+.order_wrap {
+  background: var(--color-gray-gray-11-main-white, #fff);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12);
+  padding: 30px 30px 50px 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  @media screen and (max-width: 480px) {
+    padding: 10px;
+  }
+}
+.woocommerce table.my_account_orders .button {
+  margin: 5px;
+}
+.woocommerce table.my_account_orders {
+  padding: 10px;
+  border-radius: 8px;
+  @media screen and (max-width: 480px) {
+    border: none;
+  }
+}
+
+
+.donhang {
+  display: none;
+}
+
+.donhang.hienthi {
+  display: table-row;
+}
+
+.top_order {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: baseline;
+  transition: all 0.5s linear;
+  @media (max-width: 1000px) {
+    align-items: normal;
+  }
+  .back_order {
+    display: flex;
+    height: 40px;
+    max-height: 40px;
+    padding: 8px 16px;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 6px;
+    background: var(--gray-gray-7-opacity, #9ca3af);
+    color: #fff;
+    @media (max-width: 1000px) {
+      margin-right: 10px;
+    }
+    @media (max-width: 500px) {
+      height: 35px;
+      max-height: 35px;
+      padding: 5px 5px;
+    }
+    i {
+      padding-right: 5px;
+      padding-top: 5px;
+    }
+    p{
+      color: #fff;
+    }
+  }
+}
+

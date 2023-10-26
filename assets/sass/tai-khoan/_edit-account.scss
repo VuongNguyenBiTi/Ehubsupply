@@ -1,0 +1,91 @@
+.woocommerce-EditAccountForm {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  transition: all 1s linear;
+}
+
+.user_top {
+  width: 100%;
+  margin-bottom: 10px;
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .col-lg-6{
+    width: 48%;
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
+  }
+}
+
+.woocommerce form .form-row {
+  padding: 3px;
+  margin: 0 0 6px;
+  width: 100%;
+}
+
+.user_bottom {
+  width: 100%;
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .col-lg-6{
+    width: 48%;
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
+  }
+}
+
+.woocommerce-Input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  &:focus{
+    border-color: #f92296;
+    box-shadow: 0 0 5px #f92296;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+}
+.woocommerce-form-row label {
+  font-weight: bold;
+}
+
+
+fieldset {
+  display: none;
+  transition: all 1s linear;
+}
+
+.woocommerce-Button.button {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+:where(body:not(.woocommerce-block-theme-has-button-styles))
+  .woocommerce
+  button.button {
+  background-color: #f92296;
+  color: #fff;
+}
+:where(body:not(.woocommerce-block-theme-has-button-styles))
+  .woocommerce
+  button.button:hover {
+  background-color: #f92296;
+  color: #fff;
+}

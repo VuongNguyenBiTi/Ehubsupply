@@ -1,0 +1,107 @@
+.detail_wrap{
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.custom-tabs {
+    position: relative;
+    list-style: none;
+    /* Remove list item bullets */
+    padding: 0;
+    overflow: hidden;
+    /* Hide overflow to prevent a horizontal scrollbar */
+    display: flex;
+    /* Make tabs flex items */
+    border: none;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+.custom-tab-link {
+    flex: 1;
+    /* Distribute available space evenly among tabs */
+    position: relative;
+    padding: 15px 0;
+    text-align: center;
+    color: #555;
+    /* Default text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: none;
+}
+
+.custom-tab-link:hover {
+    border: none !important;
+    text-decoration: none;
+}
+
+.custom-tab-icon {
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    background-color: #ddd;
+    /* Default icon background color */
+    border-radius: 50%;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #555;
+    /* Default icon color */
+}
+
+.custom-tab-link.active {
+    color: #fff;
+    /* Active text color */
+    border: none;
+    background-color: transparent !important;
+}
+
+.custom-tab-link.active .custom-tab-icon {
+    background-color: #4CAF50;
+    /* Active icon background color */
+    color: #fff;
+    /* Active icon color */
+}
+
+.custom-tab-link.active:before {
+    background-color: #4CAF50;
+    /* Active line color */
+}
+
+
+
+.custom-tab-link.active~.custom-tab-link:before {
+    background-color: #4CAF50;
+}
+
+.custom-tabs::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4CAF50;
+    z-index: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.custom-tab-link.active~.custom-tabs::before {
+    transform: scaleX(1);
+}
+
+.custom-tab-link:not(.active)~.custom-tab-link::before {
+    background-color: #ddd;
+    /* Inactive line color */
+}
+
+.nav-tabs .nav-item {
+    padding-left: 10%;
+}

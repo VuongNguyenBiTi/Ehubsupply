@@ -67,12 +67,12 @@ global $post;
                                 $post_image = get_the_post_thumbnail($post->ID, 'thumbnail');
                                 $post_name = get_post_field('post_name', $post->ID);
                             ?>
-                                <a href="../<?php echo $post_name; ?>">
-                                    <div class="content_right">
+                                <a href="<?php echo get_home_url(); ?>/<?php echo $post_name; ?>">
+                                    <div class="content_right_search">
                                         <div class="bgr_img">
                                             <?php echo $post_image; ?>
                                         </div>
-                                        <div class="content_main">
+                                        <div class="content_main_search">
                                             <h4><?php echo $post_title; ?></h4>
                                         </div>
                                     </div>
@@ -111,12 +111,12 @@ global $post;
                                     <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
 
                                         <div class="col-lg-4">
-                                            <li class="blog-item">
+                                            <li class="blog-items">
                                                 <a href="<?php the_permalink(); ?>">
                                                     <div class="image">
-                                                        <img class="blog-item__img" src="<?php the_post_thumbnail_url('full') ?>" alt="">
+                                                        <img class="blog-items__img" src="<?php the_post_thumbnail_url('full') ?>" alt="">
                                                     </div>
-                                                    <div class="blog-item__info">
+                                                    <div class="blog-items__info">
                                                         <?php
                                                         $categorys =  get_the_category(get_the_ID());
                                                         foreach ($categorys as $key => $category) {
@@ -127,17 +127,17 @@ global $post;
                                                         <h3>
                                                             <?php
                                                             $title = get_the_title();
-                                                            echo wp_trim_words($title, 10);
+                                                            echo wp_trim_words($title, 20);
                                                             ?>
                                                         </h3>
 
                                                         <?php
                                                         $excerpt = get_the_excerpt(); // Lấy excerpt của bài viết
-                                                        $trimmed_excerpt = wp_trim_words($excerpt, 10); // Rút gọn excerpt thành 20 từ
-                                                           $trimmed_excerpt;
+                                                        $trimmed_excerpt = wp_trim_words($excerpt, 20); // Rút gọn excerpt thành 20 từ
+                                                        $trimmed_excerpt;
                                                         ?>
                                                         <p><?php echo $trimmed_excerpt ?></p>
-                                                        <p class="next">Xem thêm >></p>
+                                                        <p class="next">Xem chi tiết <i class="fal fa-angle-double-right"></i></p>
                                                     </div>
                                                 </a>
                                             </li>
@@ -159,19 +159,33 @@ global $post;
 </section>
 <div class="clear"></div>
 <?php get_footer(); ?>
-<style>
+<!-- <style>
     .tb_kq {
         color: black;
         margin: 0 !important;
     }
 
- 
+    .blog-items {
+        transition: all .5s;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
 
-    .blog-item .image img {
+    .blog-items:hover {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 4px 7px 20px 3px rgba(0, 0, 0, 0.14);
+        transform: translate3d(0px, -8px, 15px);
+    }
+
+    .blog-items .image img {
         width: 100%;
         border-radius: 8px 8px 0px 0px;
         height: 200px;
-        object-fit: revert;
+        object-fit: contain;
+
     }
 
     .blog-item__info {
@@ -193,6 +207,7 @@ global $post;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .blog-item__info p {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -213,19 +228,34 @@ global $post;
 
     .content_right {
         margin-bottom: 20px;
+        transition: all 0.5s linear;
+        border-radius: 8px;
+        background-color: #fff;
+        
+    }
+    .content_right:hover {
+        box-shadow: 4px 7px 20px 3px rgba(0, 0, 0, 0.14);
+        transform: translate3d(0px, -8px, 15px);
     }
 
     .content_right .bgr_img img {
         width: 100%;
         height: 76px;
         object-fit: cover;
+        border-radius: 8px;
     }
-
+    .content_main{
+        padding: 7px;
+    }
     .content_main h4 {
         font-size: 18px;
         margin-top: 5px;
         color: black;
-        padding: 5px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .acs {
@@ -240,8 +270,7 @@ global $post;
 
     @media (max-width: 600px) {
         .page-blog-left {
-            /* display: flex; */
-            /* order:2; */
+           
             display: none;
         }
 
@@ -249,4 +278,4 @@ global $post;
             padding-top: 0px;
         }
     }
-</style>
+</style> -->

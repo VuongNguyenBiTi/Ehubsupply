@@ -96,7 +96,8 @@ $col    = 1;
 							</div>
 							<div class="dc_ten">
 								<p>Địa chỉ :</p>
-								<h6> <?php echo esc_html($billing_address['address_1']);  ?></h6>
+								<h6> <?php echo esc_html($billing_address['address_1']);  ?>, <?php echo esc_html($billing_address['city']); ?>
+								</h6>
 							</div>
 						</div>
 					<?php
@@ -115,112 +116,25 @@ $col    = 1;
 	.woocommerce {
 		margin-top: 50px;
 	}
-
 	.woocommerce-MyAccount-content p {
-		display: none;
-	}
-
-	.address_wrap {
-		padding: 12px 24px;
-		gap: 8px;
-		border-radius: 8px;
-		background: var(--color-gray-gray-11-main-white, #fff);
-		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
-	}
-
-	.dc_title {
-		display: flex;
-		justify-content: space-between;
-		border-radius: 4px;
-		background: linear-gradient(90deg, #FEE4F2 0%, #FFF1F9 100%);
-		margin-bottom: 10px;
-	}
-
-	.dc_title h3 {
-		color: var(--pink-pink-4-main, #F92296);
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 24px;
-		padding-left: 5px;
-		padding-top: 10px;
-	}
-
-	.dc_title h3 i {
-		padding-right: 10px;
-	}
-
-	.dc_title a {
-		padding: 10px;
-		color: var(--Blue-Main, #2563EB);
-
-	}
-
-	.dc_ten {
-		display: flex;
-	}
-
-	.dc_ten p {
-		margin-right: 10px;
-		max-width: 150px;
-		width: 100%;
-		color: var(--gray-gray-7-opacity, #9CA3AF);
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 24px;
-	}
-
-	.dc_ten h6 {
-		color: var(--gray-gray-3-main, #1F2937);
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 24px;
-
-	}
-
-	/* sidebar */
-	.woocommerce-MyAccount-navigation {
-		border-radius: 8px;
-		background: var(--gray-gray-11-main, #FFF);
-		display: flex;
-		padding: 8px;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 8px;
-		align-self: stretch;
-		background: var(--color-gray-gray-11-main-white, #fff);
-		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
-	}
-
-	.woocommerce-MyAccount-navigation ul {
-		list-style: none;
-		width: 100%;
-		padding: 0px;
-	}
-
-	.woocommerce-MyAccount-navigation ul li {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		font-size: 16px;
-		padding-left: 20px;
-	}
-
-	.is-active {
-		border-radius: 8px;
-		background: var(--pink-pink-4-main, #F92296);
-		color: #fff;
-	}
-
-	.is-active a {
-		font-size: 18px;
-		color: #fff;
-	}
+    display: none;
+  }
 </style>
 <script>
-	// Lấy phần tử có lớp CSS "woocommerce"
 	var woocommerceElement = document.querySelector('.woocommerce');
-	// Thêm lớp "container" cho phần tử "woocommerce"
 	woocommerceElement.classList.add('container');
+	document.addEventListener('DOMContentLoaded', function() {
+		var icons = [
+			'far fa-user',
+			'fal fa-phone-volume',
+			'fal fa-map-marker-alt',
+		];
+		var menuItems = document.querySelectorAll('.address_wrap .dc_ten');
+		for (var i = 0; i < menuItems.length; i++) {
+			var index = i % icons.length; 
+			var iconElement = document.createElement('i');
+			iconElement.className = icons[index];
+			menuItems[i].insertBefore(iconElement, menuItems[i].firstChild);
+		}
+	});
 </script>

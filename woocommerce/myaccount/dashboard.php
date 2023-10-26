@@ -56,8 +56,55 @@ $allowed_html = array(
 		);
 		?>
 	</p>
-</div>
 
+	<!-- <main id="site-content">
+		<div class="section-inner">
+
+			<?php
+			if (!is_user_logged_in()) {
+
+				echo 'Bạn chưa đăng nhập. Vui lòng <a href="/dang-nhap">đăng nhập</a>.';
+			} else {
+
+				$current_user = wp_get_current_user();
+
+			?>
+				<h4 class="tt_avt">Thay đổi ảnh đại diện</h4>
+				<hr>
+				<form id="hk-change-avatar" class="change_wrap">
+					<?php wp_nonce_field('form_change_avatar'); ?>
+					<div class="change_left">
+						<p id="hk-success" style="display:none">Cập nhập thành công</p>
+						<p class="img_change">
+							<?php
+							$user = wp_get_current_user();
+							$custom_avatar = get_user_meta($user->ID, 'custom_avatar', true);
+							if ($custom_avatar) {
+								echo '<img src="' . $custom_avatar . '" class="custom_avatar" />';
+							} else {
+								echo '<img src="' . get_avatar_url($user->ID) . '" class="custom_avatar" />';
+							}
+							?>
+						</p>
+					</div>
+					<div class="change_right">
+						<p >
+							<input type="file" id="upload_avatar" accept="image/*" required>
+						</p>
+						<p>
+							<button type="submit">Xác nhận</button>
+						</p>
+					</div>
+
+
+				</form>
+
+			<?php } ?>
+
+		</div>
+	</main> -->
+
+</div>
 
 <?php
 /**
@@ -91,53 +138,7 @@ do_action('woocommerce_after_my_account');
 	woocommerceElement.classList.add('container');
 </script>
 <style>
-	.dashboard_wrap {
-		background: var(--color-gray-gray-11-main-white, #fff);
-    box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
-	padding: 30px 30px 50px 30px;
-	border-radius: 8px;
-
-	}
 	.woocommerce {
-		margin-top: 50px;
-	}
-
-	/* sidebar */
-	.woocommerce-MyAccount-navigation {
-		border-radius: 8px;
-		background: var(--gray-gray-11-main, #FFF);
-		display: flex;
-		padding: 8px;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 8px;
-		align-self: stretch;
-		background: var(--color-gray-gray-11-main-white, #fff);
-		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
-		margin-bottom: 50px;
-	}
-
-	.woocommerce-MyAccount-navigation ul {
-		list-style: none;
-		width: 100%;
-		padding: 0px;
-	}
-
-	.woocommerce-MyAccount-navigation ul li {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		font-size: 16px;
-		padding-left: 20px;
-	}
-
-	.is-active {
-		border-radius: 8px;
-		background: var(--pink-pink-4-main, #F92296);
-		color: #fff;
-	}
-
-	.is-active a {
-		font-size: 18px;
-		color: #fff;
+		margin-top: 20px;
 	}
 </style>

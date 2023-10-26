@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 <?php get_template_part('templates/block', 'breadcrumb'); ?>
 <main class="cam_nang_main">
-
-
-
     <!-- lấy theo thời gian mới nhất -->
     <?php
     $args = array(
@@ -23,11 +20,7 @@
     );
 
     $categories = get_categories($args);
-
     foreach ($categories as $cat) {
-
-        // here's my code for getting the posts for custom post type
-
         $posts_array_time = get_posts(
             array(
                 'posts_per_page' => 10,
@@ -44,7 +37,6 @@
     }
     wp_reset_postdata();
     ?>
-
     <div class="contact_breadcrumbs">
         <div class="container">
             <h2>Trang chủ / <span><?php echo $post_title = get_the_title($post->ID); ?></span></h2>
@@ -79,27 +71,23 @@
                                 </g>
                             </svg>
                             <h3>
-                                Latest News
+                                Tin Mới Nhất
                             </h3>
                         </div>
                     </div>
-                    <div class="acs">
+                    <div class="asc1">
                         <?php foreach ($posts_array_time as $post) {
-                            // Lấy tiêu đề của bài viết
                             $post_title = get_the_title($post->ID);
-                            // Lấy hình ảnh đại diện của bài viết
                             $post_image = get_the_post_thumbnail($post->ID, 'thumbnail');
                             $post_name = get_post_field('post_name', $post->ID);
                         ?>
-                            <a href="../<?php echo $post_name; ?>">
+                            <a href="<?php echo get_home_url(); ?>/<?php echo $post_name; ?>">
                                 <div class="content_right">
-                                    <div class="cm_overlay">
-                                    </div>
-                                    <div class="bgr_img">
+                                    <div class="content_right_img">
                                         <?php echo $post_image; ?>
                                     </div>
                                     <div class="content_main">
-                                        <h4><?php echo $post_title; ?></h4>
+                                        <p><?php echo $post_title; ?></+>
                                     </div>
                                 </div>
                             </a>
@@ -124,7 +112,7 @@
                         </g>
                     </svg>
                     <h3>
-                        Related News
+                        Tin Liên Quan
                     </h3>
                 </div>
                 <a href="<?php echo get_home_url(); ?>/cam-nang/">
@@ -134,12 +122,8 @@
                         <p>Xem thêm</p>
                     </div>
                 </a>
-
             </div>
-
-
             <div class="row">
-
                 <?php
                 $args = array(
                     'type'                     => 'post',
@@ -153,18 +137,14 @@
                     'include'                  => '',
                     'number'                   => '',
                     'taxonomy'                 => 'danh-muc-cam-nang',
-                    'pad_counts'               => false
+                    'pad_counts'               => false,
                 );
-
-
                 foreach ($categories as $cat) {
-
-                    // here's my code for getting the posts for custom post type
-
                     $posts_array = get_posts(
                         array(
                             'posts_per_page' => 4,
                             'post_type' => '',
+                            'orderby'        => 'rand',
                             'tax_query' => array(
                                 array(
                                     'taxonomy' => 'danh-muc-cam-nang',
@@ -176,26 +156,20 @@
                     );
                 }
                 wp_reset_postdata();
-
-
                 ?>
                 <?php foreach ($posts_array as $post) {
-                    // Lấy tiêu đề của bài viết
                     $post_title = get_the_title($post->ID);
-                    // Lấy hình ảnh đại diện của bài viết
                     $post_image = get_the_post_thumbnail($post->ID, 'thumbnail');
                     $post_name = get_post_field('post_name', $post->ID);
                     $post_content = get_post_field('post_content', $post->ID);
-
                 ?>
                     <div class="col-lg-3 col-md-6 col-12">
-                        <a href="../<?php echo $post_name; ?>">
+                        <a href="<?php echo get_home_url(); ?>/<?php echo $post_name; ?>">
                             <div class="related_item">
                                 <div class="related_img">
                                     <?php echo $post_image; ?>
                                 </div>
                                 <h5>
-
                                 </h5>
                                 <h4>
                                     <?php echo $post_title; ?>
@@ -209,19 +183,8 @@
                 <?php }
                 wp_reset_postdata();
                 ?>
-
-
-
-
-
             </div>
-
         </div>
     </div>
-
 </main>
-
-
-
-
 <?php get_footer(); ?>

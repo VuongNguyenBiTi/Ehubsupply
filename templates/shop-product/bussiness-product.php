@@ -33,126 +33,167 @@
                             </a>
                         </div>
                         <a href="<?php the_permalink() ?>">
-                        <div class="shop_product_center">
-                            <div class="product_title">
-                                <h2><?php echo wp_trim_words(get_the_title(), 15) ?></h2>
-                            </div>
-                            <?php  
-                            $product_id = get_the_ID();
-                            $regular_price = 0;
-                            $phan_tram = 0;
-                            $sale_price = 0;
-                            $variation = wc_get_product($product_id);
-                            if (is_a($variation, 'WC_Product_Variation')) {
-                                $price = $variation->get_price();
-                                $price = number_format($price, 0, ',', '.');
-                                $variation_attributes = $variation->get_variation_attributes();
-                            } else {
-                                $regular_price = get_post_meta($product_id, '_regular_price', true); // Giá gốc
-                                $sale_price = get_post_meta($product_id, '_sale_price', true); // Giá khuyến mãi
-                                $regular_price = floatval($regular_price);
-                                $sale_price = floatval($sale_price);
-                                if ($regular_price != 0) {
-                                    $phan_tram = 100 - ($sale_price * 100) / $regular_price;
-                                    
-                                } else {
-                                    $phan_tram = 0; 
-                                }
-                                $sale_price = number_format($sale_price, 0, ',', '.');
-                                $regular_price = number_format($regular_price, 0, ',', '.');
-                            }
-                            $price = $sale_price; 
-                            $variations = wc_get_product($product_id)->get_children();
-                            if (!empty($variations)) {
-                                $min_variation_price = PHP_FLOAT_MAX; 
-                                $min_regular_price = PHP_FLOAT_MAX; 
-                                foreach ($variations as $variation_id) {
-                                    $variation = wc_get_product($variation_id);
-                                    if (is_a($variation, 'WC_Product_Variation')) {
-                                        $variation_price = $variation->get_price();
-                                        $variation_regular_price = $variation->get_regular_price();
-
-                                        $min_variation_price = min($min_variation_price, $variation_price);
-                                        $min_regular_price = min($min_regular_price, $variation_regular_price);
-                                    }
-                                }
-                                if ($min_variation_price !== PHP_FLOAT_MAX) {
-                                    $min_variation_price = number_format($min_variation_price, 0, ',', '.');
-                                    $min_variation_price;
-                                } else {
-                                }
-                                if ($min_regular_price !== PHP_FLOAT_MAX) {
-                                    $min_regular_price = number_format($min_regular_price, 0, ',', '.');
-                                    $min_regular_price;
-                                } else {
-                                }
-                            } else {
-                            }
-                            ?>
-                            <div class="product_sale">
-                                <p><?php
-                                    $product_id = get_the_ID(); 
-                                    $product = wc_get_product($product_id); 
-                                    if ($product && $product->is_type('variable')) {
-                                       
-                                        echo   $min_variation_price;
-                                    } else {
-                                       
-                                        echo  $regular_price;
-                                    }
-                                    ?> VNĐ</p>
-                                <span>-<?php
-                                        $product_id = get_the_ID(); 
-                                        $product = wc_get_product($product_id); 
-                                        if ($product && $product->is_type('variable')) {
-                                            if ($min_regular_price != 0) {
-                                                  $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
-                                                  echo round($phan_tram, 1);
-                                            } else {
-                                                echo $phan_tram = 0; 
-                                            }
-                                        } else {
-                                            echo round($phan_tram, 1);
-                                        }
-                                        ?>%</span>
-                            </div>
-                            <div class="product_price">
-                                <p><?php
-                                    $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
-                                    $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
-                                    if ($product && $product->is_type('variable')) {
-                                        // Sản phẩm có biến thể
-                                        echo $min_regular_price;
-                                    } else {
-                                        // Sản phẩm không có biến thể
-                                        echo $sale_price;
-                                    }
-                                    ?> VNĐ</p>
-                            </div>
-                            <div class="rating_main">
+                            <div class="shop_product_center">
+                                <div class="product_title">
+                                    <h2><?php echo wp_trim_words(get_the_title(), 15) ?></h2>
+                                </div>
                                 <?php
-                                $average = $product->get_average_rating();
-                                for ($i = 1; $i <= 5; $i++) {
-                                    if ($i <= floor($average)) {
-                                        echo '<i class="fas fa-star"></i>';
-                                    } elseif ($i - 0.5 <= $average) {
-                                        echo '<i class="fas fa-star-half-alt"></i>';
+                                $product_id = get_the_ID();
+                                $regular_price = 0;
+                                $phan_tram = 0;
+                                $sale_price = 0;
+                                $variation = wc_get_product($product_id);
+                                if (is_a($variation, 'WC_Product_Variation')) {
+                                    $price = $variation->get_price();
+                                    $price = number_format($price, 0, ',', '.');
+                                    $variation_attributes = $variation->get_variation_attributes();
+                                } else {
+                                    $regular_price = get_post_meta($product_id, '_regular_price', true); // Giá gốc
+                                    $sale_price = get_post_meta($product_id, '_sale_price', true); // Giá khuyến mãi
+                                    $regular_price = floatval($regular_price);
+                                    $sale_price = floatval($sale_price);
+                                    if ($regular_price != 0) {
+                                        $phan_tram = 100 - ($sale_price * 100) / $regular_price;
                                     } else {
-                                        echo '<i class="far fa-star"></i>';
+                                        $phan_tram = 0;
                                     }
+                                    $sale_price = number_format($sale_price, 0, ',', '.');
+                                    $regular_price = number_format($regular_price, 0, ',', '.');
+                                }
+                                $price = $sale_price;
+                                $variations = wc_get_product($product_id)->get_children();
+                                if (!empty($variations)) {
+                                    $min_variation_price = PHP_FLOAT_MAX;
+                                    $min_regular_price = PHP_FLOAT_MAX;
+                                    foreach ($variations as $variation_id) {
+                                        $variation = wc_get_product($variation_id);
+                                        if (is_a($variation, 'WC_Product_Variation')) {
+                                            $variation_price = $variation->get_price();
+                                            $variation_regular_price = $variation->get_regular_price();
+
+                                            $min_variation_price = min($min_variation_price, $variation_price);
+                                            $min_regular_price = min($min_regular_price, $variation_regular_price);
+                                        }
+                                    }
+                                    if ($min_variation_price !== PHP_FLOAT_MAX) {
+                                        $min_variation_price = number_format($min_variation_price, 0, ',', '.');
+                                        $min_variation_price;
+                                    } else {
+                                    }
+                                    if ($min_regular_price !== PHP_FLOAT_MAX) {
+                                        $min_regular_price = number_format($min_regular_price, 0, ',', '.');
+                                        $min_regular_price;
+                                    } else {
+                                    }
+                                } else {
                                 }
                                 ?>
+                                <div class="product_sale">
+                                    <p><?php
+                                        $product_id = get_the_ID();
+                                        $product = wc_get_product($product_id);
+                                        if ($product && $product->is_type('variable')) {
+                                            // sản phẩm biến thể
+                                            echo   $min_regular_price . " VNĐ";
+                                        } else {
+                                            // sản phẩm bình thường
+                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                echo $regular_price . " VNĐ";
+                                            } else {
+                                                // echo " ";
+                                            }
+
+
+                                            // echo  $regular_price;
+                                        }
+                                        ?> </p>
+                                    <span><?php
+                                            $product_id = get_the_ID();
+                                            $product = wc_get_product($product_id);
+                                            if ($product && $product->is_type('variable')) {
+                                                if ($min_regular_price != 0) {
+                                                    //   $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
+                                                    //   $phan_tram = floatval($phan_tram);
+                                                    //   echo gettype($phan_tram);
+                                                    //   echo round($phan_tram, 1);
+                                                    // $phan_tram = 100 - ((int)$min_variation_price * 100) / (int)$min_regular_price;
+                                                    $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
+                                                    $phan_tram1 = (floatval($phan_tram));
+                                                    echo "-".round($phan_tram1, 1)."%";
+                                                } else {
+                                                  
+
+                                                    echo "-".$phan_tram = 0 ."%";
+                                                }
+                                            } else {
+                                                  // sản phẩm bình thường
+                                                  if (isset($regular_price) && !empty($sale_price)) {
+                                                    echo "-".round($phan_tram, 1) ."%";
+
+                                                } else {
+                                                    // echo 0;
+                                                }
+                                                // echo round($phan_tram, 1);
+                                            }
+                                            ?></span>
+                                </div>
+                                <div class="product_price">
+                                    <p><?php
+                                        $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
+                                        $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
+                                        if ($product && $product->is_type('variable')) {
+                                            // Sản phẩm có biến thể
+                                            echo $min_variation_price;
+                                        } else {
+                                            // Sản phẩm không có biến thể
+
+                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                echo $sale_price;
+                                            } else {
+                                                echo $regular_price;
+                                            }
+                                        }
+                                        ?> VNĐ</p>
+                                </div>
+                                <div class="rating_main">
+                                    <?php
+                                    $average = $product->get_average_rating();
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if ($i <= floor($average)) {
+                                            echo '<i class="fas fa-star"></i>';
+                                        } elseif ($i - 0.5 <= $average) {
+                                            echo '<i class="fas fa-star-half-alt"></i>';
+                                        } else {
+                                            echo '<i class="far fa-star"></i>';
+                                        }
+                                    }
+                                    ?>
+                                </div>
                             </div>
-                        </div>
                         </a>
                     </div>
 
                     <div class="shop_product_right">
-                        <a href="<?php echo get_home_url(); ?>/cua-hang/?add-to-cart=<?php the_ID(); ?>">
-                            <div class="btn_cart">
-                                <i class="fal fa-cart-arrow-down"></i>
-                            </div>
-                        </a>
+
+                        <?php
+                        $product_id = get_the_ID();
+                        $product = wc_get_product($product_id);
+                        if ($product && $product->is_type('variable')) { ?>
+
+                            <a href="<?php the_permalink() ?>">
+                                <div class="btn_cart">
+                                    <i class="fal fa-cart-arrow-down"></i>
+                                </div>
+                            </a>
+                        <?php  } else { ?>
+
+                            <a href="<?php echo get_home_url(); ?>/cua-hang/?add-to-cart=<?php the_ID(); ?>">
+                                <div class="btn_cart">
+                                    <i class="fal fa-cart-arrow-down"></i>
+                                </div>
+                            </a>
+                        <?php }
+                        ?>
                         <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]') ?>
                     </div>
                 </div>
@@ -172,190 +213,6 @@
 
 
 
-<!-- <style>
-    .shop_product_main {
-        display: flex;
-        gap: 20px;
-    }
-
-    .shop_product1 .shop_product_wrap {
-        display: flex;
-        gap: 20px;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    #yith-wcwl-popup-message {
-        display: none !important;
-    }
-
-    .shop_product1 {
-        justify-content: space-between;
-        display: flex;
-        margin-bottom: 20px;
-        background-color: #fff;
-        padding: 20px 10px 20px 10px;
-        border-radius: 8px;
-
-    }
-
-    .shop_product1 .shop_product_wrap {
-        display: flex;
-        gap: 20px;
-    }
-
-    .shop_product1 .shop_product_left img {
-        border-radius: 8px;
-        width: 160px;
-        height: 160px;
-    }
-
-    .shop_product_center {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .shop_product_center .product_title h2 {
-        color: var(--gray-gray-3-main, #1F2937);
-
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px;
-        /* 150% */
-    }
-
-    .shop_product_center .product_sale {
-        display: flex;
-    }
-
-    .shop_product_center .product_sale p {
-        color: var(--gray-gray-7-opacity, #9CA3AF);
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 18px;
-        text-decoration-line: line-through;
-    }
-
-    .shop_product_center .product_sale span {
-        color: var(--second-red, #EF4444);
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 18px;
-        margin-left: 10px;
-        /* 128.571% */
-    }
-
-    .shop_product_center .product_price p {
-        color: var(--second-red, #EF4444);
-        font-size: 17px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px;
-        /* 150% */
-    }
-
-    .shop_product_right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .btn_cart {
-        display: flex;
-        height: 40px;
-        max-height: 40px;
-        padding: 8px 16px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 6px;
-        background: var(--gray-gray-10-bgr, #f3f4f6);
-        gap: 8px;
-        border-radius: 6px;
-        margin-bottom: 20px;
-        color: rgb(249, 34, 150);
-    }
-
-    .btn_cart i {
-        padding: 15px;
-        font-size: 20px;
-        font-weight: 500;
-    }
-
-    .btn_cart:hover {
-        background: rgb(249, 34, 150);
-        color: var(--gray-gray-10-bgr, #f3f4f6);
-    }
-
-
-    .yith-wcwl-add-button {
-        width: 100%;
-    }
-
-    .yith-wcwl-add-button a {
-        width: 100%;
-    }
-
-    .yith-wcwl-add-to-wishlist {
-        margin-top: 0px;
-        width: 100%;
-    }
-
-    .woocommerce a.add_to_wishlist.button.alt i {
-        padding-right: 0px;
-        display: flex;
-        justify-content: center;
-        margin-right: 0px;
-        font-size: 20px;
-    }
-
-    .rating_main i {
-        color: orange;
-
-    }
-
-    /* đã yêu thích */
-    .yith-wcwl-wishlistexistsbrowse {
-        color: red;
-        padding: 5px 15px;
-        background-color: #f3f4f6;
-        border-radius: 6px;
-    }
-
-    .yith-wcwl-wishlistexistsbrowse .feedback {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 5px 15px;
-    }
-
-    .yith-wcwl-add-to-wishlist .feedback .yith-wcwl-icon {
-        margin-right: 0px;
-        font-size: 20px;
-    }
-
-    .yith-wcwl-wishlistaddedbrowse {
-        color: red;
-        padding: 5px 15px;
-        background-color: #f3f4f6;
-        border-radius: 6px;
-    }
-
-    .yith-wcwl-wishlistaddedbrowse .feedback {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 5px 15px;
-    }
-
-    .yith-wcwl-add-to-wishlist .feedback .yith-wcwl-icon {
-        margin-right: 0px;
-        font-size: 20px;
-    }
-</style> -->
 
 <script>
     var rowsShown = 1;
@@ -368,7 +225,7 @@
         } else {
             return rowsShown = 8;
         }
-       
+
     }
     $(document).ready(function() {
         $('#data').after('<div id="nav"></div>');
@@ -442,7 +299,6 @@
         }
     });
 </script>
-
 
 
 

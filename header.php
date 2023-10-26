@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="header_wrap">
                     <div class="header_logo">
-                        <img src="https://i.imgur.com/z6XLbjF.png" alt="logo" class="logo">
+                        <img src="<?php echo esc_html(get_theme_mod('html_logo_header')); ?>" alt="Logo Header">
                     </div>
                     <div class="header_menu_desktop">
                         <div class="header_menu_wrap">
@@ -100,9 +100,13 @@
                                 <span id="mini-cart-count" class="count-cart button product_type_simple add_to_cart_button ajax_add_to_cart cart-quantity badge rounded-pill bg-light text-white"><?php echo $items_count ? $items_count : '0'; ?></span>
                             </div>
                         </a>
+                        
                         <a href="<?php echo get_home_url(); ?>/yeu-thich/">
                             <div class="icon_header">
                                 <i class="fal fa-heart"></i>
+                                <span id="wishlist-count">
+                                    <?php $wishlistCount = yith_wcwl_count_products(); echo $wishlistCount; ?>
+                                </span>
                             </div>
                         </a>
                         <a href="<?php echo get_home_url(); ?>/tai-khoan/">
@@ -235,7 +239,7 @@
                     <div class="subscribe-widget">
                         <!-- form -->
                         <form id="subscribe-form" action="<?php echo get_home_url(); ?>">
-                            <input  name="s"  placeholder="Nhập thông tin" class="email-form" >
+                            <input name="s" placeholder="Nhập thông tin" class="email-form">
                             <button type="submit" class="button">Tìm kiếm</button>
                         </form>
                         <!-- end form-->
@@ -389,3 +393,4 @@
                 overlay.style.display = "none";
             });
         </script> -->
+

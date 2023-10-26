@@ -29,10 +29,10 @@ do_action('woocommerce_before_customer_login_form'); ?>
 		<div class="login_main">
 			<div class="login_wrap">
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-6 col-md-6 col-12 col1">
 						<img src="https://colorlib.com/etc/regform/colorlib-regform-20/images/registration-form-4.jpg" alt="">
 					</div>
-					<div class="col-lg-6" id="id_dangki">
+					<div class="col-lg-6 col-md-6 col-12 col2" id="id_dangki">
 						<main id="site-content">
 							<div class="section-inner">
 								<?php
@@ -79,7 +79,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 							</div>
 						</main>
 					</div>
-					<div class="col-lg-6" id="id_dangnhap">
+					<div class="col-lg-6 col-md-6 col-12 col2" id="id_dangnhap">
 						<div class="dang_nhap_main">
 							<h2><?php esc_html_e('Login', 'woocommerce'); ?></h2>
 							<form class="woocommerce-form woocommerce-form-login login" method="post">
@@ -618,5 +618,17 @@ do_action('woocommerce_before_customer_login_form'); ?>
 	#hk-message ul li {
 		color: red;
 		list-style-type: none;
+	}
+
+	@media (max-width: 500px) {
+		.col1 {
+			order : 2;
+		}
+		.col2{
+			order: 1;
+		}
+		.login_main{
+			padding: 0;
+		}
 	}
 </style>

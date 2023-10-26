@@ -25,7 +25,7 @@
                                 <div class="entry-content">
                                     <?php the_content(); ?>
                                 </div>
-                                <div class="meta-data mb-0">
+                                <!-- <div class="meta-data mb-0">
                                     <div class="right">
                                         <a class="share-fb d-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&t=<?php the_title(); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
                                             <i class="fab fa-facebook"></i> Chia sẻ
@@ -39,7 +39,7 @@
                                             <i class="fas fa-print"></i> In trang
                                         </a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

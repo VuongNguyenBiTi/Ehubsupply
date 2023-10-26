@@ -113,14 +113,19 @@
                                                         $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
                                                         if ($product && $product->is_type('variable')) {
                                                             // Sản phẩm có biến thể
-                                                            echo   $min_variation_price;
+                                                            echo   $min_regular_price . " VNĐ";
                                                         } else {
                                                             // Sản phẩm không có biến thể
-                                                            echo  $regular_price;
+                                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                                echo $regular_price . " VNĐ";
+                                                            } else {
+                                                                // echo 0;
+                                                            }
+                                                            // echo  $regular_price;
                                                         }
-                                                        ?> VNĐ</p>
+                                                        ?> </p>
                                                     <p class="oldprice2">
-                                                        -<?php
+                                                        <?php
                                                             $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
 
                                                             $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
@@ -128,17 +133,25 @@
                                                             if ($product && $product->is_type('variable')) {
                                                                 // Sản phẩm có biến thể
                                                                 if ($min_regular_price != 0) {
-                                                                    $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
-                                                                    echo round($phan_tram, 1);
+                                                                    // $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
+                                                                    // echo round($phan_tram, 1);
+                                                                    $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
+                                                                    $phan_tram1 = (floatval($phan_tram));
+                                                                    echo "-" . round($phan_tram1, 1) . "%";
                                                                 } else {
                                                                     // Handle the case where $regular_price is zero
-                                                                    echo $phan_tram = 0; // You can adjust this default value as needed
+                                                                    echo "-" . $phan_tram = 0 . "%"; // You can adjust this default value as needed
                                                                 }
                                                             } else {
                                                                 // Sản phẩm không có biến thể
-                                                                echo round($phan_tram, 1);
+                                                                if (isset($regular_price) && !empty($sale_price)) {
+                                                                    echo "-" . round($phan_tram, 1) . "%";
+                                                                } else {
+                                                                    // echo 0;
+                                                                }
+                                                                // echo round($phan_tram, 1);
                                                             }
-                                                            ?>%</p>
+                                                            ?></p>
                                                 </div>
                                                 <div class="newprice">
                                                     <p><?php
@@ -146,10 +159,16 @@
                                                         $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
                                                         if ($product && $product->is_type('variable')) {
                                                             // Sản phẩm có biến thể
-                                                            echo $min_regular_price;
+                                                            echo $min_variation_price;
                                                         } else {
                                                             // Sản phẩm không có biến thể
-                                                            echo $sale_price;
+                                                            // Sản phẩm không có biến thể
+    
+                                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                                echo $sale_price;
+                                                            } else {
+                                                                echo $regular_price;
+                                                            }
                                                         }
                                                         ?> VNĐ</p>
                                                 </div>

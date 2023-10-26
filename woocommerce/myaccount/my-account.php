@@ -44,44 +44,8 @@ woocommerceElement.classList.add('container');
 
 </script>
 <style>
-	.woocommerce{
-		margin-top: 50px;
-	}
-	/* sidebar */
-	.woocommerce-MyAccount-navigation {
-		border-radius: 8px;
-		background: var(--gray-gray-11-main, #FFF);
-		display: flex;
-		padding: 8px;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 8px;
-		align-self: stretch;
-		background: var(--color-gray-gray-11-main-white, #fff);
-		box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);
-	}
 
-	.woocommerce-MyAccount-navigation ul {
-		list-style: none;
-		width: 100%;
-		padding: 0px;
-		margin-top: 10px;
-	}
-
-	.woocommerce-MyAccount-navigation ul li {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		font-size: 16px;
-		padding-left: 20px;
-	}
-
-	.is-active {
-		border-radius: 8px;
-		background: var(--pink-pink-4-main, #F92296);
-		color: #fff;
-	}
-	.is-active a {
-		font-size: 18px;
-		color: #fff;
+.woocommerce {
+		margin-top: 20px;
 	}
 </style>

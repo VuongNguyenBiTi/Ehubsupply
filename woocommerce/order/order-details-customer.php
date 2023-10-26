@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Order Customer Details
  *
@@ -15,52 +16,74 @@
  * @version 5.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-$show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_address();
+$show_shipping = !wc_ship_to_billing_address_only() && $order->needs_shipping_address();
 ?>
 <section class="woocommerce-customer-details">
+	<?php if ($show_shipping) : ?>
+		<section class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses col-set addresses">
+			<div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-12">
+			<?php endif; ?>
 
-	<?php if ( $show_shipping ) : ?>
+			<!-- <h2 class="woocommerce-column__title"><?php esc_html_e('Billing address', 'woocommerce'); ?></h2> -->
+			<h3>Thông tin nhận hàng</h3>
 
-	<section class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses col2-set addresses">
-		<div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-1">
+			<?php
+			$billing_first_name = $order->get_billing_first_name();
+			$billing_address_1 = $order->get_billing_address_1();
+			$billing_city = $order->get_billing_city();
+			$billing_country = $order->get_billing_country();
 
+			$billing_phone = $order->get_billing_phone();
+			$billing_email = $order->get_billing_email();
+
+			?>
+			<div class="info">
+				<div class="row">
+					<p class="col-lg-3 col-md-4 info_name"> Tên người đặt : </p> <span class="col-lg-9  col-md-8  info_content"> <?php echo $billing_first_name; ?> </span>
+				</div>
+				<div class="row">
+					<p class="col-lg-3  col-md-4  info_name"> Địa chỉ giao hàng :</p> <span class="col-lg-9  col-md-8  info_content"> <?php echo $billing_address_1; ?> </span>
+				</div>
+				<div class="row ">
+					<p class="col-lg-3  col-md-4 info_name"> Tỉnh/ Thành phố :</p> <span class="col-lg-9  col-md-8  info_content"> <?php echo $billing_city; ?> </span>
+				</div>
+				<div class="row">
+					<p class="col-lg-3  col-md-4 info_name"> Số điện thoại :</p> <span class="col-lg-9  col-md-8  info_content"> <?php echo $billing_phone; ?> </span>
+				</div>
+				<div class="row">
+					<p class="col-lg-3  col-md-4 info_name">Email :</p> <span class="col-lg-9  col-md-8 info_content"> <?php echo $billing_email; ?> </span>
+				</div>
+
+			</div>
+			<?php if ($show_shipping) : ?>
+			</div>
+		</section>
 	<?php endif; ?>
 
-	<h2 class="woocommerce-column__title"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
-
-	<address>
-		<?php echo wp_kses_post( $order->get_formatted_billing_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
-
-		<?php if ( $order->get_billing_phone() ) : ?>
-			<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_billing_phone() ); ?></p>
-		<?php endif; ?>
-
-		<?php if ( $order->get_billing_email() ) : ?>
-			<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
-		<?php endif; ?>
-	</address>
-
-	<?php if ( $show_shipping ) : ?>
-
-		</div><!-- /.col-1 -->
-
-		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
-			<h2 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
-			<address>
-				<?php echo wp_kses_post( $order->get_formatted_shipping_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
-
-				<?php if ( $order->get_shipping_phone() ) : ?>
-					<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_shipping_phone() ); ?></p>
-				<?php endif; ?>
-			</address>
-		</div><!-- /.col-2 -->
-
-	</section><!-- /.col2-set -->
-
-	<?php endif; ?>
-
-	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
-
+	<?php do_action('woocommerce_order_details_after_customer_details', $order); ?>
 </section>
+<style>
+	.info_item {
+		display: flex;
+	}
+
+	.info_item p {
+		margin-right: 20px;
+	}
+
+	.addresses h3 {
+		color: #000;
+	}
+
+	@media (max-width: 500px) {
+		.info_name {
+			margin-bottom: 0;
+			
+		}
+		.info_content{
+			margin-bottom: 10px !important;
+		}
+	}
+</style>

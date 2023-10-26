@@ -17,7 +17,9 @@
                         $args = array(
                             'post_type' => 'product',
                             'posts_per_page' => 4,
-                            'orderby' => 'rand', // Sắp xếp ngẫu nhiên
+                            'meta_key' => 'total_sales', // lấy số lượng sản phẩm bán ra lớn nhất
+                            'orderby' => 'meta_value_num', 
+                            'order' => 'DESC', 
                         );
                         ?>
                         <?php $getposts = new WP_query($args); ?>
@@ -50,12 +52,12 @@
                                                 $sale_price = 0;
                                                 $variation = wc_get_product($product_id);
                                                 if (is_a($variation, 'WC_Product_Variation')) {
-                                                    // If it's a variation, get its price
+                                                   
                                                     $price = $variation->get_price();
                                                     $price = number_format($price, 0, ',', '.');
                                                     $variation_attributes = $variation->get_variation_attributes();
                                                 } else {
-                                                    // If it's not a variation, get the regular and sale prices
+                                                   
                                                     $regular_price = get_post_meta($product_id, '_regular_price', true); // Giá gốc
                                                     $sale_price = get_post_meta($product_id, '_sale_price', true); // Giá khuyến mãi
                                                     $regular_price = floatval($regular_price);
@@ -63,16 +65,16 @@
                                                     if ($regular_price != 0) {
                                                         $phan_tram = 100 - ($sale_price * 100) / $regular_price;
                                                     } else {
-                                                        $phan_tram = 0; // You can adjust this default value as needed
+                                                        $phan_tram = 0; 
                                                     }
                                                     $sale_price = number_format($sale_price, 0, ',', '.');
                                                     $regular_price = number_format($regular_price, 0, ',', '.');
                                                 }
-                                                $price = $sale_price; // You can change this to $regular_price if needed
+                                                $price = $sale_price; 
                                                 $variations = wc_get_product($product_id)->get_children();
                                                 if (!empty($variations)) {
-                                                    $min_variation_price = PHP_FLOAT_MAX; // Set to a large initial value
-                                                    $min_regular_price = PHP_FLOAT_MAX; // Set to a large initial value
+                                                    $min_variation_price = PHP_FLOAT_MAX; 
+                                                    $min_regular_price = PHP_FLOAT_MAX; 
                                                     foreach ($variations as $variation_id) {
                                                         $variation = wc_get_product($variation_id);
                                                         if (is_a($variation, 'WC_Product_Variation')) {
@@ -103,30 +105,43 @@
                                                         $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
                                                         if ($product && $product->is_type('variable')) {
                                                             // Sản phẩm có biến thể
-                                                            echo   $min_variation_price;
+                                                            echo   $min_regular_price . " VNĐ";
                                                         } else {
                                                             // Sản phẩm không có biến thể
-                                                            echo  $regular_price;
-                                                        }
-                                                        ?> VNĐ</p>
-                                                    <p class="oldprice2">
-                                                        -<?php
-                                                            $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
-                                                            $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
-                                                            if ($product && $product->is_type('variable')) {
-                                                                // Sản phẩm có biến thể
-                                                                if ($min_regular_price != 0) {
-                                                                    $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
-                                                                    echo round($phan_tram, 1);
-                                                                } else {
-                                                                    // Handle the case where $regular_price is zero
-                                                                    echo $phan_tram = 0; // You can adjust this default value as needed
-                                                                }
+                                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                                echo $regular_price . " VNĐ";
                                                             } else {
-                                                                // Sản phẩm không có biến thể
-                                                                echo round($phan_tram, 1);
+                                                                // echo 0;
                                                             }
-                                                            ?>%</p>
+                                                            // echo  $regular_price;
+                                                        }
+                                                        ?> </p>
+                                                    <p class="oldprice2">
+                                                        <?php
+                                                        $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
+                                                        $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
+                                                        if ($product && $product->is_type('variable')) {
+                                                            // Sản phẩm có biến thể
+                                                            if ($min_regular_price != 0) {
+                                                                // $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
+                                                                // echo round($phan_tram, 1);
+                                                                $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
+                                                                $phan_tram1 = (floatval($phan_tram));
+                                                                echo "-" . round($phan_tram1, 1) . "%";
+                                                            } else {
+                                                                
+                                                                echo "-" . $phan_tram = 0 . "%"; 
+                                                            }
+                                                        } else {
+                                                            // Sản phẩm không có biến thể
+                                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                                echo "-" . round($phan_tram, 1) . "%";
+                                                            } else {
+                                                                // echo 0;
+                                                            }
+                                                            // echo round($phan_tram, 1);
+                                                        }
+                                                        ?></p>
                                                 </div>
                                                 <div class="newprice">
                                                     <p>
@@ -135,10 +150,16 @@
                                                         $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
                                                         if ($product && $product->is_type('variable')) {
                                                             // Sản phẩm có biến thể
-                                                            echo $min_regular_price;
+                                                            echo $min_variation_price;
                                                         } else {
                                                             // Sản phẩm không có biến thể
-                                                            echo $sale_price;
+                                                        
+
+                                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                                echo $sale_price;
+                                                            } else {
+                                                                echo $regular_price;
+                                                            }
                                                         }
                                                         ?> VNĐ</p>
                                                 </div>
