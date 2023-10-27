@@ -203,6 +203,16 @@
       padding-top: 10px;
       padding-bottom: 10px;
     }
+    .account_mobile_1 {
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
+    }
+    .account_mobile_2 {
+      @media screen and (min-width: 800px) {
+        display: none;
+      }
+    }
   }
   .bottom-menu a {
     // font-family: calibri;
@@ -315,12 +325,34 @@ $secondary-color: #6c757d;
 .mobile-menu-overlay {
   transition: all 0.5s linear;
   .web-container {
+    .search_left_mobile {
+      width: 100%;
+      padding: 10px;
+      position: relative;
+      input {
+        width: 100%;
+        padding: 4px;
+        border-radius: 25px;
+        border: 1px solid $main-co;
+        padding-left: 10px;
+      }
+      button {
+        position: absolute;
+        right: 15px;
+        background: none;
+        border: none;
+        top: 15px;
+        i {
+          color: $main-co;
+        }
+      }
+    }
     .logo_shop_ov {
       border-bottom: 1px solid $main-co;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       img {
         width: 100%;
-        transform: scale(0.6);
+        transform: scale(0.7);
       }
     }
     .nav-menu {
@@ -334,7 +366,6 @@ $secondary-color: #6c757d;
           display: block;
         }
       }
-
       li {
         position: relative;
         color: black;
@@ -360,7 +391,7 @@ $secondary-color: #6c757d;
           text-decoration: none;
           color: $secondary-color;
           display: block;
-          padding: 10px 20px;
+          padding: 10px;
           transition: background-color 0.3s;
           @media screen and (max-width: 500px) {
             font-size: 14px;
@@ -511,7 +542,7 @@ $secondary-color: #6c757d;
 .popScroll {
   display: none;
 }
-/* CSS */
+
 .overlay_popup {
   position: fixed;
   top: 0;
@@ -530,15 +561,14 @@ $secondary-color: #6c757d;
   height: auto;
   z-index: 99999;
   display: none;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
- 
-  &.hien{
-    display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 
+  &.hien {
+    display: none;
   }
- 
+
   .popup {
     z-index: 10;
     width: 500px;
@@ -598,7 +628,7 @@ $secondary-color: #6c757d;
     text-align: center;
     text-transform: uppercase;
     background: $main-co;
-    .btn_close{
+    .btn_close {
       position: absolute;
       right: 2%;
       top: -2%;
@@ -700,109 +730,149 @@ $secondary-color: #6c757d;
     border-left: 3px solid transparent;
     border-right: 3px solid transparent;
   }
-  
-@media screen and (max-width: 600px) {
-  .popup {
-    width: 370px;
-    height: 480px;
+
+  @media screen and (max-width: 600px) {
+    .popup {
+      width: 370px;
+      height: 480px;
+    }
+
+    .popScroll h1 {
+      height: 40px;
+      font: 18px/40px sans-serif;
+    }
+
+    .subscribe-widget .email-form {
+      width: 210px;
+    }
+
+    .adstext {
+      margin-top: 20px;
+    }
   }
 
-  .popScroll h1 {
-    height: 40px;
-    font: 18px/40px sans-serif;
+  @media screen and (max-width: 400px) {
+    .popup {
+      width: 350px;
+      height: 480px;
+    }
+
+    .popScroll h1 {
+      height: 40px;
+      font: 18px/40px sans-serif;
+    }
+
+    .subscribe-widget .email-form {
+      width: 210px;
+    }
+
+    .banner {
+      margin: 10px auto;
+    }
+
+    .adstext {
+      margin-top: 20px;
+    }
   }
 
-  .subscribe-widget .email-form {
-    width: 210px;
+  input.email-form:active,
+  input.email-form:focus {
+    -webkit-animation: fade 0.55s ease-in;
+    -moz-animation: fade 0.55s ease-in;
+    animation: fade 0.55s ease-in;
   }
 
-  .adstext {
-    margin-top: 20px;
+  @-webkit-keyframes fade {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    66% {
+      box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
+    }
+  }
+  @-moz-keyframes fade {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    66% {
+      box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
+    }
+  }
+  @-o-keyframes fade {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    66% {
+      box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
+    }
+  }
+  @keyframes fade {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    66% {
+      box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
+    }
   }
 }
 
-@media screen and (max-width: 400px) {
-  .popup {
-    width: 350px;
-    height: 480px;
+.header {
+  .acc_mobile_right {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+    transition: right 0.5s;
+    @media screen and (max-width: 500px) {
+      width: 70%;
+    }
+    .avt_wrap {
+      padding-top: 20px;
+    }
+    .menu_acc_woo{
+      ul{
+        padding: 0;
+        list-style-type: none;
+        a:focus{
+          color: $main-co;
+        }
+        li{
+          padding: 7px;
+          margin: 10px;
+          &:focus{
+            color: $main-co;
+          }
+          i{
+            width: 30px;
+          }
+        }
+      }
+    }
   }
-
-  .popScroll h1 {
-    height: 40px;
-    font: 18px/40px sans-serif;
+  .show_acc_mobile_right {
+    right: 0;
   }
-
-  .subscribe-widget .email-form {
-    width: 210px;
-  }
-
-  .banner {
-    margin: 10px auto;
-  }
-
-  .adstext {
-    margin-top: 20px;
-  }
-}
-
-input.email-form:active,
-input.email-form:focus {
-  -webkit-animation: fade 0.55s ease-in;
-  -moz-animation: fade 0.55s ease-in;
-  animation: fade 0.55s ease-in;
-}
-
-@-webkit-keyframes fade {
-  0% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  66% {
-    box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
-  }
-
-  100% {
-    box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
-  }
-}
-@-moz-keyframes fade {
-  0% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  66% {
-    box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
-  }
-
-  100% {
-    box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
-  }
-}
-@-o-keyframes fade {
-  0% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  66% {
-    box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
-  }
-
-  100% {
-    box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
-  }
-}
-@keyframes fade {
-  0% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  66% {
-    box-shadow: 0 0 0 10px #3d79d0, 0 0 0 12px white;
-  }
-
-  100% {
-    box-shadow: 0 0 0 20px transparent, 0 0 0 22px transparent;
-  }
-}
-
 }

@@ -7,6 +7,9 @@
     gap: 24px;
     align-self: stretch;
     backdrop-filter: blur(4px);
+    @media (max-width: 600px) {
+      gap: 0px;
+    }
     h2 {
       color: var(--pink-pink-4-main, #f92296);
       text-align: center;
@@ -14,6 +17,9 @@
       font-style: normal;
       font-weight: 700;
       line-height: 44px;
+      @media (max-width: 600px) {
+        font-size: 22px;
+      }
     }
     p {
       color: var(--color-gray-gray-3-main-text, #1f2937);

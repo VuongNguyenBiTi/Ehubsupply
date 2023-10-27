@@ -46,9 +46,9 @@ do_action('woocommerce_before_edit_account_form'); ?>
 							$user = wp_get_current_user();
 							$custom_avatar = get_user_meta($user->ID, 'custom_avatar', true);
 							if ($custom_avatar) {
-								echo '<img src="' . $custom_avatar . '" class="custom_avatar" />';
+								echo '<img id="blah" src="' . $custom_avatar . '" class="custom_avatar" />';
 							} else {
-								echo '<img src="' . get_avatar_url($user->ID) . '" class="custom_avatar" />';
+								echo '<img id="blah" src="' . get_avatar_url($user->ID) . '" class="custom_avatar" />';
 							}
 							?>
 						</p>
@@ -69,10 +69,7 @@ do_action('woocommerce_before_edit_account_form'); ?>
 
 		</div>
 	</main>
-
-
 	<!-- edit name -->
-
 	<form class="woocommerce-EditAccountForm edit-account" action="" method="post" <?php do_action('woocommerce_edit_account_form_tag'); ?>>
 		<?php do_action('woocommerce_edit_account_form_start'); ?>
 		<div class="user_top">
@@ -143,9 +140,17 @@ do_action('woocommerce_before_edit_account_form'); ?>
 			fieldset.style.display = "none";
 		}
 	});
+	upload_avatar.onchange = evt => {
+		const [file] = upload_avatar.files
+		if (file) {
+			blah.src = URL.createObjectURL(file)
+		}
+	};
 </script>
 <style>
 	.woocommerce {
 		margin-top: 20px;
 	}
 </style>
+
+

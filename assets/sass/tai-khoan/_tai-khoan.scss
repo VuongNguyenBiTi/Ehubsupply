@@ -6,8 +6,7 @@
   margin-bottom: 30px;
   @media screen and (max-width: 480px) {
     padding: 15px;
-
-}
+  }
 }
 .tt_avt {
   color: #000;
@@ -19,9 +18,8 @@
   &_wrap {
     display: flex;
     @media screen and (max-width: 480px) {
-     flex-direction: column;
-  
-  }
+      flex-direction: column;
+    }
   }
   &_left {
     .img_change {
@@ -55,6 +53,11 @@
     }
   }
 }
-.woocommerce-error{
-  margin:  0 auto;
+.woocommerce-error {
+  margin: 0 auto;
+}
+.woocommerce-MyAccount-navigation {
+  @media screen and (max-width: 770px) {
+    display: none;
+  }
 }

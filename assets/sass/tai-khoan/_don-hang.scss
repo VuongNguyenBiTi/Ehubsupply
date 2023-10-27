@@ -50,8 +50,29 @@ $custom-tab-link-hover-border: none !important;
 .nav-tabs .nav-item {
   padding-left: 50px;
   @media (max-width: 1000px) {
-  padding-left: 0px !important;
+    padding-left: 10px !important;
   }
+  @media (max-width: 770px) {
+    padding-left: 8% !important;
+  }
+  @media (max-width: 700px) {
+    padding-left: 7% !important;
+  }
+  @media (max-width: 680px) {
+    padding-left: 6% !important;
+  }
+  @media (max-width: 650px) {
+    padding-left: 5% !important;
+  }
+  @media (max-width: 600px) {
+    padding-left: 0 !important;
+  }
+}
+.custom-tabs {
+  @media screen and (max-width: 600px) {
+    display: none !important;
+  }
+
 }
 
 .order_wrap {
@@ -74,7 +95,6 @@ $custom-tab-link-hover-border: none !important;
     border: none;
   }
 }
-
 
 .donhang {
   display: none;
@@ -115,9 +135,8 @@ $custom-tab-link-hover-border: none !important;
       padding-right: 5px;
       padding-top: 5px;
     }
-    p{
+    p {
       color: #fff;
     }
   }
 }
-

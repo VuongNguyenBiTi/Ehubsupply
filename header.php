@@ -53,40 +53,12 @@
                             }
                             ?>
 
-                            <!-- <ul>
-                                <li><a href=""> Trang chủ</a></li>
-                                <li><a href="">Sản phẩm <i class="fal fa-angle-down"></i></a></li>
-                                <li><a href="">Cẩm nang <i class="fal fa-angle-down"></i></a></li>
-                                <li><a href=""> Giới thiệu </a></li>
-                                <li><a href=""> Liên hệ</a></li>
 
-                            </ul> -->
                         </div>
 
                     </div>
                     <div class="header_icon_wrap">
-                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
-                        </button>
 
-                       
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
                         <div class="icon_header" id="icon_search">
                             <i class="far fa-search"></i>
@@ -100,12 +72,13 @@
                                 <span id="mini-cart-count" class="count-cart button product_type_simple add_to_cart_button ajax_add_to_cart cart-quantity badge rounded-pill bg-light text-white"><?php echo $items_count ? $items_count : '0'; ?></span>
                             </div>
                         </a>
-                        
+
                         <a href="<?php echo get_home_url(); ?>/yeu-thich/">
                             <div class="icon_header">
                                 <i class="fal fa-heart"></i>
                                 <span id="wishlist-count">
-                                    <?php $wishlistCount = yith_wcwl_count_products(); echo $wishlistCount; ?>
+                                    <?php $wishlistCount = yith_wcwl_count_products();
+                                    echo $wishlistCount; ?>
                                 </span>
                             </div>
                         </a>
@@ -134,42 +107,50 @@
                     </a>
 
                 </div>
-
                 <div class="mobile_order_item" id="mobile_order_item">
-
                 </div>
-
-
                 <div id="mobile-overlay-menu" class="mobile-menu-overlay">
 
                     <div class="web-container">
                         <div class="logo_shop_ov">
                             <img src="https://i.imgur.com/z6XLbjF.png" alt="">
                         </div>
+                        <!-- sreach -->
+                        <form action="" method="get">
+                            <div class="search_left_mobile">
+                                <input type="text" name="s" placeholder="Tìm kiếm">
+                                <button type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- end -->
+
+
                         <ul class="nav-menu menu">
 
                             <li>
-                                <p id="menu_tp">Thực Phẩm Chức Năng</p>
+                                <p id="menu_tp">Thực Phẩm Chức Năng <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_tp_con">
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/thuc-pham-chuc-nang/giam-can/?yith_wcan=1&orderby=date">Giảm Cân</a></li>
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/thuc-pham-chuc-nang/thuoc-bo/?yith_wcan=1&orderby=date">Thuốc Bổ</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <p href="#" id="menu_csd">Chăm Sóc Da</p>
+                                <p href="#" id="menu_csd">Chăm Sóc Da <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_csd_con">
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/cham-soc-da/kem-chong-nang/?yith_wcan=1&orderby=date">Kem Chống Nắng</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <p href="#" id="menu_clg">Collagen</p>
+                                <p href="#" id="menu_clg">Collagen <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_clg_con">
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/collagen/collagen-dang-nuoc/?yith_wcan=1&orderby=date"> Collagen Dạng Nước</a></li>
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/collagen/collagen-dang-nuoc/?yith_wcan=1&orderby=date"> Collagen Dạng Viên</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <p id="menu_td">Trang Điểm</p>
+                                <p id="menu_td">Trang Điểm <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_td_con">
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/tay-trang/?yith_wcan=1&orderby=date">Tẩy Trang</a></li>
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/son-moi/?yith_wcan=1&orderby=date">Son Môi</a></li>
@@ -177,7 +158,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <p href="#" id="menu_cm">Cẩm Nang</p>
+                                <p href="#" id="menu_cm">Cẩm Nang <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_cm_con">
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-cam-nang/cam-nang-san-pham/">Cẩm Nang Sản Phẩm</a></li>
                                     <li><a href="<?php echo get_home_url(); ?>/danh-muc-cam-nang/tin-nganh/">Tin Ngành</a></li>
@@ -216,16 +197,58 @@
                             <span>Liên Hệ</span>
                         </a>
 
-                        <a href="<?php echo get_home_url(); ?>/tai-khoan/">
+                        <a href="<?php echo get_home_url(); ?>/tai-khoan/" class="account_mobile_1">
                             <i class="far fa-user-alt"></i>
-                            <span>Tài khoản</span>
+                            <span>Tài khoản1</span>
                         </a>
+                        <a id="account_mobile_2" class="account_mobile_2">
+                            <i class="far fa-user-alt"></i>
+                            <span>Tài khoản2</span>
+                        </a>
+
 
                     </div>
                 </div>
+                <div class="acc_mobile_right" id="acc_mobile_right">
+                    <nav class="menu_acc_woo">
+                        <?php
+                        if (is_user_logged_in()) {
+                            // Lấy thông tin của người dùng hiện tại
+                            $current_user = wp_get_current_user();
 
+                            // Sử dụng hàm get_avatar để lấy ảnh đại diện
+                            $avatar_url = get_avatar($current_user->ID, 96); // Thay đổi kích thước ảnh tại đây (ở đây là 96)
+
+                            // Hiển thị ảnh đại diện
+                            $avatar_url;
+                            // Lấy tên của người dùng
+                            $user_name = $current_user->display_name;
+
+                            // Hiển thị tên người dùng
+                            $user_name;
+                        }
+                        ?>
+                        <div class="avt_wrap">
+                            <div class="avt">
+                                <?php echo $avatar_url; ?>
+                            </div>
+                            <div class="avt_name">
+                                <p><?php echo $user_name; ?></p>
+                            </div>
+                        </div>
+                        <ul id="account-menu">
+                            <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+                                <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
+                                    <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
+                                        <?php echo esc_html($label); ?>
+                                    </li>
+                                </a>
+                            <?php endforeach; ?>
+                        </ul>
+
+                    </nav>
+                </div>
             </div>
-
             <!-- popup -->
             <div class="popScroll" id="popScroll">
                 <div class="popup">
@@ -248,11 +271,8 @@
                 </div>
 
             </div>
-
             <div class="overlay_popup " id="overlay_popup"></div>
             <!--  -->
-
-
         </header>
         <!-- End Header -->
         <script>
@@ -292,7 +312,6 @@
                 });
             });
         </script>
-
         <script>
             // thực hiện active cho menu bottom
             // Lấy URL hiện tại của trang
@@ -330,7 +349,6 @@
 
             //
         </script>
-
         <script>
             (function($) {
                 $(document).ready(function() {
@@ -378,19 +396,42 @@
                 });
             })(jQuery);
         </script>
-        <!-- <script>
-            document.getElementById("cart_mobile").addEventListener("click", function() {
-                var mobileMenu = document.getElementById("mobile_order_item");
+        <!-- menu account -->
+        <script>
+            document.getElementById("account_mobile_2").addEventListener("click", function() {
+                var acc_mobile_right = document.getElementById("acc_mobile_right");
                 var overlay = document.getElementById("overlay");
-                mobileMenu.classList.add("show_order_item");
+                acc_mobile_right.classList.add("show_acc_mobile_right");
                 overlay.style.display = "block";
             });
-
             document.getElementById("overlay").addEventListener("click", function() {
-                var mobileMenu = document.getElementById("mobile_order_item");
+                var acc_mobile_right = document.getElementById("acc_mobile_right");
                 var overlay = document.getElementById("overlay");
-                mobileMenu.classList.remove("show_order_item");
+                acc_mobile_right.classList.remove("show_acc_mobile_right");
                 overlay.style.display = "none";
             });
-        </script> -->
+        </script>
 
+
+
+
+        <script>
+            var icons = [
+                'far fa-user',
+                'fal fa-luggage-cart',
+                'far fa-cloud-download-alt',
+                'fal fa-map-marker-alt',
+                'far fa-user-circle',
+                'fal fa-sign-out'
+            ];
+
+            var menuItems = document.querySelectorAll('#account-menu li');
+
+            menuItems.forEach(function(item, index) {
+                if (index < icons.length) {
+                    var iconElement = document.createElement('i');
+                    iconElement.className = icons[index];
+                    item.insertBefore(iconElement, item.firstChild);
+                }
+            });
+        </script>

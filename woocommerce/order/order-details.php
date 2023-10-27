@@ -91,6 +91,7 @@ if ($order) {
 				</a>
 			</li>
 		</ul>
+		
 		<div class="custom-tabs-progress"></div>
 	</div>
 
@@ -182,10 +183,12 @@ if ($show_customer_details) {
 		background-color: #ddd;
 		z-index: -1;
 	}
-	.nav-item a:hover{
-		color:#725057;
+
+	.nav-item a:hover {
+		color: #725057;
 	}
-	.woocommerce-order-details h3{
+
+	.woocommerce-order-details h3 {
 		color: #000;
 	}
 </style>

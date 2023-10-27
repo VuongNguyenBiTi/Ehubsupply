@@ -81,6 +81,7 @@
     form.woocommerce-cart-form {
       table.woocommerce-cart-form__contents {
         border-radius: 0 0 8px 8px;
+        
       }
       table {
         thead {
@@ -89,6 +90,11 @@
           }
         }
         tbody {
+          .actions{
+            .button{
+              color: #fff;
+            }
+          }
           tr.cart_item {
             td.product-thumbnail {
               a img {

@@ -7,7 +7,7 @@ global $post;
     <div class="page-blog">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="col-12 col-md-4 col-lg-3 mb-4">
                     <div class="page-blog-left">
                         <!-- lấy theo thời gian mới nhất -->
                         <?php
@@ -83,7 +83,7 @@ global $post;
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-9">
+                <div class="col-12 col-lg-9 col-md-8">
                     <ul class="blog-list list-unstyled">
                         <?php
                         $args = array(
@@ -110,7 +110,7 @@ global $post;
                                 <?php if ($getposts->have_posts()) : ?>
                                     <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-4 col-md-6 col-6 ">
                                             <li class="blog-items">
                                                 <a href="<?php the_permalink(); ?>">
                                                     <div class="image">

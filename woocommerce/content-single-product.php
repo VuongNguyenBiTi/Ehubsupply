@@ -89,15 +89,39 @@ if (post_password_required()) {
 				woocommerce_template_single_price();
 				woocommerce_template_single_excerpt();
 				woocommerce_template_single_add_to_cart(); ?>
+				<!-- test nút thanh toán ngay -->
+				<?php
+				$product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
+				$product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
+				if ($product && $product->is_type('variable')) { ?>
+				
+				<?php } else { 
+					?>
+					<a href="<?php echo get_home_url(); ?>/thanh-toan/?add-to-cart=<?php the_ID(); ?>">
+						<button class="btn-31">
+							<span class="text-container">
+								<span class="text">Mua ngay</span>
+							</span>
+						</button>
+					</a>
+					<?php
+				}
+				?>
 
 
-				<a href="<?php echo get_home_url(); ?>/thanh-toan/?add-to-cart=<?php the_ID(); ?>">
+				<!-- end -->
+
+
+
+
+
+				<!-- <a href="<?php echo get_home_url(); ?>/thanh-toan/?add-to-cart=<?php the_ID(); ?>">
 					<button class="btn-31">
 						<span class="text-container">
 							<span class="text">Mua ngay</span>
 						</span>
 					</button>
-				</a>
+				</a> -->
 
 				<?php
 				woocommerce_template_single_meta();
@@ -127,12 +151,16 @@ if (post_password_required()) {
 
 <script>
 	// Lấy phần tử có lớp "woocommerce-notices-wrapper"
-var noticesWrapper = document.querySelector('.woocommerce-notices-wrapper');
+	var noticesWrapper = document.querySelector('.woocommerce-notices-wrapper');
 
-// Kiểm tra xem phần tử tồn tại
-if (noticesWrapper) {
-    // Thêm lớp "container" vào phần tử
-    noticesWrapper.classList.add('container');
-}
-
+	// Kiểm tra xem phần tử tồn tại
+	if (noticesWrapper) {
+		// Thêm lớp "container" vào phần tử
+		noticesWrapper.classList.add('container');
+	}
 </script>
+<style>
+	.woocommerce-notices-wrapper{
+		margin: 0 auto;
+	}
+</style>

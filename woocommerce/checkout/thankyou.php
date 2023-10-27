@@ -177,4 +177,18 @@ defined('ABSPATH') || exit;
 	.detail_wrap{
 		box-shadow: none ;
 	}
+	@media (max-width: 500px) {
+		.woocommerce ul.order_details{
+			flex-direction: column;
+			border-right: none;
+			margin: 10px;
+		}
+		.woocommerce ul.order_details li{
+			border-right: none;
+		}
+		.detail_wrap {
+			padding: 0px;
+		}
+	}
+
 </style>

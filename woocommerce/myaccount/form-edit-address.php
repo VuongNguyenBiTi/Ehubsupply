@@ -71,6 +71,12 @@
 			margin-bottom: 30px;
 		}
 
+		@media screen and (max-width: 600px) {
+			.border_address {
+				padding: 15px;
+			}
+		}
+
 		.woocommerce-input-wrapper input {
 			width: 100%;
 			padding: 10px;

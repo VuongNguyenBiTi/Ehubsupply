@@ -70,11 +70,13 @@
       margin: 10,
       nav: true,
       // autoplay: true,
-      autoplayTimeout: 2000,
+      autoplayTimeout: 3000,
       autoplayHoverPause: true,
+      nav : false,
+      dots: false,
       responsive: {
         0: {
-          items: 1,
+          items: 2,
         },
         600: {
           items: 3,
@@ -232,9 +234,9 @@
     });
 
 
+  
 
-
-    //
+    
   });
 })(jQuery);
 

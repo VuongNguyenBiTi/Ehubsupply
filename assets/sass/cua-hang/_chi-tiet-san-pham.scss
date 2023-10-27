@@ -92,6 +92,9 @@
 
       a {
         font-size: 20px;
+        @media (max-width: 600px) {
+          font-size: 16px;
+        }
       }
 
       &.active {
@@ -193,4 +196,12 @@
 
 .price{
   font-weight: 700;
+}
+.woocommerce p.stars a{
+  color: orange !important;
+
+}
+.woocommerce #review_form #respond .form-submit input{
+  color: #fff;
+  background-color: $main-co;
 }

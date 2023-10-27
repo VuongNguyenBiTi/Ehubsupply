@@ -8,14 +8,18 @@
       font-size: 18px;
       font-style: normal;
       font-weight: 400;
-      line-height: 18px; 
+      line-height: 18px;
       span {
         color: var(--Gray-400---Opacity, #9ca3af);
 
-        font-size: 20px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 700;
-        line-height: 18px; 
+        line-height: 18px;
+        @media (max-width: 600px) {
+        line-height: 20px;
+        font-size: 15px;
+        }
       }
     }
   }
@@ -25,8 +29,9 @@
         display: flex;
         margin: 0 auto;
         @media (max-width: 600px) {
-         width: 100%;
-      }
+          width: 100%;
+          display: none;
+        }
       }
     }
   }
@@ -40,13 +45,11 @@
     );
     position: relative;
     background-repeat: no-repeat;
-    // background-position-y: center;
     background-size: cover;
     backdrop-filter: blur(4px);
     @media (max-width: 600px) {
       padding-top: 0px;
-
-   }
+    }
     .image {
       width: 100%;
       display: flex;
@@ -66,15 +69,20 @@
       }
     }
     &_info {
-   margin-top: 60px;
+      margin-top: 60px;
+      @media (max-width: 600px) {
+        margin-top: 10px;
+      }
       h2 {
         color: var(--pink-pink-4-main, #f92296);
-
         font-size: 27px;
         font-style: normal;
         font-weight: 800;
-        line-height: 32px; /* 133.333% */
+        line-height: 32px;
         margin-bottom: 20px;
+        @media (max-width: 600px) {
+          font-size: 23px;
+        }
       }
       ul {
         padding: 0;
@@ -90,6 +98,9 @@
             font-style: normal;
             font-weight: 500;
             line-height: 24px; /* 150% */
+            @media (max-width: 600px) {
+              font-size: 18px;
+            }
           }
         }
       }
@@ -117,7 +128,10 @@
           font-size: 24px;
           font-style: normal;
           font-weight: 700;
-          line-height: 32px; /* 133.333% */
+          line-height: 32px; 
+          @media (max-width: 600px) {
+            font-size: 21px;
+          }
         }
         p {
           color: var(--gray-gray-11-main, #fff);
@@ -206,7 +220,7 @@
       }
     }
   }
-  &_map{
+  &_map {
     height: 400px;
   }
 }

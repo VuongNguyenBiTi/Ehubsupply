@@ -29,7 +29,10 @@
                                 </svg>
                             </div>
                             <p>Điện thoại : </p>
-                            <p> <?php echo $phone; ?></p>
+                            <a href="tel:<?php echo $phone; ?>">
+                                <p><?php echo $phone; ?></p>
+                            </a>
+
                         </li>
                         <li>
                             <div class="phone">
@@ -83,8 +86,9 @@
                                 $phone = get_sub_field('phone');
                             ?>
                                 <li>
-                                    <?php echo $name;
-                                    echo $phone ?>
+                                    <?php echo $name; ?>
+                                    <a href="tel:<?php echo $phone; ?>"> <?php echo $phone ?> </a>
+
                                 </li>
                             <?php endwhile; ?>
                         <?php endif; ?>

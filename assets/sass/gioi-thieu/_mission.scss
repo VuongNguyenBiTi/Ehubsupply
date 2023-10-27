@@ -52,6 +52,9 @@
       font-style: normal;
       font-weight: 700;
       line-height: 32px; /* 100% */
+      @media (max-width: 600px) {
+        font-size: 22px;
+      }
     }
     p {
       color: var(--color-gray-gray-3-main-text, #1f2937);
