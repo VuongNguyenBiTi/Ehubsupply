@@ -7,10 +7,18 @@ global $post;
 
 
 <div class="contact_breadcrumbs">
-        <div class="container">
-            <h2>Trang chủ / <span>Cẩm nang</span></h2>
-        </div>
+    <div class="container">
+
+        <h2>
+            <a href="<?php echo get_home_url(); ?>">
+               <span>Trang chủ / </span> 
+            </a>
+            <a href="<?php echo get_home_url(); ?>/cam-nang/">
+                <span>Cẩm nang</span>
+            </a>
+        </h2>
     </div>
+</div>
 
 <section class="cam_nang">
     <div class="container">

@@ -214,94 +214,6 @@
 
 
 
-<script>
-    var rowsShown = 1;
-
-    function updateRowsShown() {
-        const screenWidth = $(window).width();
-
-        if (screenWidth >= 1000) {
-            return rowsShown = 9;
-        } else {
-            return rowsShown = 8;
-        }
-
-    }
-    $(document).ready(function() {
-        $('#data').after('<div id="nav"></div>');
-
-        updateRowsShown();
-
-        // var rowsShown = 9;
-        var rowsTotal = $('.shop_product1').length;
-        var numPages = Math.ceil(rowsTotal / rowsShown);
-        $('#nav').prepend('<button href="#" id="first"><i class="fas fa-angle-double-left"></i></button> ');
-        $('#nav').append('<button href="#" id="prev" ><i class="fas fa-chevron-left"></i></button> ');
-        for (i = 1; i <= numPages; i++) {
-            var pageNum = i + 1;
-            $('#nav').append('<a href="#" rel="' + (i - 1) + '">' + i + '</a> ');
-        }
-        $('#nav').append('<button href="#" id="next"><i class="fas fa-chevron-right"></i></button> ');
-        $('#nav').append('<button href="#" id="last"><i class="fas fa-angle-double-right"></i></button> ');
-        $('.shop_product1').hide();
-        $('.shop_product1').slice(0, rowsShown).show();
-        $('#nav a[rel="0"]').addClass('active');
-        $('#first').click(function() {
-            $('#nav a[rel="0"]').click();
-        });
-        $('#last').click(function() {
-            $('#nav a[rel="' + (numPages - 1) + '"]').click();
-        });
-        updatePrevNextVisibility();
-        $('#prev').click(function() {
-            var currentPage = parseInt($('#nav a.active').attr('rel'));
-            if (currentPage > 0) {
-                $('#nav a[rel="' + ((currentPage) - 1) + '"]').click();
-            }
-        });
-        $('#next').click(function() {
-            var currentPage = parseInt($('#nav a.active').attr('rel'));
-            if (currentPage < numPages - 1) {
-                $('#nav a[rel="' + ((currentPage) + 1) + '"]').click();
-            }
-        });
-        $('#nav a').bind('click', function() {
-            $('#nav a').removeClass('active');
-            $(this).addClass('active');
-            var currPage = $(this).attr('rel');
-            var startItem = currPage * rowsShown;
-            var endItem = startItem + rowsShown;
-
-            $('.shop_product1').css('opacity', '0.0').hide().slice(startItem, endItem)
-                .css('display', 'flex').animate({
-                    opacity: 1
-                }, 300);
-            updatePrevNextVisibility();
-        });
-
-        function updatePrevNextVisibility() {
-            var currPage = $('#nav a.active').attr('rel');
-
-            if (currPage == 0) {
-                $('#prev').hide();
-                $('#first').hide();
-            } else {
-                $('#prev').show();
-                $('#first').show();
-            }
-            if (currPage == numPages - 1) {
-                $('#next').hide();
-                $('#last').hide();
-            } else {
-                $('#next').show();
-                $('#last').show();
-            }
-        }
-    });
-</script>
-
-
-
 
 
 <!-- <script>
@@ -386,3 +298,103 @@
         });
     });
 </script> -->
+
+
+<script>
+    var rowsShown = 1;
+    var isPaginationVisible = false;
+
+    function updateRowsShown() {
+        const screenWidth = $(window).width();
+
+        if (screenWidth >= 1000) {
+            rowsShown = 9;
+        } else {
+            rowsShown = 8;
+        }
+    }
+
+    $(document).ready(function() {
+        $('#data').after('<div id="nav"></div>');
+
+        updateRowsShown();
+        var rowsTotal = $('.shop_product1').length;
+        var numPages = Math.ceil(rowsTotal / rowsShown);
+
+        if (numPages > 1) { // Check if there is more than one page
+            isPaginationVisible = true;
+            $('#nav').prepend('<button href="#" id="first"><i class="fas fa-angle-double-left"></i></button> ');
+            $('#nav').append('<button href="#" id="prev" ><i class="fas fa-chevron-left"></i></button> ');
+            for (i = 1; i <= numPages; i++) {
+                var pageNum = i + 1;
+                $('#nav').append('<a href="#" rel="' + (i - 1) + '">' + i + '</a> ');
+            }
+            $('#nav').append('<button href="#" id="next"><i class="fas fa-chevron-right"></i></button> ');
+            $('#nav').append('<button href="#" id="last"><i class="fas fa-angle-double-right"></i></button> ');
+        }
+
+        $('.shop_product1').hide();
+        $('.shop_product1').slice(0, rowsShown).show();
+        if (isPaginationVisible) {
+            $('#nav a[rel="0"]').addClass('active');
+        }
+
+        $('#first').click(function() {
+            $('#nav a[rel="0"]').click();
+        });
+
+        $('#last').click(function() {
+            $('#nav a[rel="' + (numPages - 1) + '"]').click();
+        });
+
+        updatePrevNextVisibility();
+
+        $('#prev').click(function() {
+            var currentPage = parseInt($('#nav a.active').attr('rel'));
+            if (currentPage > 0) {
+                $('#nav a[rel="' + ((currentPage) - 1) + '"]').click();
+            }
+        });
+
+        $('#next').click(function() {
+            var currentPage = parseInt($('#nav a.active').attr('rel'));
+            if (currentPage < numPages - 1) {
+                $('#nav a[rel="' + ((currentPage) + 1) + '"]').click();
+            }
+        });
+
+        $('#nav a').bind('click', function() {
+            $('#nav a').removeClass('active');
+            $(this).addClass('active');
+            var currPage = $(this).attr('rel');
+            var startItem = currPage * rowsShown;
+            var endItem = startItem + rowsShown;
+
+            $('.shop_product1').css('opacity', '0.0').hide().slice(startItem, endItem)
+                .css('display', 'flex').animate({
+                    opacity: 1
+                }, 300);
+
+            updatePrevNextVisibility();
+        });
+
+        function updatePrevNextVisibility() {
+            var currPage = $('#nav a.active').attr('rel');
+
+            if (currPage == 0) {
+                $('#prev').hide();
+                $('#first').hide();
+            } else {
+                $('#prev').show();
+                $('#first').show();
+            }
+            if (currPage == numPages - 1) {
+                $('#next').hide();
+                $('#last').hide();
+            } else {
+                $('#next').show();
+                $('#last').show();
+            }
+        }
+    });
+</script>

@@ -38,8 +38,12 @@
     wp_reset_postdata();
     ?>
     <div class="contact_breadcrumbs">
-        <div class="container">
-            <h2>Trang chủ / <span><?php echo $post_title = get_the_title($post->ID); ?></span></h2>
+        <div class="container"> 
+            <h2> <a href="<?php echo get_home_url(); ?>">
+                    <span>Trang chủ / </span><a href="<?php echo get_home_url(); ?>/cam-nang/">
+                <span>Cẩm nang /</span>
+            </a>
+                </a> <span><?php echo $post_title = get_the_title($post->ID); ?></span></h2>
         </div>
     </div>
     <div class="single_cam_nang">
@@ -71,7 +75,7 @@
                                 </g>
                             </svg>
                             <h3>
-                                Tin Mới Nhất
+                            Cẩm nang mới nhất
                             </h3>
                         </div>
                     </div>
@@ -112,7 +116,7 @@
                         </g>
                     </svg>
                     <h3>
-                        Tin Liên Quan
+                    Cẩm nang liên quan
                     </h3>
                 </div>
                 <a href="<?php echo get_home_url(); ?>/cam-nang/">

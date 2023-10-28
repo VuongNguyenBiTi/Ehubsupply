@@ -17,6 +17,10 @@
     .flashsale {
       &_left {
         display: flex;
+        // align-items: center;
+        @media screen and (max-width: 900px) {
+          align-items: baseline;
+        }
         @media screen and (max-width: 500px) {
           align-items: center;
         }
@@ -35,6 +39,12 @@
         }
       }
       &_time {
+        .countdown {
+          @media screen and (max-width: 500px) {
+            padding-left: 10px;
+            padding-bottom: 4px;
+          }
+        }
         ul {
           display: flex;
           justify-content: space-between;
@@ -55,20 +65,30 @@
             margin-right: 5px;
             margin-left: 5px;
             background-color: $main-co;
+            
             @media screen and (max-width: 1000px) {
               height: 30px;
               width: 30px;
             }
             @media screen and (max-width: 500px) {
               align-items: start;
+              height: 27px;
+              width: 27px;
+              font-size: 12px;
             }
             span {
               color: white;
+              @media screen and (max-width: 500px) {
+                padding-top: 4px;
+              }
             }
           }
         }
       }
       &_right {
+        @media screen and (max-width: 500px) {
+          display: none;
+        }
         a {
           color: var(--gray-gray-3-main, #1f2937);
           font-size: 19px;
@@ -84,14 +104,14 @@
       &_item {
         margin-top: 10px;
         margin-bottom: 10px;
-        transition: all .5s;
+        transition: all 0.5s;
         background: #fff;
         border: 1px solid #e5e7eb;
         border-radius: 8px;
-        &:hover{
+        &:hover {
           border-radius: 8px;
-          box-shadow: 10px 7px 20px 3px rgba(0,0,0,.14);
-          transform: translate3d(0px,-8px,15px);
+          box-shadow: 10px 7px 20px 3px rgba(0, 0, 0, 0.14);
+          transform: translate3d(0px, -8px, 15px);
         }
       }
       // &_top {
@@ -100,7 +120,7 @@
       //   &:hover img{
       //     transform: scale(1.05);
       //   }
-    
+
       //   img {
       //     display: flex;
       //     height: 280px;
@@ -110,7 +130,7 @@
       //     border-radius: 8px;
       //     object-fit: cover;
       //     width: 100%;
-         
+
       //   }
       // }
       &_top {
@@ -121,11 +141,11 @@
         border-radius: 8px;
         max-width: 100%;
         height: 280px;
-      
+
         &:hover img {
           transform: scale(1.1);
         }
-      
+
         img {
           transition: all 0.5s;
           width: 100%;

@@ -13,7 +13,7 @@
     }
   }
   &_wrap {
-    margin-top: 50px;
+    margin-top: 5px;
     display: inline-flex;
     justify-content: left;
     max-width: 100%;
@@ -25,14 +25,14 @@
     }
 
     &::-webkit-scrollbar {
-        height: 8px;
+        height: 5px;
         background-color: transparent;
         border-radius: 8px;
     }
 
     &::-webkit-scrollbar-track {
         border-radius: 8px;
-        height: 5px;
+        height: 2px;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -95,6 +95,8 @@
         }
       }
       &_title {
+        width: 155px;
+        text-align: center;
         h4{
             color: #7b7b7b;
             font-size: 16px;

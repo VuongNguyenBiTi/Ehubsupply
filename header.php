@@ -23,8 +23,11 @@
         <header class="header">
             <div class="container">
                 <div class="header_wrap">
+
                     <div class="header_logo">
-                        <img src="<?php echo esc_html(get_theme_mod('html_logo_header')); ?>" alt="Logo Header">
+                        <a href="<?php echo get_home_url(); ?>">
+                            <img src="<?php echo esc_html(get_theme_mod('html_logo_header')); ?>" alt="Logo Header">
+                        </a>
                     </div>
                     <div class="header_menu_desktop">
                         <div class="header_menu_wrap">
@@ -96,7 +99,9 @@
                         <i class="fal fa-bars"></i>
                     </div>
                     <div class="logo_shop">
-                        <img src="https://i.imgur.com/z6XLbjF.png" alt="">
+                        <a href="<?php echo get_home_url(); ?>">
+                            <img src="https://i.imgur.com/z6XLbjF.png" alt="">
+                        </a>
                     </div>
                     <a href="<?php echo get_home_url(); ?>/gio-hang/">
                         <div class="cart_mobile" id="">
@@ -199,11 +204,11 @@
 
                         <a href="<?php echo get_home_url(); ?>/tai-khoan/" class="account_mobile_1">
                             <i class="far fa-user-alt"></i>
-                            <span>Tài khoản1</span>
+                            <span>Tài khoản</span>
                         </a>
                         <a id="account_mobile_2" class="account_mobile_2">
                             <i class="far fa-user-alt"></i>
-                            <span>Tài khoản2</span>
+                            <span>Tài khoản</span>
                         </a>
 
 
@@ -213,40 +218,58 @@
                     <nav class="menu_acc_woo">
                         <?php
                         if (is_user_logged_in()) {
+                            // Đã đăng nhập
                             // Lấy thông tin của người dùng hiện tại
                             $current_user = wp_get_current_user();
 
                             // Sử dụng hàm get_avatar để lấy ảnh đại diện
                             $avatar_url = get_avatar($current_user->ID, 96); // Thay đổi kích thước ảnh tại đây (ở đây là 96)
 
-                            // Hiển thị ảnh đại diện
-                            $avatar_url;
                             // Lấy tên của người dùng
                             $user_name = $current_user->display_name;
+                        ?>
 
-                            // Hiển thị tên người dùng
-                            $user_name;
+                            <div class="avt_wrap">
+                                <div class="avt">
+                                    <?php echo $avatar_url; ?>
+                                </div>
+                                <div class="avt_name">
+                                    <p><?php echo $user_name; ?></p>
+                                </div>
+                            </div>
+
+                            <ul id="account-menu">
+                                <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+                                    <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
+                                        <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
+                                            <?php echo esc_html($label); ?>
+                                        </li>
+                                    </a>
+                                <?php endforeach; ?>
+                            </ul>
+
+                        <?php
+                        } else {
+                            // Chưa đăng nhập
+                            // Hiển thị nút đăng nhập
+                        ?>
+
+                            <ul id="account-menu">
+                                <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+                                    <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
+                                        <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
+                                            <?php echo esc_html($label); ?>
+                                        </li>
+                                    </a>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php
                         }
                         ?>
-                        <div class="avt_wrap">
-                            <div class="avt">
-                                <?php echo $avatar_url; ?>
-                            </div>
-                            <div class="avt_name">
-                                <p><?php echo $user_name; ?></p>
-                            </div>
-                        </div>
-                        <ul id="account-menu">
-                            <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
-                                <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
-                                    <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
-                                        <?php echo esc_html($label); ?>
-                                    </li>
-                                </a>
-                            <?php endforeach; ?>
-                        </ul>
-
                     </nav>
+
+
+
                 </div>
             </div>
             <!-- popup -->
@@ -262,7 +285,7 @@
                     <div class="subscribe-widget">
                         <!-- form -->
                         <form id="subscribe-form" action="<?php echo get_home_url(); ?>">
-                            <input name="s" placeholder="Nhập thông tin" class="email-form">
+                            <input name="s" placeholder="Nhập thông tin" class="email-form" required>
                             <button type="submit" class="button">Tìm kiếm</button>
                         </form>
                         <!-- end form-->
@@ -411,10 +434,6 @@
                 overlay.style.display = "none";
             });
         </script>
-
-
-
-
         <script>
             var icons = [
                 'far fa-user',

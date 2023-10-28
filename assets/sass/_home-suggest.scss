@@ -1,0 +1,30 @@
+.add_shopping {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  &_wrap {
+    display: flex;
+    height: 40px;
+    max-height: 40px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    background: var(--Primary_Color, #ca2a2a);
+    p {
+      color: var(--gray-gray-11-main, #fff);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+  }
+}

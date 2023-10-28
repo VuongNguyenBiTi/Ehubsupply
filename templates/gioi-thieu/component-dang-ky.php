@@ -83,6 +83,7 @@
     .wpcf7-spinner {
         left: 200px;
         top: 10px;
+        display: none ;
     }
     @media (max-width: 600px) {
         .wpcf7-spinner {

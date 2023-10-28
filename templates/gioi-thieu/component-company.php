@@ -1,5 +1,19 @@
 <div class="introduce_company">
+    <div class="contact_breadcrumbs">
+        <div class="container">
+
+            <h2>
+                <a href="<?php echo get_home_url(); ?>">
+                    <span>Trang chủ / </span>
+                </a>
+                <a href="<?php echo get_home_url(); ?>/gioi-thieu/">
+                    <span>Giới thiệu</span>
+                </a>
+            </h2>
+        </div>
+    </div>
     <div class="container">
+
         <div class="introduce_company_wrap">
             <h2>
                 CÔNG TY TNHH ABC XYZ

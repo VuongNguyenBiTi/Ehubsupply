@@ -9,13 +9,11 @@ global $post;
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
                     <div class="page-blog-left">
-                        <!-- lấy theo thời gian mới nhất -->
                         <?php
                         $args = array(
                             'type'                     => 'post',
                             'child_of'                 => 0,
                             'parent'                   => '',
-                            // 'orderby'    => 'name',
                             'orderby'    => 'date', // Sắp xếp theo thời gian
                             'order'      => 'DESC', // Sắp xếp giảm dần (mới nhất đầu tiên)
                             'hide_empty'               => 1,
@@ -30,7 +28,7 @@ global $post;
                         foreach ($categories as $cat) {
                             $posts_array_time = get_posts(
                                 array(
-                                    'posts_per_page' => 10,
+                                    'posts_per_page' => 5,
                                     'post_type' => '',
                                     'tax_query' => array(
                                         array(
@@ -61,9 +59,7 @@ global $post;
                         </div>
                         <div class="acs">
                             <?php foreach ($posts_array_time as $post) {
-                                // Lấy tiêu đề của bài viết
                                 $post_title = get_the_title($post->ID);
-                                // Lấy hình ảnh đại diện của bài viết
                                 $post_image = get_the_post_thumbnail($post->ID, 'thumbnail');
                                 $post_name = get_post_field('post_name', $post->ID);
                             ?>

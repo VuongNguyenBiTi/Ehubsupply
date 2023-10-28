@@ -2,7 +2,15 @@
 <div class="contact">
     <div class="contact_breadcrumbs">
         <div class="container">
-            <h2>Trang chủ / <span>Liên hệ</span></h2>
+   
+            <h2>
+                <a href="<?php echo get_home_url(); ?>">
+                    <span>Trang chủ / </span>
+                </a>
+                <a href="<?php echo get_home_url(); ?>/lien-he/">
+                    <span>Liên hệ</span>
+                </a>
+            </h2>
         </div>
     </div>
     <div class="contact_logo">
@@ -20,6 +28,14 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="support_info">
+                        <?php if (have_rows('info_footer')) : ?>
+                            <?php while (have_rows('info_footer')) : the_row();
+                                $phone = get_sub_field('phone');
+                                $address = get_sub_field('address');
+                                $email = get_sub_field('email');
+                            ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                         <h2> EHUB SUPPLY COMPANY LIMITED</h2>
                         <ul>
                             <li>
@@ -32,9 +48,9 @@
                                     </g>
                                 </svg>
                                 <p>
-                                    Location :
+                                    Location:
                                 </p>
-                                <p>156 Mẹ Thứ, P.Hoà Xuân, Q.Cẩm Lệ, Tp.Đà Nẵng</p>
+                                <p><?php echo $address; ?></p>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -46,9 +62,9 @@
                                     </g>
                                 </svg>
                                 <p>
-                                    Hotline :
+                                    Hotline:
                                 </p>
-                                <p>(+84) 915 531 379</p>
+                                <p><a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></p>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -60,9 +76,10 @@
                                     </g>
                                 </svg>
                                 <p>
-                                    Email :
+                                    Email:
                                 </p>
-                                <p>bitihightech@gmail.com</p>
+
+                                <p><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
                             </li>
                         </ul>
                     </div>
@@ -85,16 +102,15 @@
                             </div>
                         </div>
 
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="contact_map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d479.4070279612742!2d108.21892930000001!3d16.000172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421bd58d60294b%3A0xec41556ff963b277!2zQ8O0bmcgVHkgVGjGsMahbmcgTeG6oWkgVsOgIEPDtG5nIE5naOG7hyBCSVRJ!5e0!3m2!1svi!2s!4v1696216938609!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d479.4070279612742!2d108.21892930000001!3d16.000172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421bd58d60294b%3A0xec41556ff963b277!2zQ8O0bmcgVHkgVGjGsMahbmcgTeG6oWkgVsOgIEPDtG5nIE5naOG7hyBCSVRJ!5e0!3m2!1svi!2s!4v1696216938609!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 
 
 <?php get_footer(); ?>
-

@@ -135,7 +135,7 @@ get_header('shop');
 	}
 
 	.sidebar {
-		padding: 20px 20px 10px 20px;
+		padding: 20px 15px 10px 15px;
 		background-color: #fff;
 		border-radius: 8px;
 	}

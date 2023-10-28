@@ -172,6 +172,7 @@
       });
       shop_product1.forEach(function (element) {
         element.style.padding = "10px ";
+        element.style.height = "402px ";
       });
       shopProducts.forEach(function (shopProduct) {
         shopProduct.addEventListener("mouseover", function () {
@@ -230,6 +231,8 @@
       });
       shop_product1.forEach(function (element) {
         element.style.padding = "20px 10px 20px 10px";
+        element.style.height = "auto ";
+
       });
     });
 

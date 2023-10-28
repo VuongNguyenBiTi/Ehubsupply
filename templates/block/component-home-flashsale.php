@@ -29,10 +29,10 @@
                                 <h3 id="headline"></h3>
                                 <div id="countdown">
                                     <ul>
-                                        <li><span id="days"></span></li>
-                                        <li><span id="hours"></span></li>
+                                        <li><span id="days"></span></li>:
+                                        <li><span id="hours"></span></li>:
                                         <li><span id="minutes"></span></li>
-                                        <li><span id="seconds"></span></li>
+                                        <li style="display: none;"><span id="seconds"></span></li>
                                     </ul>
                                 </div>
 

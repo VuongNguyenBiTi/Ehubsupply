@@ -126,32 +126,32 @@
                                                         ?> </p>
                                                     <p class="oldprice2">
                                                         <?php
-                                                            $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
+                                                        $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
 
-                                                            $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
+                                                        $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
 
-                                                            if ($product && $product->is_type('variable')) {
-                                                                // Sản phẩm có biến thể
-                                                                if ($min_regular_price != 0) {
-                                                                    // $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
-                                                                    // echo round($phan_tram, 1);
-                                                                    $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
-                                                                    $phan_tram1 = (floatval($phan_tram));
-                                                                    echo "-" . round($phan_tram1, 1) . "%";
-                                                                } else {
-                                                                    // Handle the case where $regular_price is zero
-                                                                    echo "-" . $phan_tram = 0 . "%"; // You can adjust this default value as needed
-                                                                }
-                                                            } else {
-                                                                // Sản phẩm không có biến thể
-                                                                if (isset($regular_price) && !empty($sale_price)) {
-                                                                    echo "-" . round($phan_tram, 1) . "%";
-                                                                } else {
-                                                                    // echo 0;
-                                                                }
+                                                        if ($product && $product->is_type('variable')) {
+                                                            // Sản phẩm có biến thể
+                                                            if ($min_regular_price != 0) {
+                                                                // $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
                                                                 // echo round($phan_tram, 1);
+                                                                $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
+                                                                $phan_tram1 = (floatval($phan_tram));
+                                                                echo "-" . round($phan_tram1, 1) . "%";
+                                                            } else {
+                                                                // Handle the case where $regular_price is zero
+                                                                echo "-" . $phan_tram = 0 . "%"; // You can adjust this default value as needed
                                                             }
-                                                            ?></p>
+                                                        } else {
+                                                            // Sản phẩm không có biến thể
+                                                            if (isset($regular_price) && !empty($sale_price)) {
+                                                                echo "-" . round($phan_tram, 1) . "%";
+                                                            } else {
+                                                                // echo 0;
+                                                            }
+                                                            // echo round($phan_tram, 1);
+                                                        }
+                                                        ?></p>
                                                 </div>
                                                 <div class="newprice">
                                                     <p><?php
@@ -163,7 +163,7 @@
                                                         } else {
                                                             // Sản phẩm không có biến thể
                                                             // Sản phẩm không có biến thể
-    
+
                                                             if (isset($regular_price) && !empty($sale_price)) {
                                                                 echo $sale_price;
                                                             } else {
@@ -182,6 +182,26 @@
                     </div>
                 </div>
             </div>
+
+            <a href="<?php  echo get_home_url();?>/cua-hang/">
+                <div class="add_shopping">
+                    <div class="add_shopping_wrap">
+                        <p> Mua sắm thêm
+                        </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                            <mask id="mask0_770_1246" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                <rect x="0.5" width="24" height="24" fill="#D9D9D9" />
+                            </mask>
+                            <g mask="url(#mask0_770_1246)">
+                                <path d="M5.5 22C4.95 22 4.47917 21.8042 4.0875 21.4125C3.69583 21.0208 3.5 20.55 3.5 20V8C3.5 7.45 3.69583 6.97917 4.0875 6.5875C4.47917 6.19583 4.95 6 5.5 6H7.5C7.5 4.61667 7.9875 3.4375 8.9625 2.4625C9.9375 1.4875 11.1167 1 12.5 1C13.8833 1 15.0625 1.4875 16.0375 2.4625C17.0125 3.4375 17.5 4.61667 17.5 6H19.5C20.05 6 20.5208 6.19583 20.9125 6.5875C21.3042 6.97917 21.5 7.45 21.5 8V20C21.5 20.55 21.3042 21.0208 20.9125 21.4125C20.5208 21.8042 20.05 22 19.5 22H5.5ZM5.5 20H19.5V8H5.5V20ZM12.5 14C13.8833 14 15.0625 13.5125 16.0375 12.5375C17.0125 11.5625 17.5 10.3833 17.5 9H15.5C15.5 9.83333 15.2083 10.5417 14.625 11.125C14.0417 11.7083 13.3333 12 12.5 12C11.6667 12 10.9583 11.7083 10.375 11.125C9.79167 10.5417 9.5 9.83333 9.5 9H7.5C7.5 10.3833 7.9875 11.5625 8.9625 12.5375C9.9375 13.5125 11.1167 14 12.5 14ZM9.5 6H15.5C15.5 5.16667 15.2083 4.45833 14.625 3.875C14.0417 3.29167 13.3333 3 12.5 3C11.6667 3 10.9583 3.29167 10.375 3.875C9.79167 4.45833 9.5 5.16667 9.5 6Z" fill="white" />
+                            </g>
+                        </svg>
+                    </div>
+
+
+                </div>
+
+            </a>
         </div>
     </div>
 </div>

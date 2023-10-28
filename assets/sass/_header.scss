@@ -408,136 +408,7 @@ $secondary-color: #6c757d;
   }
 }
 
-// .mobile_order_item {
-//   position: fixed;
-//   top: 0;
-//   right: -100%; /* Điểm bắt đầu bên trái ngoài màn hình */
-//   width: 80%; /* Chỉ hiển thị 50% chiều rộng của màn hình */
-//   height: 100%;
-//   background-color: #fff;
-//   z-index: 999;
-//   transition: left 0.5s;
-//   transition: all 0.5s linear;
-//   .cart_main2{
-//     @media screen and (max-width: 500px) {
-//       overflow-y: scroll;
-//       height: 100%;
-//      }
 
-//     .woocommerce-cart-form__cart-item1{
-//       @media screen and (max-width: 500px) {
-//          display: flex;
-//          flex-direction: column;
-//          overflow: auto ;
-//          border-bottom: 1px solid #000;
-//          margin-bottom: 10px;
-//       }
-//     }
-//   }
-//   .title-mycart {
-//     border: 1px solid rgba(0, 0, 0, 0.1);
-//     border-radius: 8px 8px 0 0;
-//     border-bottom: 0;
-//     text-align: center;
-//     background: #f7f6f7;
-//     font-size: 22px;
-//     text-transform: uppercase;
-//     padding: 10px 0;
-//     margin: 0;
-//     margin-bottom: 20px;
-//   }
-//   .product-thumbnail1 {
-//     a {
-//       img {
-//         height: auto;
-//         max-width: 100%;
-//         object-fit: cover;
-//         vertical-align: middle;
-//         @media screen and (max-width: 500px) {
-//           height: 150px;
-//        }
-//       }
-//     }
-//   }
-//   .product-remove1 {
-//     a {
-//       display: block;
-//       font-size: 1.5em;
-//       height: 1em;
-//       width: 1em;
-//       text-align: center;
-//       line-height: 1;
-//       border-radius: 100%;
-//       color: red !important;
-//       text-decoration: none;
-//       font-weight: 700;
-//       border: 0;
-//     }
-//     @media screen and (max-width: 500px) {
-//       display: none;
-//    }
-//   }
-//   .product-name1 {
-//     text-align: center;
-//     a{
-//       @media screen and (max-width: 500px) {
-//         color: #000;
-//       }
-//     }
-//   }
-//   .product-price1 {
-//     span {
-//       margin-right: 10px;
-
-//     }
-//     @media screen and (max-width: 500px) {
-//       text-align: end;
-//    }
-//   }
-//   .product-quantity1 {
-//     margin-left: 5px;
-//     .quantity .input-text {
-//       text-align: center;
-//       padding-top: 5px;
-//     }
-//     @media screen and (max-width: 500px) {
-//       margin-bottom: 20px;
-//       text-align: end;
-//    }
-//   }
-//   .cart-collaterals1{
-//     display: flex;
-//     justify-content: end;
-//     margin-right: 20px;
-//   }
-//   .wc-proceed-to-checkout{
-//     margin-top: 20px;
-//     display: flex;
-//     justify-content: end;
-//     a{
-//       background: #F92296 !important;
-//       color: #fff;
-//       padding: 13px 20px;
-//       border-radius: 6px;
-//     }
-//   }
-//   .show_view_cart{
-//     display: flex;
-//     justify-content: end;
-//     margin-right: 20px;
-//     margin-top: 20px;
-
-//     a{
-//       background: #F92296 !important;
-//     color: #fff;
-//     padding: 10px 47px;
-//     border-radius: 6px;
-//     }
-//   }
-// }
-// .show_order_item {
-//   right: 0;
-// }
 
 .popScroll {
   display: none;
@@ -572,7 +443,7 @@ $secondary-color: #6c757d;
   .popup {
     z-index: 10;
     width: 500px;
-    height: 300px;
+    height: 170px;
     position: relative;
     margin: 20px auto;
     display: block;

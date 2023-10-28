@@ -220,6 +220,9 @@ do_action('woocommerce_before_customer_login_form'); ?>
 	});
 </script>
 <style>
+	.woocommerce-notices-wrapper{
+		display: none;
+	}
 	#username {
 		width: 100%;
 		padding: 10px;
