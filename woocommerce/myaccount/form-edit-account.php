@@ -40,7 +40,7 @@ do_action('woocommerce_before_edit_account_form'); ?>
 				<form id="hk-change-avatar" class="change_wrap">
 					<?php wp_nonce_field('form_change_avatar'); ?>
 					<div class="change_left">
-						<p id="hk-success" style="display:none">Cập nhập thành công</p>
+						
 						<p class="img_change">
 							<?php
 							$user = wp_get_current_user();
@@ -60,7 +60,9 @@ do_action('woocommerce_before_edit_account_form'); ?>
 						<p>
 							<button type="submit">Xác nhận</button>
 						</p>
+						<p id="hk-success" style="display:none; color:green; ">Cập nhập thành công</p>
 					</div>
+
 
 
 				</form>
@@ -105,7 +107,7 @@ do_action('woocommerce_before_edit_account_form'); ?>
 				</div>
 			</div>
 		</div>
-		<legend id="password-legend" style="cursor: pointer;"><?php esc_html_e('Password change', 'woocommerce'); ?></legend>
+		<legend id="password-legend" style="cursor: pointer; font-size: 20px !important;  color: #000;  font-weight: 700;    border-bottom: 1px solid lightgray;padding-bottom: 10px;"><?php esc_html_e('Password change', 'woocommerce'); ?></legend>
 		<fieldset id="password-fieldset">
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 				<label for="password_current"><?php esc_html_e('Current password (leave blank to leave unchanged)', 'woocommerce'); ?></label>

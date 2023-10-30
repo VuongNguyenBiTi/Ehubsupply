@@ -48,7 +48,7 @@
                                     </g>
                                 </svg>
                                 <p>
-                                    Location:
+                                    Địa chỉ:
                                 </p>
                                 <p><?php echo $address; ?></p>
                             </li>

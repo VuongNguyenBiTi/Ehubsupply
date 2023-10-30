@@ -14,196 +14,199 @@
     <?php $getposts = new WP_query($args); ?>
     <?php global $wp_query;
     $wp_query->in_the_loop = true; ?>
-    <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
-        <?php global $product; ?>
-        <div class="col-lg-12 col-md-12 col-6">
-            <div class="shop_product1">
-                <div class="shop_product_wrap">
-                    <div class="shop_product_main">
-                        <div class="shop_product_left">
+    <?php if ($getposts->have_posts()) : ?>
+        <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
+            <?php global $product; ?>
+            <div class="col-lg-12 col-md-12 col-6">
+                <div class="shop_product1">
+                    <div class="shop_product_wrap">
+                        <div class="shop_product_main">
+                            <div class="shop_product_left">
+                                <a href="<?php the_permalink() ?>">
+                                    <?php if (has_post_thumbnail()) { ?>
+                                        <?php echo get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'thumnail')); ?>
+                                    <?php
+                                    } else {
+                                    ?>
+                                    <?php
+                                    }
+                                    ?>
+                                </a>
+                            </div>
                             <a href="<?php the_permalink() ?>">
-                                <?php if (has_post_thumbnail()) { ?>
-                                    <?php echo get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'thumnail')); ?>
-                                <?php
-                                } else {
-                                ?>
-                                <?php
-                                }
-                                ?>
-                            </a>
-                        </div>
-                        <a href="<?php the_permalink() ?>">
-                            <div class="shop_product_center">
-                                <div class="product_title">
-                                    <h2><?php echo wp_trim_words(get_the_title(), 15) ?></h2>
-                                </div>
-                                <?php
-                                $product_id = get_the_ID();
-                                $regular_price = 0;
-                                $phan_tram = 0;
-                                $sale_price = 0;
-                                $variation = wc_get_product($product_id);
-                                if (is_a($variation, 'WC_Product_Variation')) {
-                                    $price = $variation->get_price();
-                                    $price = number_format($price, 0, ',', '.');
-                                    $variation_attributes = $variation->get_variation_attributes();
-                                } else {
-                                    $regular_price = get_post_meta($product_id, '_regular_price', true); // Giá gốc
-                                    $sale_price = get_post_meta($product_id, '_sale_price', true); // Giá khuyến mãi
-                                    $regular_price = floatval($regular_price);
-                                    $sale_price = floatval($sale_price);
-                                    if ($regular_price != 0) {
-                                        $phan_tram = 100 - ($sale_price * 100) / $regular_price;
+                                <div class="shop_product_center">
+                                    <div class="product_title">
+                                        <h2><?php echo wp_trim_words(get_the_title(), 15) ?></h2>
+                                    </div>
+                                    <?php
+                                    $product_id = get_the_ID();
+                                    $regular_price = 0;
+                                    $phan_tram = 0;
+                                    $sale_price = 0;
+                                    $variation = wc_get_product($product_id);
+                                    if (is_a($variation, 'WC_Product_Variation')) {
+                                        $price = $variation->get_price();
+                                        $price = number_format($price, 0, ',', '.');
+                                        $variation_attributes = $variation->get_variation_attributes();
                                     } else {
-                                        $phan_tram = 0;
-                                    }
-                                    $sale_price = number_format($sale_price, 0, ',', '.');
-                                    $regular_price = number_format($regular_price, 0, ',', '.');
-                                }
-                                $price = $sale_price;
-                                $variations = wc_get_product($product_id)->get_children();
-                                if (!empty($variations)) {
-                                    $min_variation_price = PHP_FLOAT_MAX;
-                                    $min_regular_price = PHP_FLOAT_MAX;
-                                    foreach ($variations as $variation_id) {
-                                        $variation = wc_get_product($variation_id);
-                                        if (is_a($variation, 'WC_Product_Variation')) {
-                                            $variation_price = $variation->get_price();
-                                            $variation_regular_price = $variation->get_regular_price();
-
-                                            $min_variation_price = min($min_variation_price, $variation_price);
-                                            $min_regular_price = min($min_regular_price, $variation_regular_price);
-                                        }
-                                    }
-                                    if ($min_variation_price !== PHP_FLOAT_MAX) {
-                                        $min_variation_price = number_format($min_variation_price, 0, ',', '.');
-                                        $min_variation_price;
-                                    } else {
-                                    }
-                                    if ($min_regular_price !== PHP_FLOAT_MAX) {
-                                        $min_regular_price = number_format($min_regular_price, 0, ',', '.');
-                                        $min_regular_price;
-                                    } else {
-                                    }
-                                } else {
-                                }
-                                ?>
-                                <div class="product_sale">
-                                    <p><?php
-                                        $product_id = get_the_ID();
-                                        $product = wc_get_product($product_id);
-                                        if ($product && $product->is_type('variable')) {
-                                            // sản phẩm biến thể
-                                            echo   $min_regular_price . " VNĐ";
+                                        $regular_price = get_post_meta($product_id, '_regular_price', true); // Giá gốc
+                                        $sale_price = get_post_meta($product_id, '_sale_price', true); // Giá khuyến mãi
+                                        $regular_price = floatval($regular_price);
+                                        $sale_price = floatval($sale_price);
+                                        if ($regular_price != 0) {
+                                            $phan_tram = 100 - ($sale_price * 100) / $regular_price;
                                         } else {
-                                            // sản phẩm bình thường
-                                            if (isset($regular_price) && !empty($sale_price)) {
-                                                echo $regular_price . " VNĐ";
-                                            } else {
-                                                // echo " ";
-                                            }
-
-
-                                            // echo  $regular_price;
+                                            $phan_tram = 0;
                                         }
-                                        ?> </p>
-                                    <span><?php
+                                        $sale_price = number_format($sale_price, 0, ',', '.');
+                                        $regular_price = number_format($regular_price, 0, ',', '.');
+                                    }
+                                    $price = $sale_price;
+                                    $variations = wc_get_product($product_id)->get_children();
+                                    if (!empty($variations)) {
+                                        $min_variation_price = PHP_FLOAT_MAX;
+                                        $min_regular_price = PHP_FLOAT_MAX;
+                                        foreach ($variations as $variation_id) {
+                                            $variation = wc_get_product($variation_id);
+                                            if (is_a($variation, 'WC_Product_Variation')) {
+                                                $variation_price = $variation->get_price();
+                                                $variation_regular_price = $variation->get_regular_price();
+
+                                                $min_variation_price = min($min_variation_price, $variation_price);
+                                                $min_regular_price = min($min_regular_price, $variation_regular_price);
+                                            }
+                                        }
+                                        if ($min_variation_price !== PHP_FLOAT_MAX) {
+                                            $min_variation_price = number_format($min_variation_price, 0, ',', '.');
+                                            $min_variation_price;
+                                        } else {
+                                        }
+                                        if ($min_regular_price !== PHP_FLOAT_MAX) {
+                                            $min_regular_price = number_format($min_regular_price, 0, ',', '.');
+                                            $min_regular_price;
+                                        } else {
+                                        }
+                                    } else {
+                                    }
+                                    ?>
+                                    <div class="product_sale">
+                                        <p><?php
                                             $product_id = get_the_ID();
                                             $product = wc_get_product($product_id);
                                             if ($product && $product->is_type('variable')) {
-                                                if ($min_regular_price != 0) {
-                                                    //   $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
-                                                    //   $phan_tram = floatval($phan_tram);
-                                                    //   echo gettype($phan_tram);
-                                                    //   echo round($phan_tram, 1);
-                                                    // $phan_tram = 100 - ((int)$min_variation_price * 100) / (int)$min_regular_price;
-                                                    $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
-                                                    $phan_tram1 = (floatval($phan_tram));
-                                                    echo "-".round($phan_tram1, 1)."%";
-                                                } else {
-                                                  
-
-                                                    echo "-".$phan_tram = 0 ."%";
-                                                }
+                                                // sản phẩm biến thể
+                                                echo   $min_regular_price . " VNĐ";
                                             } else {
-                                                  // sản phẩm bình thường
-                                                  if (isset($regular_price) && !empty($sale_price)) {
-                                                    echo "-".round($phan_tram, 1) ."%";
-
+                                                // sản phẩm bình thường
+                                                if (isset($regular_price) && !empty($sale_price)) {
+                                                    echo $regular_price . " VNĐ";
                                                 } else {
-                                                    // echo 0;
+                                                    // echo " ";
                                                 }
-                                                // echo round($phan_tram, 1);
+
+
+                                                // echo  $regular_price;
                                             }
-                                            ?></span>
-                                </div>
-                                <div class="product_price">
-                                    <p><?php
-                                        $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
-                                        $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
-                                        if ($product && $product->is_type('variable')) {
-                                            // Sản phẩm có biến thể
-                                            echo $min_variation_price;
-                                        } else {
-                                            // Sản phẩm không có biến thể
+                                            ?> </p>
+                                        <span><?php
+                                                $product_id = get_the_ID();
+                                                $product = wc_get_product($product_id);
+                                                if ($product && $product->is_type('variable')) {
+                                                    if ($min_regular_price != 0) {
+                                                        //   $phan_tram = 100 - ($min_variation_price * 100) / $min_regular_price;
+                                                        //   $phan_tram = floatval($phan_tram);
+                                                        //   echo gettype($phan_tram);
+                                                        //   echo round($phan_tram, 1);
+                                                        // $phan_tram = 100 - ((int)$min_variation_price * 100) / (int)$min_regular_price;
+                                                        $phan_tram = ((float)$min_regular_price - (float)$min_variation_price) / (float)$min_regular_price * 100;
+                                                        $phan_tram1 = (floatval($phan_tram));
+                                                        echo "-" . round($phan_tram1, 1) . "%";
+                                                    } else {
 
-                                            if (isset($regular_price) && !empty($sale_price)) {
-                                                echo $sale_price;
+
+                                                        echo "-" . $phan_tram = 0 . "%";
+                                                    }
+                                                } else {
+                                                    // sản phẩm bình thường
+                                                    if (isset($regular_price) && !empty($sale_price)) {
+                                                        echo "-" . round($phan_tram, 1) . "%";
+                                                    } else {
+                                                        // echo 0;
+                                                    }
+                                                    // echo round($phan_tram, 1);
+                                                }
+                                                ?></span>
+                                    </div>
+                                    <div class="product_price">
+                                        <p><?php
+                                            $product_id = get_the_ID(); // Lấy ID của sản phẩm trong WordPress
+                                            $product = wc_get_product($product_id); // Lấy đối tượng sản phẩm
+                                            if ($product && $product->is_type('variable')) {
+                                                // Sản phẩm có biến thể
+                                                echo $min_variation_price;
                                             } else {
-                                                echo $regular_price;
+                                                // Sản phẩm không có biến thể
+
+                                                if (isset($regular_price) && !empty($sale_price)) {
+                                                    echo $sale_price;
+                                                } else {
+                                                    echo $regular_price;
+                                                }
+                                            }
+                                            ?> VNĐ</p>
+                                    </div>
+                                    <div class="rating_main">
+                                        <?php
+                                        $average = $product->get_average_rating();
+                                        for ($i = 1; $i <= 5; $i++) {
+                                            if ($i <= floor($average)) {
+                                                echo '<i class="fas fa-star"></i>';
+                                            } elseif ($i - 0.5 <= $average) {
+                                                echo '<i class="fas fa-star-half-alt"></i>';
+                                            } else {
+                                                echo '<i class="far fa-star"></i>';
                                             }
                                         }
-                                        ?> VNĐ</p>
-                                </div>
-                                <div class="rating_main">
-                                    <?php
-                                    $average = $product->get_average_rating();
-                                    for ($i = 1; $i <= 5; $i++) {
-                                        if ($i <= floor($average)) {
-                                            echo '<i class="fas fa-star"></i>';
-                                        } elseif ($i - 0.5 <= $average) {
-                                            echo '<i class="fas fa-star-half-alt"></i>';
-                                        } else {
-                                            echo '<i class="far fa-star"></i>';
-                                        }
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="shop_product_right">
-
-                        <?php
-                        $product_id = get_the_ID();
-                        $product = wc_get_product($product_id);
-                        if ($product && $product->is_type('variable')) { ?>
-
-                            <a href="<?php the_permalink() ?>">
-                                <div class="btn_cart">
-                                    <i class="fal fa-cart-arrow-down"></i>
+                                        ?>
+                                    </div>
                                 </div>
                             </a>
-                        <?php  } else { ?>
+                        </div>
 
-                            <a href="<?php echo get_home_url(); ?>/cua-hang/?add-to-cart=<?php the_ID(); ?>">
-                                <div class="btn_cart">
-                                    <i class="fal fa-cart-arrow-down"></i>
-                                </div>
-                            </a>
-                        <?php }
-                        ?>
-                        <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]') ?>
+                        <div class="shop_product_right">
+
+                            <?php
+                            $product_id = get_the_ID();
+                            $product = wc_get_product($product_id);
+                            if ($product && $product->is_type('variable')) { ?>
+
+                                <a href="<?php the_permalink() ?>">
+                                    <div class="btn_cart">
+                                        <i class="fal fa-cart-arrow-down"></i>
+                                    </div>
+                                </a>
+                            <?php  } else { ?>
+
+                                <a href="<?php echo get_home_url(); ?>/cua-hang/?add-to-cart=<?php the_ID(); ?>">
+                                    <div class="btn_cart">
+                                        <i class="fal fa-cart-arrow-down"></i>
+                                    </div>
+                                </a>
+                            <?php }
+                            ?>
+                            <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]') ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php endwhile;
-    wp_reset_postdata(); ?>
-    <?php woocommerce_result_count(); ?>
+        <?php endwhile;
+        wp_reset_postdata(); ?>
+        <?php woocommerce_result_count(); ?>
 
-    <?php get_template_part('templates/block/component', 'pagination'); ?>
+        <?php get_template_part('templates/block/component', 'pagination'); ?>
+    <?php else : ?>
+        <p class="null_product">Không có kết quả nào được tìm thấy</p>
+    <?php endif; ?>
 </div>
 
 
@@ -299,7 +302,7 @@
     });
 </script> -->
 
-
+<!-- phân trang -->
 <script>
     var rowsShown = 1;
     var isPaginationVisible = false;

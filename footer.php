@@ -48,7 +48,7 @@
                                 </svg>
                             </div>
                             <p>Địa chỉ : </p>
-                            <p><a href="<?php echo get_home_url();?>/lien-he/"><?php echo $address; ?></a></p>
+                            <p><a href="<?php echo get_home_url(); ?>/lien-he/"><?php echo $address; ?></a></p>
                         </li>
                         <li>
                             <div class="phone">
@@ -225,6 +225,14 @@
                     },
                 });
             });
+
+
+           
+
+
         });
+
+
+
     })(jQuery);
 </script>

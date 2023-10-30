@@ -33,7 +33,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 						<img src="https://colorlib.com/etc/regform/colorlib-regform-20/images/registration-form-4.jpg" alt="">
 					</div>
 					<div class="col-lg-6 col-md-6 col-12 col2" id="id_dangki">
-						<main id="site-content">
+						<!-- <main id="site-content">
 							<div class="section-inner">
 								<?php
 								$home_url = get_home_url();
@@ -47,28 +47,89 @@ do_action('woocommerce_before_customer_login_form'); ?>
 									<form id="hk-registerform" action="<?php echo get_home_url() . '/dang-ky'; ?>">
 										<?php wp_nonce_field('form_register'); ?>
 										<div id="hk-message"></div>
+										<?php
+										$username_error = '';
+										$email_error = '';
+										$password_error = '';
+										$repassword_error = '';
+										?>
 										<p style="display:none" id="hk-success">
 											Đăng ký người dùng thành công. Mời bạn nhập thông tin vào form đăng nhập.
 										</p>
 										<p>
 											<label class="lb_user lb">Tên đăng nhập&nbsp;<span class="required">*</span></label>
 											<input type="text" name="username" id="username">
+											<?php echo $username_error; ?>
 										</p>
 
 										<p>
 											<label class="lb_email lb">Nhập Email&nbsp;<span class="required">*</span></label>
 
 											<input type="email" name="email" id="email">
+											<?php echo $email_error; ?>
 										</p>
 										<p>
 											<label class="lb_pass lb">Nhập mật khẩu&nbsp;<span class="required">*</span></label>
 
 											<input type="password" name="password" id="password">
+											<?php echo $password_error; ?>
 										</p>
 										<p>
 											<label class="lb_repass lb">Xác nhận lại mật khẩu&nbsp;<span class="required">*</span></label>
 
 											<input type="password" name="repassword" id="repassword">
+											<?php echo $repassword_error; ?>
+										</p>
+										<p class="text-center mb-0">
+											<button class="form-submit" type="submit">Đăng ký</button>
+											<span id="btn_dangnhap">Đăng nhập</span>
+										</p>
+									</form>
+								<?php } ?>
+							</div>
+						</main> -->
+						<main id="site-content">
+							<div class="section-inner">
+								<?php
+								$home_url = get_home_url();
+								if (is_user_logged_in()) {
+									echo 'Bạn đã đăng nhập rồi. <a href="' . wp_logout_url($home_url) . '">Đăng xuất</a> ?';
+								} else {
+								?>
+									<h1>Đăng ký</h1>
+									<hr>
+									<form id="hk-registerform" action="<?php echo get_home_url() . '/dang-ky'; ?>">
+										<?php wp_nonce_field('form_register'); ?>
+										<div id="hk-message"></div>
+										<?php
+										$username_error = '';
+										$email_error = '';
+										$password_error = '';
+										$repassword_error = '';
+										?>
+										<p style="display:none" id="hk-success">
+											Đăng ký người dùng thành công. Mời bạn nhập thông tin vào form đăng nhập.
+										</p>
+										<p>
+											<label class="lb_user lb">Tên đăng nhập&nbsp;<span class="required">*</span></label>
+											<input type="text" name="username" id="username">
+											<?php echo $username_error; ?>
+										</p>
+
+										<p>
+											<label class="lb_email lb">Nhập Email&nbsp;<span class="required">*</span></label>
+											<input type="email" name="email" id="email">
+											<?php echo $email_error; ?>
+										</p>
+										<p>
+											<label class="lb_pass lb">Nhập mật khẩu&nbsp;<span class="required">*</span></label>
+											<input type="password" name="password" id="password">
+											<?php echo $password_error; ?>
+										</p>
+										<p>
+											<label class="lb_repass lb">Xác nhận lại mật khẩu&nbsp;<span class="required">*</span></label>
+											<input type="password" name="repassword" id="repassword">
+											<?php echo $repassword_error; ?>
 										</p>
 										<p class="text-center mb-0">
 											<button class="form-submit" type="submit">Đăng ký</button>
@@ -78,6 +139,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 								<?php } ?>
 							</div>
 						</main>
+
 					</div>
 					<div class="col-lg-6 col-md-6 col-12 col2" id="id_dangnhap">
 						<div class="dang_nhap_main">
@@ -153,6 +215,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 <?php do_action('woocommerce_after_customer_login_form'); ?>
 <script>
 	(function($) {
+
 		$(document).ready(function() {
 			var ajaxUrl = '<?php echo admin_url('admin-ajax.php'); ?>';
 			$('#hk-registerform').submit(function(e) {
@@ -163,6 +226,13 @@ do_action('woocommerce_before_customer_login_form'); ?>
 					data[this.name] = this.value;
 				});
 
+				// Clear previous error messages
+				$('#hk-message').html('');
+				$('#username + .error').remove();
+				$('#email + .error').remove();
+				$('#password + .error').remove();
+				$('#repassword + .error').remove();
+
 				$.ajax({
 					type: "POST",
 					url: ajaxUrl,
@@ -170,19 +240,38 @@ do_action('woocommerce_before_customer_login_form'); ?>
 						'action': 'RegisterAction',
 						'userData': data
 					},
-					dataType: "html",
+					dataType: "json",
 					beforeSend: function() {},
 					success: function(response) {
-						$('#hk-message').html(response);
-						if (response == 'success') {
-							$("#hk-registerform")[0].reset();
-							$('#hk-message').hide();
-							$('#hk-success').show();
+						if (response.status === 'success') {
+
+						} else {
+							// Display new error messages
+							if (response.username_error) {
+								$('#username').after('<span class="error">' + response.username_error + '</span>');
+							}
+							if (response.email_error) {
+								$('#email').after('<span class="error">' + response.email_error + '</span>');
+							}
+							if (response.password_error) {
+								$('#password').after('<span class="error">' + response.password_error + '</span>');
+							}
+							if (response.repassword_error) {
+								$('#repassword').after('<span class="error">' + response.repassword_error + '</span>');
+							}
 						}
+					},error: function (error){
+						window.location.href = '<?php echo get_home_url(); ?>';
 					}
 				});
 			});
 		});
+
+		
+
+
+
+
 	})(jQuery);
 </script>
 <script>
@@ -220,9 +309,14 @@ do_action('woocommerce_before_customer_login_form'); ?>
 	});
 </script>
 <style>
-	.woocommerce-notices-wrapper{
+	.error {
+		color: red;
+	}
+
+	.woocommerce-notices-wrapper {
 		display: none;
 	}
+
 	#username {
 		width: 100%;
 		padding: 10px;
@@ -625,12 +719,14 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 	@media (max-width: 500px) {
 		.col1 {
-			order : 2;
+			order: 2;
 		}
-		.col2{
+
+		.col2 {
 			order: 1;
 		}
-		.login_main{
+
+		.login_main {
 			padding: 0;
 		}
 	}

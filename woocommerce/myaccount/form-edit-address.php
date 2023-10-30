@@ -63,6 +63,9 @@
 
 
 	<style>
+		#billing_email-description{
+			display: none;
+		}
 		.border_address {
 			background: var(--color-gray-gray-11-main-white, #fff);
 			box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.12);

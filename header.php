@@ -11,7 +11,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:ital,wght@0,400;0,600;0,800;1,400;1,600;1,800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:ital,wght@0,400;0,600;0,800;1,400;1,600;1,800&display=swap"
+        rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"> </script>
     <?php wp_head(); ?>
@@ -72,17 +74,20 @@
                             <div class="icon_header">
                                 <i class="far fa-shopping-cart"></i>
                                 <?php $items_count = WC()->cart->get_cart_contents_count(); ?>
-                                <span id="mini-cart-count" class="count-cart button product_type_simple add_to_cart_button ajax_add_to_cart cart-quantity badge rounded-pill bg-light text-white"><?php echo $items_count ? $items_count : '0'; ?></span>
+                                <span id="mini-cart-count"
+                                    class="count-cart button product_type_simple add_to_cart_button ajax_add_to_cart cart-quantity badge rounded-pill bg-light text-white"><?php echo $items_count ? $items_count : '0'; ?></span>
                             </div>
                         </a>
 
                         <a href="<?php echo get_home_url(); ?>/yeu-thich/">
                             <div class="icon_header">
                                 <i class="fal fa-heart"></i>
-                                <span id="wishlist-count">
+                                <!-- <span id="wishlist-count">
                                     <?php $wishlistCount = yith_wcwl_count_products();
                                     echo $wishlistCount; ?>
-                                </span>
+                                   
+                                </span> -->
+                                <?php echo do_shortcode('[yith_wcwl_items_count]')?>
                             </div>
                         </a>
                         <a href="<?php echo get_home_url(); ?>/tai-khoan/">
@@ -107,7 +112,8 @@
                         <div class="cart_mobile" id="">
                             <i class="far fa-cart-arrow-down"></i>
                             <?php $items_count = WC()->cart->get_cart_contents_count(); ?>
-                            <span id="mini-cart-count" class="count-cart button product_type_simple add_to_cart_button ajax_add_to_cart cart-quantity badge rounded-pill bg-light text-white"><?php echo $items_count ? $items_count : '0'; ?></span>
+                            <span id="mini-cart-count"
+                                class="count-cart button product_type_simple add_to_cart_button ajax_add_to_cart cart-quantity badge rounded-pill bg-light text-white"><?php echo $items_count ? $items_count : '0'; ?></span>
                         </div>
                     </a>
 
@@ -137,36 +143,54 @@
                             <li>
                                 <p id="menu_tp">Thực Phẩm Chức Năng <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_tp_con">
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/thuc-pham-chuc-nang/giam-can/?yith_wcan=1&orderby=date">Giảm Cân</a></li>
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/thuc-pham-chuc-nang/thuoc-bo/?yith_wcan=1&orderby=date">Thuốc Bổ</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/thuc-pham-chuc-nang/giam-can/?yith_wcan=1&orderby=date">Giảm
+                                            Cân</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/thuc-pham-chuc-nang/thuoc-bo/?yith_wcan=1&orderby=date">Thuốc
+                                            Bổ</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <p href="#" id="menu_csd">Chăm Sóc Da <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_csd_con">
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/cham-soc-da/kem-chong-nang/?yith_wcan=1&orderby=date">Kem Chống Nắng</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/cham-soc-da/kem-chong-nang/?yith_wcan=1&orderby=date">Kem
+                                            Chống Nắng</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <p href="#" id="menu_clg">Collagen <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_clg_con">
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/collagen/collagen-dang-nuoc/?yith_wcan=1&orderby=date"> Collagen Dạng Nước</a></li>
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/collagen/collagen-dang-nuoc/?yith_wcan=1&orderby=date"> Collagen Dạng Viên</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/collagen/collagen-dang-nuoc/?yith_wcan=1&orderby=date">
+                                            Collagen Dạng Nước</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/collagen/collagen-dang-nuoc/?yith_wcan=1&orderby=date">
+                                            Collagen Dạng Viên</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <p id="menu_td">Trang Điểm <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_td_con">
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/tay-trang/?yith_wcan=1&orderby=date">Tẩy Trang</a></li>
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/son-moi/?yith_wcan=1&orderby=date">Son Môi</a></li>
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/phan-ma-hong/?yith_wcan=1&orderby=date">Phấn Má Hồng</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/tay-trang/?yith_wcan=1&orderby=date">Tẩy
+                                            Trang</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/son-moi/?yith_wcan=1&orderby=date">Son
+                                            Môi</a></li>
+                                    <li><a
+                                            href="<?php echo get_home_url(); ?>/danh-muc-san-pham/trang-diem/phan-ma-hong/?yith_wcan=1&orderby=date">Phấn
+                                            Má Hồng</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <p href="#" id="menu_cm">Cẩm Nang <i class="far fa-angle-down"></i></p>
                                 <ul class="sub-menu menu" id="menu_cm_con">
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-cam-nang/cam-nang-san-pham/">Cẩm Nang Sản Phẩm</a></li>
-                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-cam-nang/tin-nganh/">Tin Ngành</a></li>
+                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-cam-nang/cam-nang-san-pham/">Cẩm
+                                            Nang Sản Phẩm</a></li>
+                                    <li><a href="<?php echo get_home_url(); ?>/danh-muc-cam-nang/tin-nganh/">Tin
+                                            Ngành</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -176,32 +200,33 @@
                 <div class="header_mobile_bottom">
 
                     <div class="bottom-menu">
+                        <a href="<?php echo get_home_url(); ?>/gioi-thieu/">
+                            <i class="fal fa-id-card"></i>
+                            <span>Giới Thiệu</span>
+                        </a>
                         <a href="<?php echo get_home_url(); ?>/cua-hang/">
-                            <i class="fal fa-gifts"></i>
+                            <i class="far fa-store"></i>
                             <span>Cửa Hàng</span>
                         </a>
                         <a href="<?php echo get_home_url(); ?>/cam-nang/">
                             <i class="fal fa-book"></i>
                             <span> Cẩm Nang</span>
                         </a>
-                        <a href="<?php echo get_home_url(); ?>/yeu-thich/">
-                            <i class="far fa-heart"></i>
-                            <span>Yêu Thích</span>
-                        </a>
+
                         <span class="bosluk"></span>
                         <a href="<?php echo get_home_url(); ?>" class="sat">
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
-                        <a href="<?php echo get_home_url(); ?>/gioi-thieu/">
-                            <i class="fal fa-id-card"></i>
-                            <span>Giới Thiệu</span>
-                        </a>
+
                         <a href="<?php echo get_home_url(); ?>/lien-he/">
                             <i class="fal fa-phone-volume"></i>
                             <span>Liên Hệ</span>
                         </a>
-
+                        <a href="<?php echo get_home_url(); ?>/yeu-thich/">
+                            <i class="far fa-heart"></i>
+                            <span>Yêu Thích</span>
+                        </a>
                         <a href="<?php echo get_home_url(); ?>/tai-khoan/" class="account_mobile_1">
                             <i class="far fa-user-alt"></i>
                             <span>Tài khoản</span>
@@ -229,24 +254,24 @@
                             $user_name = $current_user->display_name;
                         ?>
 
-                            <div class="avt_wrap">
-                                <div class="avt">
-                                    <?php echo $avatar_url; ?>
-                                </div>
-                                <div class="avt_name">
-                                    <p><?php echo $user_name; ?></p>
-                                </div>
+                        <div class="avt_wrap">
+                            <div class="avt">
+                                <?php echo $avatar_url; ?>
                             </div>
+                            <div class="avt_name">
+                                <p><?php echo $user_name; ?></p>
+                            </div>
+                        </div>
 
-                            <ul id="account-menu">
-                                <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
-                                    <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
-                                        <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
-                                            <?php echo esc_html($label); ?>
-                                        </li>
-                                    </a>
-                                <?php endforeach; ?>
-                            </ul>
+                        <ul id="account-menu">
+                            <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+                            <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
+                                <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
+                                    <?php echo esc_html($label); ?>
+                                </li>
+                            </a>
+                            <?php endforeach; ?>
+                        </ul>
 
                         <?php
                         } else {
@@ -254,15 +279,15 @@
                             // Hiển thị nút đăng nhập
                         ?>
 
-                            <ul id="account-menu">
-                                <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
-                                    <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
-                                        <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
-                                            <?php echo esc_html($label); ?>
-                                        </li>
-                                    </a>
-                                <?php endforeach; ?>
-                            </ul>
+                        <ul id="account-menu">
+                            <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+                            <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>">
+                                <li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?>">
+                                    <?php echo esc_html($label); ?>
+                                </li>
+                            </a>
+                            <?php endforeach; ?>
+                        </ul>
                         <?php
                         }
                         ?>
@@ -299,158 +324,158 @@
         </header>
         <!-- End Header -->
         <script>
-            // Đoạn mã JavaScript
-            document.addEventListener("DOMContentLoaded", function() {
-                var searchIcon = document.getElementById("icon_search");
-                var overlayPopup = document.getElementById("overlay_popup");
-                var btn_close = document.getElementById("btn_close");
-                var popScroll = document.getElementById("popScroll");
+        // Đoạn mã JavaScript
+        document.addEventListener("DOMContentLoaded", function() {
+            var searchIcon = document.getElementById("icon_search");
+            var overlayPopup = document.getElementById("overlay_popup");
+            var btn_close = document.getElementById("btn_close");
+            var popScroll = document.getElementById("popScroll");
 
-                searchIcon.addEventListener("click", function() {
-                    overlayPopup.style.display = "block";
-                    popScroll.style.display = "flex";
+            searchIcon.addEventListener("click", function() {
+                overlayPopup.style.display = "block";
+                popScroll.style.display = "flex";
 
 
 
-                    // Thêm lớp .active để đưa tới
-                    popScroll.classList.add("active");
+                // Thêm lớp .active để đưa tới
+                popScroll.classList.add("active");
 
-                    // Sau 0.3 giây (thời gian transition), gỡ bỏ lớp .active để dừng hiệu ứng
-                    setTimeout(function() {
-                        popScroll.classList.remove("active");
-                    }, 300);
-                });
-
-                overlayPopup.addEventListener("click", function() {
-                    overlayPopup.style.display = "none";
-                    popScroll.style.display = "none";
-                });
-                overlayPopup.addEventListener("click", function() {
-                    overlayPopup.style.display = "none";
-                    popScroll.style.display = "none";
-                });
-                btn_close.addEventListener("click", function() {
-                    overlayPopup.style.display = "none";
-                    popScroll.style.display = "none";
-                });
+                // Sau 0.3 giây (thời gian transition), gỡ bỏ lớp .active để dừng hiệu ứng
+                setTimeout(function() {
+                    popScroll.classList.remove("active");
+                }, 300);
             });
+
+            overlayPopup.addEventListener("click", function() {
+                overlayPopup.style.display = "none";
+                popScroll.style.display = "none";
+            });
+            overlayPopup.addEventListener("click", function() {
+                overlayPopup.style.display = "none";
+                popScroll.style.display = "none";
+            });
+            btn_close.addEventListener("click", function() {
+                overlayPopup.style.display = "none";
+                popScroll.style.display = "none";
+            });
+        });
         </script>
         <script>
-            // thực hiện active cho menu bottom
-            // Lấy URL hiện tại của trang
-            var currentURL = window.location.href;
+        // thực hiện active cho menu bottom
+        // Lấy URL hiện tại của trang
+        var currentURL = window.location.href;
 
-            // Tạo một mảng chứa các liên kết menu
-            var menuLinks = document.querySelectorAll(".bottom-menu a");
+        // Tạo một mảng chứa các liên kết menu
+        var menuLinks = document.querySelectorAll(".bottom-menu a");
 
-            // Duyệt qua mảng các liên kết menu
-            for (var i = 0; i < menuLinks.length; i++) {
-                // So sánh URL của liên kết menu với URL hiện tại
-                if (menuLinks[i].href === currentURL) {
-                    // Đánh dấu liên kết menu hiện tại bằng lớp "current-page"
-                    menuLinks[i].classList.add("active");
-                }
+        // Duyệt qua mảng các liên kết menu
+        for (var i = 0; i < menuLinks.length; i++) {
+            // So sánh URL của liên kết menu với URL hiện tại
+            if (menuLinks[i].href === currentURL) {
+                // Đánh dấu liên kết menu hiện tại bằng lớp "current-page"
+                menuLinks[i].classList.add("active");
             }
+        }
 
-            // menu left 
-            document.getElementById("menu-toggle").addEventListener("click", function() {
-                var mobileMenu = document.getElementById("mobile-overlay-menu");
-                var overlay = document.getElementById("overlay");
-                mobileMenu.classList.add("show-mobile-menu");
-                overlay.style.display = "block";
-            });
+        // menu left 
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            var mobileMenu = document.getElementById("mobile-overlay-menu");
+            var overlay = document.getElementById("overlay");
+            mobileMenu.classList.add("show-mobile-menu");
+            overlay.style.display = "block";
+        });
 
-            document.getElementById("overlay").addEventListener("click", function() {
-                var mobileMenu = document.getElementById("mobile-overlay-menu");
-                var overlay = document.getElementById("overlay");
-                mobileMenu.classList.remove("show-mobile-menu");
-                overlay.style.display = "none";
-            });
-            // 
+        document.getElementById("overlay").addEventListener("click", function() {
+            var mobileMenu = document.getElementById("mobile-overlay-menu");
+            var overlay = document.getElementById("overlay");
+            mobileMenu.classList.remove("show-mobile-menu");
+            overlay.style.display = "none";
+        });
+        // 
 
 
 
-            //
+        //
         </script>
         <script>
-            (function($) {
-                $(document).ready(function() {
-                    $('#menu_tp').click(function(e) {
-                        //   $('#menu_tp').hide(); // Hide the parent menu item
-                        $('#menu_tp_con').addClass('active'); // Show the submenu
-                        $('#menu_csd_con').removeClass('active');
-                        $('#menu_clg_con').removeClass('active');
-                        $('#menu_td_con').removeClass('active');
-                        $('#menu_cm_con').removeClass('active');
-                    });
-                    $('#menu_csd').click(function(e) {
-                        //   $('#menu_tp').hide(); // Hide the parent menu item
-                        $('#menu_csd_con').addClass('active'); // Show the submenu
-                        $('#menu_tp_con').removeClass('active');
-                        $('#menu_clg_con').removeClass('active');
-                        $('#menu_td_con').removeClass('active');
-                        $('#menu_cm_con').removeClass('active');
-                    });
-                    $('#menu_clg').click(function(e) {
-                        //   $('#menu_tp').hide(); // Hide the parent menu item
-                        $('#menu_clg_con').addClass('active'); // Show the submenu
-                        $('#menu_tp_con').removeClass('active');
-                        $('#menu_csd_con').removeClass('active');
-                        $('#menu_td_con').removeClass('active');
-                        $('#menu_cm_con').removeClass('active');
-                    });
-                    $('#menu_td').click(function(e) {
-                        //   $('#menu_tp').hide(); // Hide the parent menu item
-                        $('#menu_td_con').addClass('active'); // Show the submenu
-                        $('#menu_tp_con').removeClass('active');
-                        $('#menu_csd_con').removeClass('active');
-                        $('#menu_clg_con').removeClass('active');
-                        $('#menu_cm_con').removeClass('active');
-                    });
-                    $('#menu_cm').click(function(e) {
-
-                        //   $('#menu_tp').hide(); // Hide the parent menu item
-                        $('#menu_cm_con').addClass('active'); // Show the submenu
-                        $('#menu_tp_con').removeClass('active');
-                        $('#menu_csd_con').removeClass('active');
-                        $('#menu_td_con').removeClass('active');
-                        $('#menu_clg_con').removeClass('active');
-                    });
+        (function($) {
+            $(document).ready(function() {
+                $('#menu_tp').click(function(e) {
+                    //   $('#menu_tp').hide(); // Hide the parent menu item
+                    $('#menu_tp_con').addClass('active'); // Show the submenu
+                    $('#menu_csd_con').removeClass('active');
+                    $('#menu_clg_con').removeClass('active');
+                    $('#menu_td_con').removeClass('active');
+                    $('#menu_cm_con').removeClass('active');
                 });
-            })(jQuery);
+                $('#menu_csd').click(function(e) {
+                    //   $('#menu_tp').hide(); // Hide the parent menu item
+                    $('#menu_csd_con').addClass('active'); // Show the submenu
+                    $('#menu_tp_con').removeClass('active');
+                    $('#menu_clg_con').removeClass('active');
+                    $('#menu_td_con').removeClass('active');
+                    $('#menu_cm_con').removeClass('active');
+                });
+                $('#menu_clg').click(function(e) {
+                    //   $('#menu_tp').hide(); // Hide the parent menu item
+                    $('#menu_clg_con').addClass('active'); // Show the submenu
+                    $('#menu_tp_con').removeClass('active');
+                    $('#menu_csd_con').removeClass('active');
+                    $('#menu_td_con').removeClass('active');
+                    $('#menu_cm_con').removeClass('active');
+                });
+                $('#menu_td').click(function(e) {
+                    //   $('#menu_tp').hide(); // Hide the parent menu item
+                    $('#menu_td_con').addClass('active'); // Show the submenu
+                    $('#menu_tp_con').removeClass('active');
+                    $('#menu_csd_con').removeClass('active');
+                    $('#menu_clg_con').removeClass('active');
+                    $('#menu_cm_con').removeClass('active');
+                });
+                $('#menu_cm').click(function(e) {
+
+                    //   $('#menu_tp').hide(); // Hide the parent menu item
+                    $('#menu_cm_con').addClass('active'); // Show the submenu
+                    $('#menu_tp_con').removeClass('active');
+                    $('#menu_csd_con').removeClass('active');
+                    $('#menu_td_con').removeClass('active');
+                    $('#menu_clg_con').removeClass('active');
+                });
+            });
+        })(jQuery);
         </script>
         <!-- menu account -->
         <script>
-            document.getElementById("account_mobile_2").addEventListener("click", function() {
-                var acc_mobile_right = document.getElementById("acc_mobile_right");
-                var overlay = document.getElementById("overlay");
-                acc_mobile_right.classList.add("show_acc_mobile_right");
-                overlay.style.display = "block";
-            });
-            document.getElementById("overlay").addEventListener("click", function() {
-                var acc_mobile_right = document.getElementById("acc_mobile_right");
-                var overlay = document.getElementById("overlay");
-                acc_mobile_right.classList.remove("show_acc_mobile_right");
-                overlay.style.display = "none";
-            });
+        document.getElementById("account_mobile_2").addEventListener("click", function() {
+            var acc_mobile_right = document.getElementById("acc_mobile_right");
+            var overlay = document.getElementById("overlay");
+            acc_mobile_right.classList.add("show_acc_mobile_right");
+            overlay.style.display = "block";
+        });
+        document.getElementById("overlay").addEventListener("click", function() {
+            var acc_mobile_right = document.getElementById("acc_mobile_right");
+            var overlay = document.getElementById("overlay");
+            acc_mobile_right.classList.remove("show_acc_mobile_right");
+            overlay.style.display = "none";
+        });
         </script>
         <script>
-            var icons = [
-                'far fa-user',
-                'fal fa-luggage-cart',
-                'far fa-cloud-download-alt',
-                'fal fa-map-marker-alt',
-                'far fa-user-circle',
-                'fal fa-sign-out'
-            ];
+        var icons = [
+            'far fa-user',
+            'fal fa-luggage-cart',
+            'far fa-cloud-download-alt',
+            'fal fa-map-marker-alt',
+            'far fa-user-circle',
+            'fal fa-sign-out'
+        ];
 
-            var menuItems = document.querySelectorAll('#account-menu li');
+        var menuItems = document.querySelectorAll('#account-menu li');
 
-            menuItems.forEach(function(item, index) {
-                if (index < icons.length) {
-                    var iconElement = document.createElement('i');
-                    iconElement.className = icons[index];
-                    item.insertBefore(iconElement, item.firstChild);
-                }
-            });
+        menuItems.forEach(function(item, index) {
+            if (index < icons.length) {
+                var iconElement = document.createElement('i');
+                iconElement.className = icons[index];
+                item.insertBefore(iconElement, item.firstChild);
+            }
+        });
         </script>
