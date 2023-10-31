@@ -38,8 +38,10 @@ get_header('shop');
 						<?php echo  do_shortcode('[yith_wcan_filters slug="sidebar"]'); ?>
 					</div>
 					<div class="sidebar_mobile">
-						<?php echo  do_shortcode('[yith_wcan_filters slug="loc_sidebar"]'); ?>
+		
+						<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-4"]') ?>
 
+						<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-3"]')?>
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-8 col-12">
@@ -165,12 +167,18 @@ get_header('shop');
 	}
 
 	@media screen and (max-width: 500px) {
+		.yith-wcan-filters .yith-wcan-filter .price-slider {
+			padding: 15px 30px;
+			margin-top: -20px;
+		}
 		.sidebar {
 			display: none;
 		}
 
 		.sidebar_mobile {
 			display: block;
+			background-color: #fff;
+			border-radius: 8px;
 		}
 
 		.shop_product1 {

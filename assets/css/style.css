@@ -2422,6 +2422,9 @@ form.checkout.woocommerce-checkout div.fc-wrapper div.fc-inside span.woocommerce
 form.checkout.woocommerce-checkout div.fc-place-order button.fc-place-order-button {
   background-color: #c1272d !important; }
 
+div.woocommerce form .woocommerce-billing-only-fields__field-wrapper {
+  margin-top: 0 !important; }
+
 .btn-31 {
   background-color: #fff;
   border: 1px solid #f92296;
@@ -3276,9 +3279,16 @@ button.button:hover {
     align-items: center;
     padding: 48px 136px 24px 136px;
     border-bottom: 2px solid white; }
+    @media screen and (max-width: 500px) {
+      .footer_logo {
+        padding: 15px 70px; } }
     .footer_logo img {
       width: 200px;
       height: 70px; }
+      @media screen and (max-width: 500px) {
+        .footer_logo img {
+          width: 261px;
+          height: 93px; } }
   .footer_wrap {
     margin-top: 24px; }
     .footer_wrap h4 {

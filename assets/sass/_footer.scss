@@ -16,10 +16,16 @@
     align-items: center;
     padding: 48px 136px 24px 136px;
     border-bottom: 2px solid white;
-
+    @media screen and (max-width: 500px) {
+      padding: 15px 70px;
+     }
     img {
       width: 200px;
       height: 70px;
+      @media screen and (max-width: 500px) {
+        width: 261px;
+        height: 93px;
+       }
     }
   }
   &_wrap {

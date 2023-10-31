@@ -72,7 +72,7 @@
     @media screen and (max-width: 500px) {
         .additional-info-wrapper {
             display: flex;
-            justify-content: start;
+            justify-content: space-around;
         }
 
         .mobile_order_item .cart_main2 .woocommerce-cart-form__cart-item1 .product-remove1 {
@@ -81,8 +81,15 @@
         .shop_table{
             padding: 0;
         }
+        .shop_table li{
+            border-bottom: 1px solid #ccc;
+            padding-top: 10px;
+        }
         .sp_like{
             margin-bottom: 20px;
+        }
+        .additional-info{
+            display: none;
         }
     }
 </style>
