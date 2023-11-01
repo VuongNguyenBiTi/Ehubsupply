@@ -38,18 +38,15 @@ get_header('shop');
 						<?php echo  do_shortcode('[yith_wcan_filters slug="sidebar"]'); ?>
 					</div>
 					<div class="sidebar_mobile">
-		
-						<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-4"]') ?>
 
-						<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-3"]')?>
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-8 col-12">
 					<div class="product_main">
 						<div class="product_main_top">
-							
-							<div class="product_main_topl">
-							<div class="icon_layout">
+
+							<div class="product_main_topl" id="filter_shop_mobile">
+								<!-- <div class="icon_layout">
 								<p>Chế độ xem </p>
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" id="button1" class="icon_layout_active">
 									<mask id="mask0_39_1543" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -67,7 +64,22 @@ get_header('shop');
 										<path d="M3 11V3H11V11H3ZM3 21V13H11V21H3ZM13 11V3H21V11H13ZM13 21V13H21V21H13ZM5 9H9V5H5V9ZM15 9H19V5H15V9ZM15 19H19V15H15V19ZM5 19H9V15H5V19Z" fill="#1F2937" />
 									</g>
 								</svg>
+							</div> -->
+								<div class="filter_shop">
+									<i class="fal fa-filter"></i>
+									<p>Lọc sản phẩm</p>
+								</div>
+
 							</div>
+							<div id="overlay">
+								<!-- Nội dung overlay ở đây -->
+							</div>
+							<div class="filter_left" id="filter_left">
+								<p>Lọc theo danh mục</p>
+								<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-4"]') ?>
+								<p>Lọc theo giá</p>
+								<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-3"]') ?>
+
 
 							</div>
 							<div class="product_main_topr">
@@ -76,7 +88,7 @@ get_header('shop');
 						</div>
 
 					</div>
-					
+
 					<!-- <div class="row  "> -->
 
 					<!-- Lấy tất cả sản phẩm -->
@@ -167,10 +179,15 @@ get_header('shop');
 	}
 
 	@media screen and (max-width: 500px) {
+		.woocommerce a.add_to_wishlist.button.alt {
+			height: 25px;
+		}
+
 		.yith-wcan-filters .yith-wcan-filter .price-slider {
 			padding: 15px 30px;
 			margin-top: -20px;
 		}
+
 		.sidebar {
 			display: none;
 		}
@@ -191,12 +208,7 @@ get_header('shop');
 
 		}
 
-		.shop_product_right {
-			/* flex-direction: row;
-			gap: 10px;
-			padding: 0px 10px 10px 10px; */
-			display: none
-		}
+
 
 		.shop_product1 .shop_product_left img {
 			width: 100%;
@@ -220,13 +232,13 @@ get_header('shop');
 			text-overflow: ellipsis;
 		}
 
-		.product_sale p {
+		/* .product_sale p {
 			display: none;
-		}
+		} */
 
-		.product_sale span {
+		/* .product_sale span {
 			display: none;
-		}
+		} */
 
 		.btn_cart {
 			padding: 8px 12px;
@@ -242,7 +254,7 @@ get_header('shop');
 		}
 
 		.shop_product_center {
-			padding: 0px 10px 10px 10px;
+			padding: 0px 10px 0px 10px;
 		}
 
 		#nav {
@@ -253,13 +265,13 @@ get_header('shop');
 			gap: 10px;
 		}
 
-		.product_main_topl {
-			width: 50%;
-		}
+		/* .product_main_topl {
+			width: 0;
+		} */
 
-		.product_main_topr {
-			width: 50%;
-		}
+		/* .product_main_topr {
+			width: 100%;
+		} */
 
 		.shop_product .category_product .product_main_top .yith-wcan-filters {
 			width: 100%;
@@ -573,5 +585,22 @@ get_header('shop');
 </style> -->
 
 <script>
+	// menu left 
+	document.getElementById("filter_shop_mobile").addEventListener("click", function() {
+		var mobileMenu = document.getElementById("filter_shop_mobile");
+		var showmenu = document.getElementById("filter_left");
+		var overlay = document.getElementById("overlay");
+		showmenu.classList.add("show_filter_left");
+		overlay.style.display = "block";
+	});
 
+	document.getElementById("overlay").addEventListener("click", function() {
+		var mobileMenu = document.getElementById("filter_shop_mobile");
+		var overlay = document.getElementById("overlay");
+		var showmenu = document.getElementById("filter_left");
+
+		showmenu.classList.remove("show_filter_left");
+		overlay.style.display = "none";
+	});
+	// 
 </script>

@@ -30,7 +30,7 @@
       nav: false,
       dots: true,
       autoplay: true,
-      autoplayTimeout: 1000,
+      autoplayTimeout: 5000,
       autoplaySpeed: 2000,
       autoplayHoverPause: true,
       responsive: {

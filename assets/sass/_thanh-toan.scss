@@ -168,7 +168,7 @@
           }
         }
         button#place_order {
-          background-color: #c1272d !important;
+          background-color: $main-co !important;
         }
         span.woocommerce-input-wrapper {
           input.input-text {
@@ -185,10 +185,27 @@
     }
     div.fc-place-order {
       button.fc-place-order-button {
-        background-color: #c1272d !important;
+        background-color: $main-co !important;
       }
     }
   }
   div.woocommerce form .woocommerce-billing-only-fields__field-wrapper{
     margin-top: 0 !important;
+  }
+  
+  div.woocommerce form .woocommerce-billing-fields__field-wrapper:not(:last-child){
+    padding-bottom: 0px !important;
+
+  }
+  #billing_address_1-description{
+    display: none;
+  }
+  #shipping_address_1-description{
+    display: none;
+  }
+  #shipping_address_1_field{
+    margin-bottom: 20px;
+  }
+  #billing_address_1_field{
+    margin-bottom: 20px;
   }

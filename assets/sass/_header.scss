@@ -244,8 +244,8 @@
     background-color: $main-co;
     color: #fff;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -254,6 +254,13 @@
     transform: translateX(-50%);
     top: -15px;
     border: 6px solid #fff;
+    @media (max-width: 500px) {
+      width: 60px;
+      height: 60px;
+      }
+    span{
+      white-space: nowrap;
+    }
   }
   .bottom-menu a.sat:focus {
     border-color: $main-co;

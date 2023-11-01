@@ -1,7 +1,7 @@
 <div class="home_feedback">
     <div class="container">
         <div class="owl-carousel owl-theme" id="owl_feedback">
-            <div class="feedback_wrap">
+            <!-- <div class="feedback_wrap"> -->
                 <?php if (have_rows('home_feedback', 2)) : ?>
                     <?php while (have_rows('home_feedback', 2)) : the_row();
                         $image = get_sub_field('avt');
@@ -24,12 +24,13 @@
                                 <p><?php echo the_sub_field('name'); ?></p>
                             </div>
                         </div>
+
                     <?php endwhile; ?>
                 <?php endif; ?>
-            </div>
+            <!-- </div> -->
         </div>
         <div class="overlay_fb">
-            
-            </div>
+
+        </div>
     </div>
 </div>

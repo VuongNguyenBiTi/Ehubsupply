@@ -17,7 +17,7 @@
     <?php if ($getposts->have_posts()) : ?>
         <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
             <?php global $product; ?>
-            <div class="col-lg-12 col-md-12 col-6">
+            <div class="col-lg-4 col-md-6 col-6">
                 <div class="shop_product1">
                     <div class="shop_product_wrap">
                         <div class="shop_product_main">
@@ -196,7 +196,14 @@
                             ?>
                             <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]') ?>
                         </div>
+
+
+                       
                     </div>
+
+
+
+
                 </div>
             </div>
         <?php endwhile;
@@ -209,12 +216,37 @@
     <?php endif; ?>
 </div>
 
+<!-- test -->
+
+
+
+<?php
+global $wpdb;
+$user_id = get_current_user_id();
+
+// Truy vấn danh sách sản phẩm yêu thích của người dùng
+$wishlist_table = $wpdb->prefix . 'yith_wcwl';
+$query = $wpdb->prepare("SELECT product_id FROM $wishlist_table WHERE user_id = %d", $user_id);
+$favorite_products = $wpdb->get_col($query);
+
+if (!empty($favorite_products)) {
+    foreach ($favorite_products as $product_id) {
+        $product = wc_get_product($product_id);
+        if ($product) {
+            // Hiển thị tên sản phẩm và liên kết đến trang sản phẩm
+            echo '<a href="' . get_permalink($product_id) . '">' . $product->get_name() . '</a><br>';
+            // Hiển thị các thông tin sản phẩm khác nếu cần
+        }
+    }
+} else {
+    echo 'Không có sản phẩm nào trong danh sách yêu thích.';
+}
+?>
 
 
 
 
-
-
+<!-- end -->
 
 
 

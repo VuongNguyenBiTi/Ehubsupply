@@ -142,18 +142,88 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 					</div>
 					<div class="col-lg-6 col-md-6 col-12 col2" id="id_dangnhap">
+						<?php
+						$login_error = '';
+						if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+							// Check if username and password fields are empty
+							if (empty($_POST['username'])) {
+								$username_error = 'Vui lòng nhập tên người dùng hoặc địa chỉ email.';
+							}
+
+							if (empty($_POST['password'])) {
+								$password_error = 'Vui lòng nhập mật khẩu.';
+							}
+
+							// If both fields are not empty, perform login validation
+							if (empty($username_error) && empty($password_error)) {
+								$username = $_POST['username'];
+								$password = $_POST['password'];
+
+								// Define a simple login validation function
+								function your_login_validation_function($entered_username, $entered_password)
+								{
+									// Replace this with your actual login validation logic.
+									$valid_username = 'your_valid_username';
+									$valid_password = 'your_valid_password';
+
+									if ($entered_username === $valid_username && $entered_password === $valid_password) {
+										return true;
+									} else {
+										return false;
+									}
+								}
+
+								// Check if login credentials are valid
+								if (your_login_validation_function($username, $password)) {
+									// Valid login credentials, perform the desired action.
+									// You can also set a success message here if needed.
+								} else {
+									$login_error = 'Thông tin đăng nhập không hợp lệ.';
+								}
+							}
+						}
+
+						// Display the error message if login error exists
+						if (!empty($login_error)) {
+							$error_login_ms = '<div class="error-message">' . esc_html($login_error) . '</div>';
+						}
+						?>
+
 						<div class="dang_nhap_main">
 							<h2><?php esc_html_e('Login', 'woocommerce'); ?></h2>
 							<form class="woocommerce-form woocommerce-form-login login" method="post">
 								<?php do_action('woocommerce_login_form_start'); ?>
+
+								<div class="error-message">
+									<?php
+									if (!empty($login_error)) {
+										echo $login_error;
+									}
+									?>
+
+								</div>
 								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 									<label for="username"><?php esc_html_e('Username or email address', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
-									<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
-																																																																				?>
+									<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
+
+								<div class="error-message">
+									<?php
+									if (!empty($username_error)) {
+										echo $username_error;
+									}
+									?>
+								</div>
 								</p>
-								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 									<label for="password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
 									<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
+								<div class="error-message">
+									<?php
+									if (!empty($password_error)) {
+										echo $password_error;
+									}
+									?>
+								</div>
 								</p>
 								<?php do_action('woocommerce_login_form'); ?>
 								<p class="form-row">
@@ -163,6 +233,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 									<?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
 									<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
 								</p>
+
 								<div class="dangnhap_bt">
 									<p class="woocommerce-LostPassword lost_password">
 										<a href="<?php echo esc_url(wp_lostpassword_url()); ?>"><?php esc_html_e('Lost your password?', 'woocommerce'); ?></a>
@@ -260,14 +331,15 @@ do_action('woocommerce_before_customer_login_form'); ?>
 								$('#repassword').after('<span class="error">' + response.repassword_error + '</span>');
 							}
 						}
-					},error: function (error){
+					},
+					error: function(error) {
 						window.location.href = '<?php echo get_home_url(); ?>';
 					}
 				});
 			});
 		});
 
-		
+
 
 
 
@@ -309,6 +381,19 @@ do_action('woocommerce_before_customer_login_form'); ?>
 	});
 </script>
 <style>
+	.error-message {
+		color: red;
+		text-align: center;
+	}
+
+	.username {
+		margin-bottom: 10px !important;
+	}
+
+	.password {
+		margin-bottom: 10px !important;
+	}
+
 	.error {
 		color: red;
 	}

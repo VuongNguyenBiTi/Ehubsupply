@@ -208,7 +208,7 @@
                             <i class="far fa-store"></i>
                             <span>Cửa Hàng</span>
                         </a>
-                        <a href="<?php echo get_home_url(); ?>/cam-nang/">
+                        <a href="<?php echo get_home_url(); ?>/cam-nang/" class="mb_left">
                             <i class="fal fa-book"></i>
                             <span> Cẩm Nang</span>
                         </a>
@@ -216,10 +216,10 @@
                         <span class="bosluk"></span>
                         <a href="<?php echo get_home_url(); ?>" class="sat">
                             <i class="fas fa-home"></i>
-                            <span>Home</span>
+                            <span>Trang chủ</span>
                         </a>
 
-                        <a href="<?php echo get_home_url(); ?>/lien-he/">
+                        <a href="<?php echo get_home_url(); ?>/lien-he/" class="mb_right">
                             <i class="fal fa-phone-volume"></i>
                             <span>Liên Hệ</span>
                         </a>
