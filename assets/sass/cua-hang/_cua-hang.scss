@@ -220,7 +220,7 @@
       font-weight: 400;
       line-height: 18px;
       text-decoration-line: line-through;
-      @media (max-width: 500px) {
+      @media (max-width: 767px) {
         font-size: 14px;
       
         }
@@ -233,7 +233,7 @@
       font-weight: 400;
       line-height: 18px;
       margin-left: 10px;
-      @media (max-width: 500px) {
+      @media (max-width: 767px) {
         font-size: 14px;
         }
     }

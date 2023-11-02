@@ -317,6 +317,9 @@ main {
     @media screen and (max-width: 1000px) {
       .home_service_item {
         margin-bottom: 30px; } }
+    @media screen and (max-width: 500px) {
+      .home_service_item {
+        margin-bottom: 10px; } }
     .home_service_item .service_top {
       margin-bottom: 8px; }
     .home_service_item .service_bottom h4 {
@@ -2260,7 +2263,7 @@ main {
       font-weight: 400;
       line-height: 18px;
       text-decoration-line: line-through; }
-      @media (max-width: 500px) {
+      @media (max-width: 767px) {
         .shop_product_center .product_sale p {
           font-size: 14px; } }
     .shop_product_center .product_sale span {
@@ -2270,7 +2273,7 @@ main {
       font-weight: 400;
       line-height: 18px;
       margin-left: 10px; }
-      @media (max-width: 500px) {
+      @media (max-width: 767px) {
         .shop_product_center .product_sale span {
           font-size: 14px; } }
   .shop_product_center .product_price p {
@@ -3400,6 +3403,104 @@ button.button:hover {
 .nav-tabs .nav-item {
   padding-left: 10%; }
 
+.top-down {
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+  z-index: 999; }
+  .top-down .heart {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    /* background: linear-gradient(to bottom, #3193F6, #c74449); */
+    /* background-color: #f9d1b7; */
+    /* background-color: linear-gradient(315deg, #f9d1b7 0%, #f894a4 74%); */
+    margin-bottom: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.2); }
+    .top-down .heart i {
+      text-decoration: none;
+      list-style: none; }
+    .top-down .heart span a {
+      color: #fff;
+      text-decoration: none; }
+      .top-down .heart span a:hover {
+        color: #fff;
+        text-decoration: none; }
+    .top-down .heart::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #c1272d;
+      opacity: 0.4;
+      border-radius: inherit;
+      z-index: -2;
+      transition: all 0.2s linear;
+      animation: beat-before 1.5s ease 100ms infinite; }
+    .top-down .heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #F92296;
+      opacity: 0.4;
+      border-radius: inherit;
+      z-index: -1;
+      transition: all 0.2s linear;
+      animation: beat-after 1.5s ease 200ms infinite; }
+  .top-down #bottom_to_top {
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #F92296;
+    color: #F92296;
+    transition: all 0.5s linear; }
+    @media (max-width: 576px) {
+      .top-down #bottom_to_top {
+        right: 15px !important;
+        width: 35px !important;
+        height: 35px !important; } }
+    .top-down #bottom_to_top:hover {
+      background: #F92296;
+      border: 2px solid #F92296;
+      color: white;
+      cursor: pointer; }
+  @media screen and (max-width: 990px) {
+    .top-down {
+      bottom: 130px;
+      right: 25px; } }
+  @media screen and (max-width: 420px) {
+    .top-down {
+      bottom: 90px;
+      right: 20px; } }
+
+@keyframes beat {
+  0% {
+    transform: scale(0.8); }
+  25% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.1); } }
+@keyframes beat-before {
+  0% {
+    transform: scale(1); }
+  60% {
+    transform: scale(1.1); } }
+@keyframes beat-after {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.4); } }
 .footer {
   background: url(https://i.imgur.com/BmwAOjg.jpg);
   background-repeat: no-repeat;

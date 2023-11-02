@@ -72,13 +72,13 @@ get_header('shop');
 
 							</div>
 							<div id="overlay">
-								<!-- Nội dung overlay ở đây -->
+					
 							</div>
 							<div class="filter_left" id="filter_left">
 								<p>Lọc theo danh mục</p>
-								<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-4"]') ?>
-								<p>Lọc theo giá</p>
 								<?php echo do_shortcode('[yith_wcan_filters slug="draft-preset-3"]') ?>
+								<p>Lọc theo giá</p>
+								<?php echo do_shortcode('[yith_wcan_filters slug="loc-theo-gia-mobile"]') ?>
 
 
 							</div>
@@ -139,6 +139,8 @@ get_header('shop');
 
 
 <?php get_footer('shop'); ?>
+<?php get_template_part('templates/block/component', 'home-to-top'); ?>
+
 <style>
 	.product_main {
 		/* margin-bottom: 30px; */

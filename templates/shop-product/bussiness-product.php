@@ -216,40 +216,6 @@
     <?php endif; ?>
 </div>
 
-<!-- test -->
-
-
-
-<?php
-global $wpdb;
-$user_id = get_current_user_id();
-
-// Truy vấn danh sách sản phẩm yêu thích của người dùng
-$wishlist_table = $wpdb->prefix . 'yith_wcwl';
-$query = $wpdb->prepare("SELECT product_id FROM $wishlist_table WHERE user_id = %d", $user_id);
-$favorite_products = $wpdb->get_col($query);
-
-if (!empty($favorite_products)) {
-    foreach ($favorite_products as $product_id) {
-        $product = wc_get_product($product_id);
-        if ($product) {
-            // Hiển thị tên sản phẩm và liên kết đến trang sản phẩm
-            echo '<a href="' . get_permalink($product_id) . '">' . $product->get_name() . '</a><br>';
-            // Hiển thị các thông tin sản phẩm khác nếu cần
-        }
-    }
-} else {
-    echo 'Không có sản phẩm nào trong danh sách yêu thích.';
-}
-?>
-
-
-
-
-<!-- end -->
-
-
-
 
 <!-- <script>
     // Lấy các nút và phần tử cần thay đổi
