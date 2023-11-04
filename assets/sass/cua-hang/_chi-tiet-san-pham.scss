@@ -208,8 +208,8 @@
 .chi_tiet_sp {
   .cart {
     .btn-addcart {
-      flex-direction: column;
-      width: 50%;
+      flex-direction: row;
+      width: 60%;
       gap: 20px;
       .btn_mua_ngay {
         background-color: #fff !important;
@@ -251,5 +251,39 @@
         }
       }
     }
+  }
+}
+
+.chi_tiet_sp{
+  .cart{
+    display: flex;
+    @media (max-width: 1000px) {
+      display: block;
+    }
+    .single_add_to_cart_button button{
+      width: 100%;
+    }
+    .btn-addcart{
+      @media (max-width: 1000px) {
+        display: block !important;  
+        width: 100%;
+      }
+      .btn_mua_ngay{
+        @media (max-width: 1000px) {
+          margin-top: 20px !important;
+        }
+        @media (max-width: 770px) {
+          margin-top: 0px !important;
+          margin-left: 20px;
+        }
+        @media (max-width: 767px) {
+          margin-top: 20px !important;
+          margin-left: 0px;
+
+        }
+      }
+      
+    }
+    
   }
 }

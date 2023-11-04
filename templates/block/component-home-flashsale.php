@@ -43,7 +43,7 @@
                 </div>
                 <div class="flashsale_right">
                     <i class="far fa-chevron-double-right"></i>
-                    <a href="<?php echo get_home_url(); ?>/cua-hang"> Xem tất cả</a>
+                    <a href="<?php echo get_home_url(); ?>/cua-hang/"> Xem tất cả</a>
                 </div>
             </div>
             <div class="home_flashsale_bottom">
@@ -80,7 +80,7 @@
                         $wp_query->in_the_loop = true; ?>
                         <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
                             <?php global $product; ?>
-                            <div class="col-6 col-md-6 col-lg-3 mb-0 mb-lg-1">
+                            <div class="col-6 col-md-6 col-lg-3 mb-0 mb-lg-1 ">
                                 <div class="product_item">
                                     <div class="product_top">
                                         <a href="<?php the_permalink() ?>">

@@ -16,8 +16,8 @@
         text-decoration: none;
         background-color: #ffffff;
         padding: 10px 34px;
-        color: #c1272d;
-        border: 1px solid #c1272d;
+        color: $main-co;
+        border: 1px solid $main-co;
         border-radius: 60px;
         font-size: 16px;
         box-shadow: 0 1vw 2vw 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -63,7 +63,7 @@
       }
       .button:hover {
         transform: scale(2);
-        background-color: #c1272d; /*On Hover Background Colour*/
+        background-color: $main-co; /*On Hover Background Colour*/
         color: white;
       }
     }

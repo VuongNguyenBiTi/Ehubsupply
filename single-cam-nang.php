@@ -39,11 +39,11 @@
     ?>
     <div class="contact_breadcrumbs">
         <div class="container"> 
-            <h2> <a href="<?php echo get_home_url(); ?>">
+            <p> <a href="<?php echo get_home_url(); ?>">
                     <span>Trang chủ / </span><a href="<?php echo get_home_url(); ?>/cam-nang/">
                 <span>Cẩm nang /</span>
             </a>
-                </a> <span><?php echo $post_title = get_the_title($post->ID); ?></span></h2>
+                </a> <span><?php echo $post_title = get_the_title($post->ID); ?></span></p>
         </div>
     </div>
     <div class="single_cam_nang">
@@ -167,7 +167,7 @@
                     $post_name = get_post_field('post_name', $post->ID);
                     $post_content = get_post_field('post_content', $post->ID);
                 ?>
-                    <div class="col-lg-3 col-md-6 col-12">
+                    <div class="col-lg-3 col-md-6 col-6">
                         <a href="<?php echo get_home_url(); ?>/<?php echo $post_name; ?>">
                             <div class="related_item">
                                 <div class="related_img">

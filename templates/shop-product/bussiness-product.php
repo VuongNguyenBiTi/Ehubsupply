@@ -17,7 +17,7 @@
     <?php if ($getposts->have_posts()) : ?>
         <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
             <?php global $product; ?>
-            <div class="col-lg-4 col-md-6 col-6">
+            <div class="col-lg-4 col-md-6 col-6 ml-2 ">
                 <div class="shop_product1">
                     <div class="shop_product_wrap">
                         <div class="shop_product_main">

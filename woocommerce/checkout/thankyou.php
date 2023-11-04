@@ -142,8 +142,8 @@ defined('ABSPATH') || exit;
 		text-decoration: none;
 		background-color: #fff;
 		padding: 10px 34px;
-		color: #c1272d;
-		border: 1px solid #c1272d;
+		color: #F92296;
+		border: 1px solid #F92296;
 		border-radius: 60px;
 		font-size: 16px;
 		box-shadow: 0 1vw 2vw 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
@@ -174,21 +174,39 @@ defined('ABSPATH') || exit;
 		display: flex;
 		justify-content: center;
 	}
-	.detail_wrap{
-		box-shadow: none ;
+
+	.detail_wrap {
+		box-shadow: none;
 	}
+
 	@media (max-width: 500px) {
-		.woocommerce ul.order_details{
+		.woocommerce ul.order_details {
 			flex-direction: column;
 			border-right: none;
 			margin: 10px;
 		}
-		.woocommerce ul.order_details li{
+
+		.woocommerce ul.order_details li {
 			border-right: none;
 		}
+
 		.detail_wrap {
 			padding: 0px;
 		}
 	}
 
+	.woocommerce ul.order_details {
+		display: flex;
+		justify-content: start;
+		/* margin: 0; */
+		padding: 0;
+	}
+
+	.wc-bacs-bank-details-heading {
+		color: #000;
+	}
+
+	.wc-bacs-bank-details-account-name {
+		color: #000;
+	}
 </style>

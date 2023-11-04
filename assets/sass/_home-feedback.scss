@@ -38,6 +38,9 @@
       img {
         border-radius: 50%;
         border: 2px solid var(--gray-gray-11-main, #fff);
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
       }
     }
     &_desc {

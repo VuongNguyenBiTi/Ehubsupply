@@ -23,7 +23,7 @@ if ($current_term->has_archive) {
     ]);
 
     ?>
-    <a href="<?php echo get_home_url(); ?>/cam-nang">
+    <a href="<?php echo get_home_url(); ?>/cam-nang/">
         <button id="btn-category" class="btn <?php echo ($current_term_slug == 'all') ? "active" : ""; ?>"> <i class="fas fa-caret-right"></i>Tất cả</button>
     </a>
     <?php

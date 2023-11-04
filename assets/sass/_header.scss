@@ -105,8 +105,9 @@
       padding: 10px 5px;
       align-items: center;
     }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
       padding: 0px 5px;
+      height: 70px;
     }
     .logo_menu {
       i {
@@ -199,9 +200,11 @@
     justify-content: space-between;
     padding-top: 5px;
     padding-bottom: 5px;
-    @media screen and (max-width: 500px) {
+    z-index: 99999;
+    @media screen and (max-width: 600px) {
       padding-top: 10px;
       padding-bottom: 10px;
+      height: 65px;
     }
     .account_mobile_1 {
       @media screen and (max-width: 800px) {
@@ -232,6 +235,12 @@
     }
     span {
       @media screen and (max-width: 500px) {
+        display: block;
+        font-size: 8px;
+      }
+    }
+    .home_mb{
+      @media screen and (max-width: 500px) {
         display: none;
       }
     }
@@ -239,6 +248,11 @@
   .bottom-menu a i {
     font-size: 18px;
     margin-bottom: 5px;
+    @media screen and (max-width: 600px) {
+      font-size: 20px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
   }
   .bottom-menu a.sat {
     background-color: $main-co;

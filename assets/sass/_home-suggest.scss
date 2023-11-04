@@ -14,7 +14,7 @@
     align-items: center;
     gap: 8px;
     border-radius: 6px;
-    background: var(--Primary_Color, #ca2a2a);
+    background: $main-co;
     p {
       color: var(--gray-gray-11-main, #fff);
       text-align: center;

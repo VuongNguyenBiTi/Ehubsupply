@@ -45,12 +45,12 @@ do_action('woocommerce_before_account_orders', $has_orders); ?>
 			</div>
 			<div class="col-3">
 				<a class="nav-link custom-tab-link" id="completed-tab" data-toggle="tab" href="#tab3" onclick="filterOrders('completed')">
-					<i class="fa fa-truck custom-tab-icon"></i> Đã giao đến tay khách hàng
+					<i class="fa fa-truck custom-tab-icon"></i> Đã giao hàng
 				</a>
 			</div>
 			<div class="col-3">
 				<a class="nav-link custom-tab-link" id="cancelled-tab" data-toggle="tab" href="#tab4" onclick="filterOrders('cancelled')">
-					<i class="fa fa-check-circle custom-tab-icon"></i> Đơn hàng đã huỷ
+					<i class="fa fa-check-circle custom-tab-icon"></i> Đã huỷ
 				</a>
 			</div>
 		</div>

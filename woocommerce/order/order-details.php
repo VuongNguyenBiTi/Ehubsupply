@@ -80,7 +80,7 @@ if ($order) {
 				<a class="nav-link  <?php if ($status_number >= 3) {
 										echo "active";
 									} ?> custom-tab-link" id="3-tab" data-toggle="tab">
-					<i class="fa fa-truck custom-tab-icon"></i> Đã giao tới khách
+					<i class="fa fa-truck custom-tab-icon"></i> Đã giao hàng
 				</a>
 			</li>
 			<li class="nav-item">

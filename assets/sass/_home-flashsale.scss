@@ -101,6 +101,14 @@
   }
   &_bottom {
     .product {
+      &_list{
+        .col-6{
+          @media screen and (max-width: 650px) {
+            padding-left: 6px;
+            padding-right: 6px;
+          }
+        }
+      }
       &_item {
         margin-top: 10px;
         margin-bottom: 10px;

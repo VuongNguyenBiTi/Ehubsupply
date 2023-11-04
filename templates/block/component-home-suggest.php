@@ -7,7 +7,7 @@
                 </div>
                 <div class="flashsale_right">
                     <i class="far fa-chevron-double-right"></i>
-                    <a href="<?php echo get_home_url(); ?>/cua-hang"> Xem tất cả</a>
+                    <a href="<?php echo get_home_url(); ?>/cua-hang/"> Xem tất cả</a>
                 </div>
             </div>
             <div class="home_flashsale_bottom">

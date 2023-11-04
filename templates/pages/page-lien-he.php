@@ -3,14 +3,14 @@
     <div class="contact_breadcrumbs">
         <div class="container">
    
-            <h2>
+            <p>
                 <a href="<?php echo get_home_url(); ?>">
                     <span>Trang chủ / </span>
                 </a>
                 <a href="<?php echo get_home_url(); ?>/lien-he/">
                     <span>Liên hệ</span>
                 </a>
-            </h2>
+            </p>
         </div>
     </div>
     <div class="contact_logo">

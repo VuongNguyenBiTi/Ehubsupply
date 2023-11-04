@@ -44,7 +44,8 @@
       border-radius: inherit;
       z-index: -2;
       transition: all 0.2s linear ;
-      animation: beat-before 1.5s ease 100ms infinite;
+      animation: beat-before 1.5s ease  0.1s infinite alternate;
+      
     }
     &::after {
       content: "";
@@ -58,7 +59,7 @@
       border-radius: inherit;
       z-index: -1;
       transition: all 0.2s linear ;
-      animation: beat-after 1.5s ease 200ms infinite;
+      animation: beat-after 1.5s ease 0.1s infinite alternate;
     }
   }
 

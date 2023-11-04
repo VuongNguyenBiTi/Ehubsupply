@@ -100,7 +100,7 @@ if ( $max_value && $min_value === $max_value ) {
 
 	.quantity input.qty_button {
 		width: 35px;
-		height: 35px;
+		height: 38px;
 		background: #f4f2f5;
 		content: "";
 		font-size: 30px;

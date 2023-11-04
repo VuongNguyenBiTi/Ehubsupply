@@ -53,7 +53,7 @@ global $post;
                                     </g>
                                 </svg>
                                 <h3>
-                                    Tin Mới
+                                    Cẩm nang
                                 </h3>
                             </div>
                         </div>
@@ -140,12 +140,15 @@ global $post;
                                         </div>
                                     <?php endwhile;
                                     wp_reset_postdata(); ?>
+                                    <?php get_template_part('templates/block/component', 'pagination'); ?>
+                                <?php else : ?>
+                                    <!-- Code to display when there are no posts to show -->
+
                                 <?php endif; ?>
                             <?php } //if (function_exists('prw_wp_corenavi')) prw_wp_corenavi($getposts, $paged); 
                             ?>
                             </div>
                     </ul>
-                    <?php get_template_part('templates/block/component', 'pagination'); ?>
 
                 </div>
             </div>
