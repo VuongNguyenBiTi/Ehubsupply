@@ -62,7 +62,7 @@
                                 </svg>
                             </div>
                             <p>Địa chỉ : </p>
-                            <p><a href="https://maps.app.goo.gl/g8eyYfyPjAWjpBDY9" target="_blank"><?php
+                            <p><a href="https://maps.app.goo.gl/g8eyYfyPjAWjpBDY9/" target="_blank"><?php
 
                                                                                                     if (isset($address)) {
                                                                                                         echo $address;

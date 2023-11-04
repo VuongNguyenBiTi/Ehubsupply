@@ -202,7 +202,7 @@
                         </a>
 
                         <span class="bosluk"></span>
-                        <a href="<?php echo get_home_url(); ?>" class="sat">
+                        <a href="<?php echo get_home_url(); ?>/" class="sat">
                             <i class="fas fa-home"></i>
                             <span class="home_mb">Trang chủ</span>
                         </a>

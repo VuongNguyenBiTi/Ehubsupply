@@ -2661,6 +2661,10 @@ div.woocommerce form .woocommerce-billing-fields__field-wrapper:not(:last-child)
     color: #fff;
     border-radius: 6px;
     border: 1px solid var(--pink-pink-4-main, #f92296); }
+  @media (max-width: 767px) {
+    .woocommerce div.product .btn_mua_ngay {
+      width: 317px;
+      max-width: 100%; } }
   .woocommerce div.product .woocommerce-tabs ul.tabs li {
     background-color: #fff;
     border: none; }

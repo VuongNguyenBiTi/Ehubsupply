@@ -84,8 +84,14 @@
       color: #fff;
       border-radius: 6px;
       border: 1px solid var(--pink-pink-4-main, #f92296);
+   
     }
-
+    .btn_mua_ngay {
+   @media (max-width: 767px) {
+        width: 317px;
+        max-width: 100%;
+      }
+    }
     .woocommerce-tabs ul.tabs li {
       background-color: #fff;
       border: none;
